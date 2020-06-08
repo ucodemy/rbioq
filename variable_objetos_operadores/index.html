@@ -1,0 +1,944 @@
+
+
+
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="Ismael y Manuel Jesús">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar al portapapeles">
+      
+        <meta name="lang:clipboard.copied" content="Copiado al portapapeles">
+      
+        <meta name="lang:search.language" content="es">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No se encontraron documentos">
+      
+        <meta name="lang:search.result.one" content="1 documento encontrado">
+      
+        <meta name="lang:search.result.other" content="# documentos encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Variables, objetos atómicos y operadores - Tutorial R para Bioquímica</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#variables" tabindex="0" class="md-skip">
+        Saltar a contenido
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Tutorial R para Bioquímica" aria-label="Tutorial R para Bioquímica" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Tutorial R para Bioquímica
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Variables, objetos atómicos y operadores
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Teclee para comenzar búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/mjmarin/r_biotutorial_uco.git/" title="Ir al repositorio" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Tutorial R para Bioquímica" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Tutorial R para Bioquímica
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/mjmarin/r_biotutorial_uco.git/" title="Ir al repositorio" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Inicio" class="md-nav__link">
+      Inicio
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../conceptos_basicos/" title="Conceptos básicos" class="md-nav__link">
+      Conceptos básicos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../RStudio/" title="RStudio" class="md-nav__link">
+      RStudio
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Variables, objetos atómicos y operadores
+      </label>
+    
+    <a href="./" title="Variables, objetos atómicos y operadores" class="md-nav__link md-nav__link--active">
+      Variables, objetos atómicos y operadores
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Tabla de contenidos</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objetos-atomicos" class="md-nav__link">
+    Objetos atómicos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operadores" class="md-nav__link">
+    Operadores
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logicos" class="md-nav__link">
+    Lógicos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aritmeticos" class="md-nav__link">
+    Aritméticos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacionales" class="md-nav__link">
+    Relacionales
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jerarquia-de-operadores" class="md-nav__link">
+    Jerarquía de operadores
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-complementarios" class="md-nav__link">
+    Ejercicios complementarios
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../estructuras_datos/" title="Estructuras de datos" class="md-nav__link">
+      Estructuras de datos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../estructuras_control/" title="Estructuras de control" class="md-nav__link">
+      Estructuras de control
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../funciones/" title="Funciones" class="md-nav__link">
+      Funciones
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../import_export/" title="Importación y exportación de datos" class="md-nav__link">
+      Importación y exportación de datos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../cadenas/" title="Cadenas de caracteres" class="md-nav__link">
+      Cadenas de caracteres
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../graficacion/" title="Graficación" class="md-nav__link">
+      Graficación
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../data_frames/" title="Manipulación de data frames" class="md-nav__link">
+      Manipulación de data frames
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../acercade/" title="Acerca de" class="md-nav__link">
+      Acerca de
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Tabla de contenidos</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objetos-atomicos" class="md-nav__link">
+    Objetos atómicos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operadores" class="md-nav__link">
+    Operadores
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logicos" class="md-nav__link">
+    Lógicos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aritmeticos" class="md-nav__link">
+    Aritméticos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacionales" class="md-nav__link">
+    Relacionales
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jerarquia-de-operadores" class="md-nav__link">
+    Jerarquía de operadores
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-complementarios" class="md-nav__link">
+    Ejercicios complementarios
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/mjmarin/r_biotutorial_uco.git/edit/master/docs/variable_objetos_operadores.md" title="Editar esta página" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Variables, objetos atómicos y operadores</h1>
+                
+                <h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h3>
+<p>En programación, se alude a la <strong>variable</strong> como el nombre simbólico o identificador que se asocia a un dato que se almacena en la memoria principal del ordenador. A diferencia de una constante, cuyo valor no puede cambiar, el dato que almacena la variable puede, como el término indica, variar durante la ejecución del programa. El nombre puede incluir letras, números, puntos y guiones bajos, aunque debe empezar siempre con una letra o un punto. En este último caso, tras el punto no se permite seguir con un número. No puede contener ñ, tildes o símbolos que no sean del alfabeto.</p>
+<p>Hay que tener en cuenta que el nombre no debe de ser ambiguo, sino lo más claro y descriptivo posible, de forma que no conduzca a confusión y sea más fácil de comprender tanto por nosotros mismos como por otras personas.</p>
+<div class="admonition tip">
+<p class="admonition-title">Generar una variable</p>
+<p>El procedimiento general para crear una variable sería el siguiente: escribes el nombre de tu variable, incluyes el operador de asignación <code>&lt;-</code>, y continúas con el dato que quieras incluir, el cual determina el tipo de operaciones a las que puede someterse la variable. De este modo, quedaría tal que así:
+<code>nombre_variable &lt;- dato</code>
+.</p>
+<p>Si bien es cierto que sería posible asignar variables de otras formas como las siguientes:
+<code>dato -&gt; nombre_variable</code>
+,
+<code>assign("nombres_variable", dato)</code>
+,
+<code>nombre_varieble = dato</code>
+.</p>
+</div>
+<h3 id="objetos-atomicos">Objetos atómicos<a class="headerlink" href="#objetos-atomicos" title="Permanent link">&para;</a></h3>
+<p>Todo lo que conforma R se considera un objeto. Partiendo de los más simples, los mínimos elementos de las variables se conocen como atómicos y pueden componer estructuras de datos (vectores, factores, matrices y listas), que serían objetos recursivos y también pueden componer una variable. A continuación, se muestran los distintos tipos de objetos atómicos en los que se basa R, los cuales pueden comprobarse aplicando las funciones <code>mode()</code>, <code>class(nombre_variable)</code> o <code>is.</code>.</p>
+<ul>
+<li><strong>Lógico:</strong> también conocido como booleano, representa valores de lógica binaria, es decir, valores 0 y 1 como falso y verdadero, respectivamente, que se pueden indicar como <code>FALSE</code>, <code>F</code>, <code>TRUE</code> o <code>T</code>.   </li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>logico &lt;- TRUE     
+booleano &lt;- F
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<ul>
+<li><strong>Numérico:</strong> representa valores numerales tanto enteros como reales. Existe otros tipos de datos como el denominado <code>integer</code>, el cual es más estricto ya que se refiere únicamente a los valores enteros, y el tipo de dato <code>complex</code>, que se relaciona con los números complejos cuya forma es <em>b+2i</em> . Generalmente se emplean datos <code>numeric</code> y pueden proceder de operaciones.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>num_entero = 5-15
+assign(&quot;num_real&quot;, 5.43)
+num_integer &lt;- 2L
+num_complejo &lt;- 4+3i
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<ul>
+<li><strong>Carácter:</strong> dígito individual que puede ser representado por un símbolo del lenguaje natural, lo que incluye letras, números, espacios en blanco o signos, y que tienen que indicarse entre comillas. Estos pueden presentarse como una secuencia ordenada de forma que compongan una <em>cadena de caracteres</em>. Para crear una cadena se utilizan comillas simples o dobles sin diferencias en su comportamiento. Si bien, las comillas dobles es la opción más extendida aunque, si la cadena contiene comillas como elementos, se emplean las comillas simples.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>caracter &lt;- &#39;¡&#39;
+cadena &lt;- &quot;1. #ADN1#ATGCGACCAGTT&quot;
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<ul>
+<li><strong>Nulo:</strong> se da con valores indefinidos que suelen importarse o proceden de una operación. También podría entenderse como una variable vacía. Se definen con la palabra reservada <code>NULL</code>.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>nulo &lt;- NULL
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">¿Qué valor contienen los siguientes ejemplos de variable?<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>variable1 &lt;- 1/0
+variable2 &lt;- 0/0
+variable3 &lt;- NA 
+variable4 &lt;- as.integer(variable1)  
+variable5 &lt;- &quot;3 + 2&quot;
+variable6 &lt;- 3 + 2
+variable7 &lt;- T
+</code></pre></div>
+</td></tr></table>
+
+</p>
+<details class="answer"><summary>Respuesta</summary><ul>
+<li>
+<p>La variable <em>variable1</em> contiene un valor infinito, el cual se muestra como <code>Inf</code>. Este valor es resultado de cálculos donde se divide entre cero o se obtiene un número muy grande. </p>
+</li>
+<li>
+<p><em>variable2</em> no representa un valor numérico, lo que se indica como <code>NaN</code> (<em>Not a Number</em>). Esto resulta de operaciones con indeterminaciones. Tanto <code>Inf</code> como <code>NaN</code> son variables de tipo numérico.</p>
+</li>
+<li>
+<p>En el caso de <em>variable3</em>, la variable contiene un valor no disponible, mostrado como <code>NA</code>. Este tipo de objeto se considera como lógico por defecto, a menos que se coercionen a otro tipo mediante funciones como la que se emplea en la <em>variable4</em> o semejantes, como <code>as.character()</code> o <code>as.numeric()</code>.</p>
+</li>
+<li>
+<p>Las variables <em>variable5</em>, <em>variable6</em> y <em>variable7</em> contienen elementos de tipo carácter, numérico y lógico, respectivamente. </p>
+</li>
+</ul>
+</details>
+</div>
+<h3 id="operadores">Operadores<a class="headerlink" href="#operadores" title="Permanent link">&para;</a></h3>
+<h4 id="logicos">Lógicos<a class="headerlink" href="#logicos" title="Permanent link">&para;</a></h4>
+<p>Los operadores lógicos <code>|</code>y <code>&amp;</code> describen relaciones lógicas que se pueden entender como "uno u otro es <code>TRUE</code>" y "ambos son <code>TRUE</code>", respectivamente. Por tanto, la relación <code>|</code> devuelve <code>TRUE</code> si alguno de los datos es <code>TRUE</code>, y la relación <code>&amp;</code> solo da la salida <code>TRUE</code> si ambos datos son <code>TRUE</code>. </p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>relacion1 &lt;- F | F
+relacion2 &lt;- T &amp; F
+relacion3 &lt;- !5 | 1
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<h4 id="aritmeticos">Aritméticos<a class="headerlink" href="#aritmeticos" title="Permanent link">&para;</a></h4>
+<p>Los operadores aritméticos, como su nombre indica, se emplean para operaciones aritméticas, es decir, cálculos matemáticos, por lo que son permitidos para datos de tipo entero, numérico y complejo. </p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Comparación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>Suma</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Resta</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Multiplicación</td>
+</tr>
+<tr>
+<td>/</td>
+<td>División</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Potencia</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>División entera</td>
+</tr>
+</tbody>
+</table>
+<p>R funciona como una calculadora, donde se emplean los operadores aritméticos mencionados y una gran cantidad de funciones matemáticas como la raíz cuadrada, <code>sqrt()</code>, el logaritmo, <code>log()</code>, el exponente, <code>exp()</code> o el seno, <code>sin()</code>, entre otras. </p>
+<h4 id="relacionales">Relacionales<a class="headerlink" href="#relacionales" title="Permanent link">&para;</a></h4>
+<p>Los operadores relacionales realizan comparaciones y siempre devuelven como resultado <code>TRUE</code> o <code>FALSE</code>. A diferencia de los operadores aritméticos, se puede emplear en cadenas de caracteres, pero toma en cuenta el primer carácter de cada dato y compara por orden alfabético.</p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Comparación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;</td>
+<td>Menor que</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>Menor o igual que</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>Mayor que</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>Mayor o igual que</td>
+</tr>
+<tr>
+<td>==</td>
+<td>Exactamente igual que</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>No es igual que</td>
+</tr>
+</tbody>
+</table>
+<h4 id="jerarquia-de-operadores">Jerarquía de operadores<a class="headerlink" href="#jerarquia-de-operadores" title="Permanent link">&para;</a></h4>
+<p>Tanto los operadores aritméticos como los relacionales y los lógicos están jerarquizados, de modo que se efectúen preferentemente ciertas operaciones, dejando en último lugar el operador de asignación de varible.</p>
+<table>
+<thead>
+<tr>
+<th>Orden</th>
+<th>Operador</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>^</td>
+</tr>
+<tr>
+<td>2</td>
+<td>* /</td>
+</tr>
+<tr>
+<td>3</td>
+<td>+ -</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Relacionales</td>
+</tr>
+<tr>
+<td>5</td>
+<td>&amp;</td>
+</tr>
+<tr>
+<td>6</td>
+<td>|</td>
+</tr>
+<tr>
+<td>7</td>
+<td>&lt;-</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>relacion4 &lt;- num_entero != num_complejo
+relacion5 &lt;- cadena &gt; caracter
+relacion6 &lt;- num_entero * -2 &lt;= num_real &amp; cadena == caracter
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<h2 id="ejercicios-complementarios">Ejercicios complementarios<a class="headerlink" href="#ejercicios-complementarios" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Cree un script llamado Kelvin_a_Celsius.R que transforme grados Kelvin en grados Celsius (centígrados).</p>
+<details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Indique grados Kelvin:&quot;)
+kelvin &lt;- scan(n=1)
+celsius &lt;- kelvin - 273.15
+cat(kelvin, &quot;K son&quot;, celsius, &quot;ºC.\n&quot; )    **MJ: NO OLVIDES USAR EL \n CON CAT**
+</code></pre></div>
+</td></tr></table>
+
+</details>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Cree un script llamado pesetas_a_euros.R que calcule la equivalencia de pesetas en euros.</p>
+<details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Indique cantidad pesetas:&quot;)
+pesetas &lt;- scan(n=1)
+euros &lt;- pesetas * 0.006
+cat(pesetas, &quot;pesetas son&quot;, euros, &quot;euros.\n&quot;)
+</code></pre></div>
+</td></tr></table>
+
+</details>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Cree un script llamado segundos.R que desglose una cantidad de segundos en días, horas y minutos equivalentes.</p>
+<details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Indique segundos:&quot;)
+segundos &lt;- scan(n=1)
+minutos &lt;- segundos/60
+horas &lt;- minutos/60
+dias &lt;- horas/24
+cat(segundos, &quot;segundos son&quot;, minutos, &quot;minutos,&quot;, horas, &quot;horas y&quot;, dias, &quot;días.\n&quot;)
+</code></pre></div>
+</td></tr></table>
+
+</details>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">Enlaces de interés</p>
+<ul>
+<li>
+<p><a href="https://swcarpentry.github.io/r-novice-gapminder-es/"><strong>R para Análisis Científicos Reproducibles.</strong> <em>Software                         Carpentry.</em></a></p>
+</li>
+<li>
+<p><a href="https://bookdown.org/jboscomendoza/r-principiantes4/"><strong>R para principiantes.</strong> <em>Juan Bosco Mendoza Vega</em>.</a></p>
+</li>
+<li>
+<p><a href="https://cran.r-project.org/doc/contrib/Santana_El_arte_de_programar_en_R.pdf"><strong>El arte de programar en R: Un lenguaje para la estadística.</strong> <em>Julio Sergio Santana &amp; Efraín Mateos Farfán.</em></a></p>
+</li>
+<li>
+<p>Material del curso <strong>Informática aplicada a la Bioquímica</strong>, <em>Manuel Jesús Marín Jiménez</em>, <em>Universidad de Córdoba</em>.</p>
+</li>
+</ul>
+</div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../RStudio/" title="RStudio" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Anterior
+                </span>
+                RStudio
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../estructuras_datos/" title="Estructuras de datos" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Siguiente
+                </span>
+                Estructuras de datos
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.es.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

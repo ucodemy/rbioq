@@ -1,0 +1,121 @@
+---
+title: "Cadenas de caracteres: FASTA"
+author: "Ismael Sánchez Pareja"
+date: "Junio 2020"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Contexto de los ejercicios
+
+Diferentes bases de datos que aprenderéis durante el Grado ofrecen información contenida en archivos FASTA para su análisis bioinformático. En este caso práctico, se utiliza el fichero procedente de la bacteria _Salmonella enterica subsp. enterica serovar Typhimurium str. LT2_, específicamente la versión AE006468.2 del locus AE006468, también disponible en la sección Ejercicio resumen de Cadenas de caracteres del tutorial.
+
+En primer lugar, es necesario cargar el paquete _stringr_ que, como se ha visto durante la sección, pertece a la biblioteca _tidyverse_ y permite manipular cadenas de caracteres. Además, debemos abrir el archivo FASTA y asignarlo a una variable, de forma que podamos tratarlo como un objeto y no quede simplemente como una visualización en la terminal o la consola. 
+
+```{r}
+library("stringr")
+fasta_file <- readLines("prueba.fasta")
+```
+
+Como los archivos FASTA siempre contienen al inicio y al final una línea donde el contenido no corresponde con nucleótidos, su eliminación facilita y simplifica las acciones a realizar, ya que sino deberíamos de tenerlo en cuenta y arrastralo durante el ejercicio. Por tanto, se elimina la primera y la última línea del fichero, que corresponden a la primera y la última posición del vector de caracteres, que entiende cada línea del archivo como una cadena. Además, cada línea se une en una única línea para que se interprete como un vector de longitud uno, cuyo componente sería una cadena que engloba el total de las líneas del archivo FASTA y, por tanto, las bases del locus completo.
+
+```{r}
+fasta_file <- fasta_file[-1]
+fasta_file <- fasta_file[-length(fasta_file)]
+fasta <- c()
+for (i in 1:length(fasta_file)){
+  fasta <- str_c(fasta, fasta_file[i], sep="")
+}
+```
+
+### Ejercicio 1
+
+1. Proporciona con `R` un resumen de los datos del archivo FASTA:
+  A. Tamaño del locus. 
+  B. Cantidad de cada nucleótido.
+  C. Fracción de cada nucleótido. 
+  D. Cadena complementaria. 
+  E. Un ORF abarcara de la base 1279331 a la base 1280711, ¿Cómo sería el transcrito completo? 
+  F. Tabla de cantidad y fracción de nucleótidos del transcrito.
+
+#### Apartado 1.A
+
+```{r}
+long_locus <- nchar(fasta)
+```
+
+EL archivo FASTA probablemente contenga una menor cantidad de caracteres en la última línea, por lo que para conocer el número de bases no se puede calcular multiplicando la longitud de una cadena por la cantidad de líneas, sino que la mejor forma es sumando la longitud de cada cadena del vector mediante un bucle _for_. 
+
+#### Apartado 1.B
+
+```{r}
+fasta_split <- strsplit(fasta,"") [[1]]
+nucleotidos <- sort(unique(fasta_split))
+tabla_num_bases <- matrix(0,1,length(nucleotidos))
+for(i in 1:length(nucleotidos)){
+  tabla_num_bases[i]<- str_count(fasta, nucleotidos[i])
+}
+colnames(tabla_num_bases) <- nucleotidos
+rownames(tabla_num_bases) <- "cantidad"
+```
+
+La primera línea del código separa el vector compuesto por una cadena de forma que contenga una longitud igual al número de caracteres de la cadena. La segunda línea asigna a una variable un vector cuyos caracteres sean el tipo de bases que componen el archivo FASTA. Para ello utiliza el vector de la cadena separada de manera que no ordene un vector de longitud uno, puesto que sería el único componente a ordenar. Las siguientes líneas crean una matriz para representar una tabla con el número de bases que contiene el archivo FASTA. Para realizar este conteo se utiliza un bucle _for_, el cual permite recorrer tanto la matriz como el vector que contiene los tipos de bases y, en consecuencia, llevar a cabo este recuento de modo rápido y conciso, sin tener que repetir operaciones para cada nucleótido. Además, se asignan nombres a la matriz para hacerla más similar a una tabla.
+
+#### Apartado 1.C
+
+```{r}
+tabla_bases <- rbind(tabla_num_bases, tabla_num_bases/long_locus)
+rownames(tabla_bases) <- c("cantidad", "frecuencia")
+```
+
+La primera línea crea otra matriz que aúna la matriz del apartado 1.B y las frecuencias de las bases, además de incluir nombre a las filas. La frecuencia se calcula dividiendo la cantidad de cada nucleótido entre la suma de todos ellos.
+
+#### Apartado 1.D
+
+```{r}
+cad_complementaria <- str_replace_all(fasta, c("A"="t", "G"="c", "C"="G", "T"="A"))
+cad_complementaria <- str_to_upper(cad_complementaria)
+```
+
+La primera línea reemplaza cada nucleótido por su complementario. Dos de ellos en minúscula para que no haya reemplazamientos repetidos, ya que realmente son las mismas bases. Es por ello que se convierten en mayúscula en la siguiente línea, de forma que se mantenga el formato.
+
+#### Apartado 1.E
+
+```{r}
+transcrito_fasta <- str_sub(fasta, 1279331, 1280711)
+transcrito_complm <- str_sub(cad_complementaria, 1279331, 1280711)
+transcrito_fasta <- str_replace_all(transcrito_fasta, c("A"="U", "T"="A", "G"="c", "C"="G"))
+transcrito_fasta <- str_to_upper(transcrito_fasta)
+transcrito_complm <- str_replace_all(transcrito_complm, c("A"="U", "T"="A", "G"="c", "C"="G"))
+transcrito_complm <- str_to_upper(transcrito_complm)
+```
+
+Las dos líneas iniciales toman como subconjunto de la cadena FASTA y complementaria el ORF, de forma que se pueda trabajar directamente con éste. A continuación, se repiten las acciones del apartado 1.D pero, en este caso, la adenina es transcrita a uracilo que, como bien sabréis, es el nucleótido que sustituye a la timina en el ARN.
+
+#### Apartado 1.F
+
+```{r}
+long_trans_fasta <- nchar(transcrito_fasta)
+arn_fasta_split <- strsplit(transcrito_fasta,"") [[1]]
+arn_complm <- strsplit(transcrito_complm,"") [[1]]
+bases_arn <- sort(unique(arn_fasta_split))
+tabla_arn <- matrix(0,4,length(bases_arn))
+for(i in 1:length(bases_arn)){
+  tabla_arn[1,i] <- str_count(transcrito_fasta, bases_arn[i])
+  tabla_arn[2,i] <- tabla_arn[1,i] / long_trans_fasta
+  tabla_arn[3,i] <- str_count(transcrito_complm, bases_arn[i])
+  tabla_arn[4,i] <- tabla_arn[3,i] / long_trans_fasta
+}
+colnames(tabla_arn) <- bases_arn
+rownames(tabla_arn) <- c("Cantidad ARN FASTA", "Frecuencia FASTA", "Cantidad ARN complementario", "Frecuecia ARN complementario")
+tabla_bases <- rbind(tabla_num_bases, tabla_num_bases/long_locus)
+rownames(tabla_bases) <- c("cantidad", "frecuencia")
+```
+
+Este apartado repite lo realizado en los apartados 1.A, 1.B, 1.C y 1.D pero con los transcritos. La diferencia es que se hace de forma directa y engloba ambas cadenas, por lo que la matriz duplica su tamaño. 

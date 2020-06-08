@@ -1,0 +1,112 @@
+---
+title: "Ejercicio resumen de Graficación"
+author: "Ismael Sánchez Pareja"
+date: "Junio 2020"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Ejercicio 1
+
+1. R dispone de diversos conjuntos de datos que pueden ser cargados mediante la función ```data()```. Entre ellos se encuentra _DNase_, el cual recoge unos resultados de un ensayo ELISA para la proteína ADNasa recombinante en suero de rata. Este ejercicio resumen muestra un ejemplo básico del uso de graficación de R en un entorno clásico de investigación bioquímica. Proporciona con _R base_ una serie de gráficas representativas del ensayo ELISA:
+  A. Diagrama de dispersión de densidad frente a concentración y recta de regresión.
+  B. Utiliza _ggplot2_ e innova en su estética para representar el diagrama de dispersión anterior.
+  
+```{r}
+data("DNase")
+```
+
+##Ejercicio 2
+
+El fichero [clase_resumen.csv](extra_files/clase_resumen.csv) contiene un conjunto de datos sobre los alumnos de una clase. Los alumnos están divididos por grupos de tal forma que la estancia en el laboratorio se agilice. Estos alumnos realizaron un tareas cuya calificación media se expone en el archivo. Proporciona con _R base_ y _ggplot2_ una serie de gráficas representativas de la clase:
+  A. Gráfico de barras del número de alumnos por grupo.
+  B. Diagrama de cajas de las notas.
+  C. Diagrama de densidad de las notas mediante _ggplot2_. 
+
+```{r}
+clase <- read.csv("clase_resumen.csv")
+```
+
+### Apartado 1.A
+
+```{r}
+jpeg(filename="graf_resum_1A.jpg", width = 500, height = 500)
+plot(DNase$conc, DNase$density, main = "Diagrama de dispersión: Densidad Vs Concentración", xlab = "Concentración", ylab = "Densidad", col="seagreen")
+regresion <- lm(DNase$density~DNase$conc)
+abline(regresion, col="red")
+dev.off()
+```
+
+La primera línea permite exportar el gráfico con el nombre y tamaño deseado. Al emplear dos vectores continuos del mismo tamaño la función ```plot()``` genera un gráfico de dispersión. El resto de argumentos ayuda a estilizar el gráfico. La siguiente línea realiza una recta de regresión tomando como argumento el formato _y~x_ como si del cálculo de una pendiente se tratase. Finalmente, se incluye la recta en el gráfico de dispersión con el color deseado y se cierra la manipulación del gráfico.
+
+![Gráfico 1.A](images/graf_resum_1A.jpg)
+
+### Apartado 1.B
+
+```{r}
+library(ggplot2)
+library(ggthemes)
+ggplot(DNase, aes(x=conc, y=density, col=Run)) + geom_point(size=0.5) + geom_smooth(method="lm", se=F, size=0.7) + ggtitle("DNasa") + labs(x = "Concentración", y = "Densidad") + theme_calc() 
+ggsave("DNase_1B.png")
+```
+
+En primer lugar se carga el paquete _ggplot2_. A continuación, la función ```ggplot()``` toma el conjunto de datos donde se encuentran los elementos a representar, los cuales se indican en la función ```aes()``` del argumento. En este caso, se realiza una recta de regresión por cada valor de _Run_ y se colorea de un color diferente en base a ello, al igual que los puntos respectivos. Se añade título y etiquetas, además de modificar el tema del gráfico y exportarlo.
+
+![Gráfico 1.B](images/DNase_1B.png)
+
+### Apartado 2.A
+
+```{r}
+jpg(filename="graf_2A.jpg", width = 500, height = 500)
+plot(clase$grupo, main = "Alumnos por grupo", xlab = "Grupo", ylab = "Cantidad", col = c("green4", "red4", "yellow3"))
+dev.off()
+```
+
+El gráfico de barras se puede obtener de diversas formas con _R base_. En este caso se consigue con la función ```plot()```, tomando como valores la columna de los grupos del conjunto de datos, de los cuales se diferencia el tipo de grupo y la cantidad de alumnos que lo componen. El resto de código se dirige al estilo de la imagen y su exportación.
+
+![Gráfico plot 2.A](images/graf_2A.jpg)
+
+```{r}
+ggplot(clase, aes(x=grupo, fill=grupo)) + geom_bar() + ggtitle("Alumnos por grupo") + labs(x="Notas medias", y="Grupos") + theme_igray()
+ggsave("notas_ggbar.png")
+```
+
+Mediante _ggplot2_ se genera un gráfico de barras con una estética mucho más definida, tomando como datos los mismos que anteriormente y coloreando de forma predeterminada según el grupo. 
+
+![Gráfico ggplot 2.A](images/notas_ggbar.png)
+
+### Apartado 2.B
+
+```{r}
+jpeg(filename="boxplot_2B.jpg", width = 500, height = 500)
+boxplot(clase$notas_medias ~ clase$grupo, main = "Notas medias por grupo", xlab = "Grupo", ylab = "Notas medias", col = c("steelblue", "yellowgreen", "seagreen"))
+dev.off()
+```
+
+En este caso se emplea la variante ```boxplot()```, cuyo argumento de recogida de datos sigue el formato _y~x_. Como en otros apartados, el resto se dirige a modificar como guste el estilo básico que devuelve la función y exportar la gráfica.
+
+![Gráfico 2.B](images/boxplot_2B.jpg)
+
+```{r}
+ggplot(clase, aes(x=notas_medias, y=grupo, fill=grupo)) + geom_boxplot() + ggtitle("Notas medias por grupo") + labs(x="Grupos", y="Notas medias") + theme_excel_new()
+ggsave("boxplot_2Bgg.jpg")
+```
+
+![Gráfico ggplot 2.B](images/boxplot_2Bgg.jpg)
+
+### Apartado 2.C
+
+```{r}
+ggplot(a, aes(x=notas_medias, fill=clase, alpha=0.1)) + geom_density() + ggtitle("Distribuición de las notas medias por clase") + labs(x = "Notas medias", y = "Densidad") + theme_few()
+ggsave("clase_2C.png")
+```
+
+El gráfico de densidad ofrece una vista general de la distribuición de los datos de las notas medias, es decir, relaciona qué valores y cuántas veces se dan, incrementando el área inferior de la curva de distribuición donde ese valor de nota media sea más frecuente. El argumento estético _alpha_ permite atribuir una cierta transparencia al área representada.
+
+![Gráfico 2.C](images/clase_2C.png)

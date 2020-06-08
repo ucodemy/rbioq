@@ -1,0 +1,922 @@
+
+
+
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="Ismael y Manuel Jesús">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar al portapapeles">
+      
+        <meta name="lang:clipboard.copied" content="Copiado al portapapeles">
+      
+        <meta name="lang:search.language" content="es">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No se encontraron documentos">
+      
+        <meta name="lang:search.result.one" content="1 documento encontrado">
+      
+        <meta name="lang:search.result.other" content="# documentos encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Manipulación de data frames - Tutorial R para Bioquímica</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#funciones-interesantes-de-r-base" tabindex="0" class="md-skip">
+        Saltar a contenido
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Tutorial R para Bioquímica" aria-label="Tutorial R para Bioquímica" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Tutorial R para Bioquímica
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Manipulación de data frames
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Teclee para comenzar búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/mjmarin/r_biotutorial_uco.git/" title="Ir al repositorio" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Tutorial R para Bioquímica" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Tutorial R para Bioquímica
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/mjmarin/r_biotutorial_uco.git/" title="Ir al repositorio" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Inicio" class="md-nav__link">
+      Inicio
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../conceptos_basicos/" title="Conceptos básicos" class="md-nav__link">
+      Conceptos básicos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../RStudio/" title="RStudio" class="md-nav__link">
+      RStudio
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../variable_objetos_operadores/" title="Variables, objetos atómicos y operadores" class="md-nav__link">
+      Variables, objetos atómicos y operadores
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../estructuras_datos/" title="Estructuras de datos" class="md-nav__link">
+      Estructuras de datos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../estructuras_control/" title="Estructuras de control" class="md-nav__link">
+      Estructuras de control
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../funciones/" title="Funciones" class="md-nav__link">
+      Funciones
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../import_export/" title="Importación y exportación de datos" class="md-nav__link">
+      Importación y exportación de datos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../cadenas/" title="Cadenas de caracteres" class="md-nav__link">
+      Cadenas de caracteres
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../graficacion/" title="Graficación" class="md-nav__link">
+      Graficación
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Manipulación de data frames
+      </label>
+    
+    <a href="./" title="Manipulación de data frames" class="md-nav__link md-nav__link--active">
+      Manipulación de data frames
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Tabla de contenidos</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#funciones-interesantes-de-r-base" class="md-nav__link">
+    Funciones interesantes de R base
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcion-attach" class="md-nav__link">
+    Función attach()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-order" class="md-nav__link">
+    Función order()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-apply" class="md-nav__link">
+    Función apply()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-by" class="md-nav__link">
+    Función by()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-aggregate" class="md-nav__link">
+    Función aggregate()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-split" class="md-nav__link">
+    Función split()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-subset" class="md-nav__link">
+    Función subset()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-merge" class="md-nav__link">
+    Función merge()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatos-de-un-data-frame" class="md-nav__link">
+    Formatos de un data frame
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tratamiento-de-datos-con-plyr-y-dplyr" class="md-nav__link">
+    Tratamiento de datos con plyr y dplyr
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../acercade/" title="Acerca de" class="md-nav__link">
+      Acerca de
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Tabla de contenidos</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#funciones-interesantes-de-r-base" class="md-nav__link">
+    Funciones interesantes de R base
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcion-attach" class="md-nav__link">
+    Función attach()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-order" class="md-nav__link">
+    Función order()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-apply" class="md-nav__link">
+    Función apply()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-by" class="md-nav__link">
+    Función by()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-aggregate" class="md-nav__link">
+    Función aggregate()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-split" class="md-nav__link">
+    Función split()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-subset" class="md-nav__link">
+    Función subset()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-merge" class="md-nav__link">
+    Función merge()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatos-de-un-data-frame" class="md-nav__link">
+    Formatos de un data frame
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tratamiento-de-datos-con-plyr-y-dplyr" class="md-nav__link">
+    Tratamiento de datos con plyr y dplyr
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/mjmarin/r_biotutorial_uco.git/edit/master/docs/data_frames.md" title="Editar esta página" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Manipulación de data frames</h1>
+                
+                <p>Los <em>data frames</em> son objetos recursivos que pueden reunir en su contenido los diferentes tipos de objetos básicos (numérico, vector, etc). Su estructura bidimensional, ordenada por columnas (variables), filas (observaciones) y celdas (valores), facilita el almacenamiento de datos con los que se trabaja frecuentemente en cualquier área, puesto que se podría entender como una tabla o una matriz. Si bien, el término anglicano <em>data frame</em>, es empleado en campos donde la vía de manipulación de sus datos es la informática y tiene una finalidad estadística, como la bioinformática. De hecho, en el apartado <a href="graficacion_md">Graficación</a> se requiere este tipo de objeto o aquellos que sean coercionables a <em>data frame</em> para la graficación avanzada con <em>ggplot2</em>. </p>
+<p>En primer lugar, sería recomendable recordar los conocimientos básicos que tenemos de los <em>dataframes</em>, los cuales se encuentran en <a href="../estructuras_control/">Estructuras de control</a>. Para ello se muestra un simple ejemplo a continuación:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>a &lt;- c(1,2,2,1,2,1,1,2)
+b &lt;- c(5,6,3,1,4,2,7,8)
+df &lt;- data.frame(a,b)                                   #Creación a partir de vectores
+c &lt;- c(&quot;A&quot;,&quot;C&quot;,&quot;B&quot;,&quot;F&quot;,&quot;E&quot;,&quot;G&quot;,&quot;H&quot;,&quot;D&quot;)     
+df &lt;- cbind(df, c)                                      #Nueva columna
+colnames(df) &lt;- c(&quot;Clase&quot;, &quot;Notas_medias&quot;, &quot;Profesor&quot;)  #Nombres de columnas
+a1 &lt;- df[1,1]                                           #Subconjuntos 
+B &lt;- df[,2]
+c5 &lt;- df[5, &quot;Profesor&quot;]
+C5 &lt;- df$Profesor[5]
+df$Notas_medias[4] &lt;- sqrt(df$Notas_medias[5])          #Operaciones 
+df$Profesor &lt;- NULL                                     #Elimina columna
+</code></pre></div>
+</td></tr></table>
+
+<h2 id="funciones-interesantes-de-r-base">Funciones interesantes de <em>R base</em><a class="headerlink" href="#funciones-interesantes-de-r-base" title="Permanent link">&para;</a></h2>
+<h3 id="funcion-attach">Función attach()<a class="headerlink" href="#funcion-attach" title="Permanent link">&para;</a></h3>
+<p>Esta función agiliza la manipulación del <em>data frame</em>, ya que permite referenciar las columnas sin tener que especificar el nombre del <em>data frame</em> y la columna, esta última precedida de $. La función <code>detach()</code> desactiva a <code>attach()</code>.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>attach(df)
+mean(Notas_medias)
+detach(df)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<h3 id="funcion-order">Función order()<a class="headerlink" href="#funcion-order" title="Permanent link">&para;</a></h3>
+<p>Esta función permite ordenar predeterminadamente de forma creciente el contenido del <em>data frame</em> seleccionado. El argumento <em>decreasing=T</em> cambia el sentido de la ordenación a decreciente. </p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>df &lt;- df[order(df$Notas_medias, decreasing=T),]
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<h3 id="funcion-apply">Función apply()<a class="headerlink" href="#funcion-apply" title="Permanent link">&para;</a></h3>
+<p>Esta función permite aplicar otras funciones al total del <em>data frame</em> numérico. Esto es posible indicando en su interior el <em>data frame</em> deseado, si actúa por fila o columna (números 1 y 2, respectivamente), y la función a realizar. Esta función se dirige a matrices o <em>data frames</em> de contenido numérico, ya que produce <code>NA</code> en las celdas cuyo objeto atómico es de otro tipo.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>ejemplo_apply &lt;- apply(df,2,mean)
+ejemplo_apply2 &lt;- apply(df,2,sum)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<h3 id="funcion-by">Función by()<a class="headerlink" href="#funcion-by" title="Permanent link">&para;</a></h3>
+<p>Mediante <code>by()</code> se puede aplicar una función determinada a un subgrupo del <em>data frame</em>. En primer lugar, se indica la columna a partir de la cual se pretende tomar las categorías que dividen el <em>data frame</em>. A continuación, se indica la columna cuyos valores se someterán a la función, que se indica justo después. El resultado es contenido en un tipo de objeto específico denominado <em>by</em>.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>ejemplo_by &lt;- by(df$Notas_medias, df$Clase, summary)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<h3 id="funcion-aggregate">Función aggregate()<a class="headerlink" href="#funcion-aggregate" title="Permanent link">&para;</a></h3>
+<p>Esta función es muy similar a <code>by()</code>. La diferencia radica en sus argumentos y el resultado, ya que la columna debe ser presentada como una lista y el resultado es de tipo <em>data frame</em>.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>ejemplo_aggregate &lt;- aggregate(df$Notas_medias, list(df$Clase), summary)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<h3 id="funcion-split">Función split()<a class="headerlink" href="#funcion-split" title="Permanent link">&para;</a></h3>
+<p>El <em>data frame</em> puede ser dividido atendiendo a sus factores mediante esta función. El resultado es contenido en una lista. </p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>ejemplo_split &lt;- split(df,df$Clase)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<h3 id="funcion-subset">Función subset()<a class="headerlink" href="#funcion-subset" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>ejemplo_subset &lt;- subset(df, Clase==1 &amp; Notas_medias&gt;=5, select = Notas_medias)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<h3 id="funcion-merge">Función merge()<a class="headerlink" href="#funcion-merge" title="Permanent link">&para;</a></h3>
+<p>Mediante <code>merge()</code> se pueden mezclar dos diferentes <em>data frames</em> que guarden relación en alguna variable y sus observaciones. </p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>df2 &lt;- data.frame(aa=c(&quot;Val&quot;, &quot;Glu&quot;, &quot;Arg&quot;), polaridad=c(&quot;No polar&quot;, &quot;Ácido&quot;, &quot;Básico&quot;))
+df3 &lt;- data.frame(aa=c(&quot;Glu&quot;, &quot;Arg&quot;, &quot;Ile&quot;), cantidad=c(23,10,14))
+ejemplo_merge &lt;- merge(df2,df3,by=&quot;aa&quot;)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<h2 id="formatos-de-un-data-frame">Formatos de un <em>data frame</em><a class="headerlink" href="#formatos-de-un-data-frame" title="Permanent link">&para;</a></h2>
+<p>Los <em>data frame</em> pueden encontrarse en formato "wide" o "long" (ancho o largo), aunque existen modos parciales. El tipo de formato que presente el <em>data frame</em> es crucial en diferentes tipos de paquetes para tomar la información y tratarla. </p>
+<p>El conjunto de datos muestran formato ancho cuando diversos valores se encuentran en múltiples columnas. En cambio, el formato largo se refiere al <em>data frame</em> que contiene varias observaciones por variable. La comprensión de los formatos se agudiza con un ejemplo demostrativo: </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>wide &lt;- data.frame(aa=c(&quot;Glu&quot;, &quot;Cys&quot;), enzima=c(&quot;SOD&quot;,&quot;GSH&quot;), p_hidrógeno=c(4,5), p_disulfuro=c(2,1))
+long &lt;- data.frame(aa=c(&quot;Glu&quot;, &quot;Cys&quot;, &quot;Glu&quot;, &quot;Cys&quot;), enzima=c(&quot;SOD&quot;,&quot;GSH&quot;,&quot;SOD&quot;,&quot;GSH&quot;), interaccion_puentes=c(&quot;hidrógeno&quot;,&quot;disulfuro&quot;,&quot;disulfuro&quot;,&quot;hidrógeno&quot;), cantidad=c(4,2,1,5))
+</code></pre></div>
+</td></tr></table>
+
+<p><em>R base</em> ofrece unas funciones para transformar el <em>data frame</em> de un formato a otro, lo que se conoce como pivotar:
+- La función <code>stack()</code> rehace el <em>data frame</em> de formato ancho a largo.
+- La función <code>unstack()</code> al contrario.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>wide_a_long &lt;- stack(wide, select=c(p_hidrógeno, p_disulfuro))
+long_a_wide &lt;- unstack(long, cantidad~interaccion_puentes)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<p>Existen otros paquetes que facilitan la manipulación de formatos de un modo más avanzado. El más extendido es <em>reshape2</em>, cuyas funciones <code>melt()</code> y <code>dcast()</code> llevan a cabo la transformación a formato largo y ancho, respectivamente. </p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>install.packages(&quot;reshape2&quot;)
+library(reshape2)
+wide_a_long_reshape2 &lt;- melt(wide)
+long_a_wide_reshape2 &lt;- dcast(long, aa~interaccion_puentes)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<p>Si bien, <em>tidyverse</em> contiene el paquete <em>tidyr</em>, que permite realizar dichas transformaciones mediante las funciones <code>gather()</code> y <code>spread()</code>, que cambian el formato ancho y largo, de forma respectiva. Realmente, crean un nuevo objeto característico de esta librería, denominado <em>tibble</em>, el cual es similar a un <em>data frame</em>, al cual se le aportan ciertas características.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>library(tidyr)
+wide_a_long_tidyr &lt;- gather(wide, key = &quot;interaccion&quot;, value = &quot;cantidad&quot;, 3:4)
+long_a_wide_tidyr &lt;- spread(long,key=&quot;interaccion_puentes&quot;,value = &quot;cantidad&quot;, 3:4)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<p>El paquete <em>tidyr</em> va más allá y ofrece diversas funciones de manipulación de <em>data frames</em>, las cuales requieren de pipes para llamar al objeto al que se le aplicarán. El pipe es una herramienta procedente del paquete <em>magrittr</em> de <em>tidyverse</em> que posibilita llevar a cabo múltiples operaciones consecutivas. Se indican con la siguiente combinación de símbolos: <code>%&gt;%</code>.</p>
+<p>De hecho, <code>gather()</code> y <code>spread()</code> pueden ser sustituidos por las funciones <code>pivot_longer()</code> y <code>pivot_wider()</code>, respectivamente, si se utiliza el pipe para conectar con el objeto. </p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>wide_a_long_pipe &lt;- wide %&gt;% pivot_longer(3:4, names_to=&quot;interaccion&quot;, values_to=&quot;cantidad&quot;)
+long_a_wide_pipe &lt;- long %&gt;% pivot_wider(1:4, names_from=&quot;interaccion_puentes&quot;, values_from=&quot;cantidad&quot;)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<p>Las funciones de <em>tidyr</em> <code>separate()</code> y <code>unite()</code> permiten separar o unir columnas, respectivamente, de acuerdo a la posición de un carácter separador.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>df &lt;- df %&gt;% unite(clase_nota, Clase, Notas_medias)
+df &lt;- df_unite %&gt;% separate(clase_nota, into=c(&quot;Clase&quot;, &quot;Notas_medias&quot;))
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<h2 id="tratamiento-de-datos-con-plyr-y-dplyr">Tratamiento de datos con <em>plyr</em> y <em>dplyr</em><a class="headerlink" href="#tratamiento-de-datos-con-plyr-y-dplyr" title="Permanent link">&para;</a></h2>
+<p>Estos paquetes pertenecen a la biblioteca <em>tidyverse</em> y facilitan el acceso y manipulación de los datos de los <em>data frames</em>. En primer lugar, <em>plyr</em> es similar a la función de <em>R base</em> <code>apply()</code>, ya que permite realizar una función al conjunto de datos señalado. Dependiendo del tipo de objeto que se quiera recibir como <em>output</em> de la función, se aplicará un tipo de función posible de <em>plyr</em>. Entre otras funciones destacan <code>ddply()</code> y <code>dlply()</code>, cuyas letras iniciales hacen referencia al objeto de entrada y de salida, respectivamente, siendo <em>d</em> por <em>data frame</em> y <em>l</em> a <em>lista</em>. Los argumentos básicos son el objeto de entrada, la variable y la función deseada. </p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>library(plyr)
+df_medias &lt;- ddply(.data = df, .variables = &quot;Clase&quot;, .fun = function(x) mean(x$Notas_medias))
+df_list_max &lt;- dlply(.data = df, .variables = &quot;Clase&quot;, .fun = function(x) max(x$Notas_medias))
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<p>Por otro lado, <em>dplyr</em> ofrece diversas funciones que, en su gran mayoría, requieren de pipes. Una de ellas es <code>filter()</code>, la cual filtra el <em>data frame</em> por las columnas y observaciones deseadas. Además, esta función puede combinarse con otras mediante un nuevo pipe, como la función <code>select()</code>, que agudiza la búsqueda de los datos deseados.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>library(dplyr)
+df_clase1 &lt;- df %&gt;% filter(Clase==&quot;1&quot;) %&gt;% select(Notas_medias)
+df_clase2 &lt;- df %&gt;% filter(Clase==&quot;2&quot;) %&gt;% select(Notas_medias)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<p>Las funciones de <em>dplyr</em> <code>mutate()</code> y <code>transmute()</code> permiten añadir nuevas variables (columnas) a partir de las ya existentes. Esta última función mantiene solamente la variable creada.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>long_mutate &lt;- long %&gt;% mutate(porcentaje = cantidad / 5 * 100)
+long_transmute &lt;- long %&gt;% transmute(porcentaje = cantidad / 5 * 100)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Ejercicio resumen</p>
+<p>El archivo <a href="../Rmd/df_resumen.Rmd">df_resumen.Rmd</a> contiene dos ejercicios de manipulación de <em>data frame</em> sobre los ficheros <a href="../extra_files/test1.xlsx">test1.xlsx</a>, <a href="../extra_files/test2.xlsx">test2.xlsx</a> y <a href="../extra_files/dominios.txt">dominios.txt</a> los cuales proceden de la realización de un proyecto durante el curso Aspectos Físico-Químicos de Interacciones en Biomoléculas. De este modo se pretende resumir de forma explicativa lo estudiado en este apartado. </p>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">Enlaces de interés</p>
+<ul>
+<li>
+<p><a href="https://swcarpentry.github.io/r-novice-gapminder-es/"><strong>R para Análisis Científicos Reproducibles.</strong> <em>Software                         Carpentry.</em></a></p>
+</li>
+<li>
+<p><a href="https://bookdown.org/jboscomendoza/r-principiantes4/"><strong>R para principiantes.</strong> <em>Juan Bosco Mendoza Vega</em>.</a></p>
+</li>
+<li>
+<p><a href="https://www.ugr.es/~mvargas/AproximaR.pdf"><strong>Nociones generales sobre R.</strong> <em>M. Vargas</em>, <em>Universidad de Granada</em>.</a></p>
+</li>
+<li>
+<p><a href="https://es.r4ds.hadley.nz/"><strong>R for Data Science.</strong> <em>Garrett Grolemund &amp; Hadley Wickham.</em></a> </p>
+</li>
+<li>
+<p><a href="https://www.datanalytics.com/libro_r/index.html"><strong>R para profesionales de los datos: una introducción.</strong> <em>Carlos J. Gil Bellosta</em>.</a></p>
+</li>
+<li>
+<p><a href="https://rsanchezs.gitbooks.io/ciencia-de-datos-con-r/"><strong>Ciencia de datos con R.</strong> <em>Rubén Sánchez Sancho</em>.</a></p>
+</li>
+</ul>
+</div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../graficacion/" title="Graficación" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Anterior
+                </span>
+                Graficación
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../acercade/" title="Acerca de" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Siguiente
+                </span>
+                Acerca de
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.es.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,29 @@
+---
+title: "Raíz cuadrada de un número"
+author: "Ismael Sánchez Pareja"
+date: "Junio 2020"
+output:
+  word_document: default
+  html_notebook: default
+  pdf_document: default
+  html_document: default
+---
+
+# Enunciado del problema
+Deseamos calcular la raíz cuadrada de un numero dado. Puesto que la funcion raíz cuadrada no esta definida para valores negativos, el programa debe controlar dicha situacion y mostrar un error en tal caso.
+
+$$ f(x) = \sqrt(x) $$
+
+# Codigo del programa
+```{r}
+print("Introduce un numero")
+# x <- scan(n=1)
+x <- 31         # Valor constante para hacer Knit
+
+if (x < 0) {
+   print("ERROR: el valor debe ser positivo.")  # Puedes usar stop, pero no va a generar el Knit
+} else {
+   y <- sqrt(x)
+   cat("La raíz cuadrada de", x, "vale", y, "\n")
+}
+```

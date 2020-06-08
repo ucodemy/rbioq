@@ -1,0 +1,165 @@
+---
+title: "Ejercicio resumen de Manipulación de datos"
+author: "Ismael Sánchez Pareja"
+date: "Junio 2020"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Ejercicio 1
+
+1. Los datos ofrecidos por los ficheros [test1.xlsx](estra_files/test1.xlsx) y [test2.xlsx](estra_files/test2.xlsx) corresponden a un ensayo "docking" realizado para un proyecto del curso Aspectos Físico-Químicos de Interacciones en Biomoléculas mediante el programa ArgusLab. Los datos recogidos muestran los resultados de la simulación de la interacción de diversos fármacos con la proteína antiapoptótica BCL-XL, cuya inhibición sería interesante en el ámbito de la medicina frente al cáncer. Utiliza las herramientas estudiadas en [Manipulación de data frames](data_frames.md) para resolver los siguientes desafíos:
+  A. Renombra igualmente las columnas de ambos conjuntos de datos para evitar posibles errores posteriores.
+  B. Une ambos test en un único fichero.
+  C. Calcula la media y el máximo de la constante de inhibición experimental del test 1 evitando ser repetitivo.
+  D. Selecciona aquellos compuestos del test 2 cuya energía de interacción se encuentra en el intervalo -8 a -12 Kcal/mol. 
+  E. Incluye una nueva columna en el fichero conjunto de test con el resultado del cálculo de una nueva constante obtenida de la división de Kiexp entre la energía de interacción.
+  
+```{r}
+library(readxl)
+test1 <- read_excel("test1.xlsx")
+test2 <- read_excel("test2.xlsx")
+```
+
+### Apartado 1.A
+
+```{r}
+colnames(test1) <- c("Compuesto","Energia_interaccion","Kiexp")
+colnames(test2) <- c("Compuesto","Energia_interaccion","Kiexp")
+```
+
+El conjunto de datos inicial presenta paréntesis y espacios que pueden conducir a error en operaciones que necesiten de su llamamiento.
+
+### Apartado 1.B
+
+```{r}
+test <- merge(test1,test2,by="Compuesto")
+```
+
+La función ```merge()``` permite realizar estas uniones de conjuntos de datos atendiendo a un patrón conservado de datos que, en este caso, son los compuestos.
+
+### Apartado 1.C
+
+```{r}
+attach(test1)
+mean(Kiexp)
+max(Kiexp)
+```
+
+Aplicando la función ```attach()``` direccionas las siguientes funciones hacia el conjunto de datos indicado en su argumento, sin necesidad de repetir el proceso de llamamiento. Un modo aún más rápido y completo sería aplicando la función ```summary()```.
+
+```{r}
+summary(Kiexp)
+detach()
+```
+
+### Apartado 1.D
+
+```{r}
+subset(test2, Energia_interaccion < -8 & Energia_interaccion > -12, select = Compuesto)
+```
+
+Esta función permite seleccionar los datos incluyendo condiciones y quedarse con aquella variable que desees mediante el argumento _select_.
+
+```{r}
+library(dplyr)
+test2 %>% filter(Energia_interaccion < -8 & Energia_interaccion > -12) %>% select(Compuesto)
+```
+
+Otro modo es usando los filtros del paquete _dplyr_ de _tidyverse_, conectando las funciones con pipes.
+
+### Apartado 1.E
+
+```{r}
+test <- test %>% mutate(New_Kx = Kiexp.x / Energia_interaccion.x) %>% mutate(New_Ky = Kiexp.y / Energia_interaccion.y)
+```
+
+El paquete _dplyr_ ofrece la función ```mutate()```, por la cual se puede añadir una nueva columna al conjunto de datos a partir de variables ya existentes. Además, a través de pipes se conecta la aplicación de la función a los diferentes datos requeridos, de forma que no haya que repetir el código inicial en otra línea.
+
+## Ejercicio 2
+
+2. Durante la realización del mismo proyecto se recogió en el archivo [dominios.csv](extra_files/dominios.csv) una visión general del contenido estructural de los códigos PDB en los que se centraba el trabajo. Utiliza las herramientas estudiadas en [Manipulación de data frames](data_frames.md) para resolver los siguientes desafíos:
+  A. Ordena los datos por el número de residuos del sitio de unión de forma decreciente.
+  B. Muestra un resumen del contenido de sitios de unión evitando la repetición de código.
+  C. Crea una lista de los códigos PDB y las observaciones que tiene cada uno de las diferentes variables.
+  D. Filtra los dominios que en algún código contengan 6 o más residuos en el sitio de unión.
+  E. Divide la variable _codigo_pdb_ en dos diferentes que contengan los códigos PDB y la proteína separados.
+  F. Transforma el conjunto de datos en formato ancho atendiendo a la variable _codigo_pdb_.
+  
+```{r}
+dominios <- read.table(file="dominios.txt", header= T, sep=' ')
+```
+  
+### Apartado 2.A 
+
+```{r}
+dominios <- dominios[order(dominios$aa_sitio_union, decreasing=T),]
+```
+
+La función ```order()``` permite ordenar el conjunto de datos atendiendo a una variable, en este caso la cantidad de residuos del sitios de unión. El argumento _decreasing=T_ organiza de forma decreciente el orden.
+
+### Apartado 2.B
+
+```{r}
+attach(dominios)
+by(aa_sitio_union, codigo_pdb, summary)
+```
+
+La función ```attach()``` sirve de atajo para no tener que volver a llamar al conjunto de datos. La función de la siguiente línea accede a un subconjunto al cual permite tratar con una función. Otros modos de llevar a cabo esta acción es a través de ```aggregate()``` o empleando el paquete _plyr_ de _tidyverse_, que diferencia sus funciones dependiendo del objeto de salida.
+
+```{r}
+aggregate(aa_sitio_union , list(codigo_pdb), summary)
+detach()
+library(plyr)
+ddply(.data = dominios, .variables = "codigo_pdb", .fun = function(x) summary(x$aa_sitio_union))  
+dlply(.data = dominios, .variables = "codigo_pdb", .fun = function(x) summary(x$aa_sitio_union))
+```
+
+### Apartado 2.C 
+
+```{r}
+split(dominios, dominios$codigo_pdb)
+```
+
+Esta función devuelve una lista de los diferentes componentes del subconjunto seleccionado.
+
+### Apartado 2.D
+
+```{r}
+subset(dominios, codigo_pdb=="2BZW/BCLxl" & aa_sitio_union>=6, select=dominio)
+```
+
+La función ```subset()``` crea un subconjunto atendiendo a las condiciones especificadas. Mediante el argumento _select_ muestra la variable deseada. Esto se puede lograr también aplicando las funciones ```filter()``` y ```select()``` del paquete _dplyr_ conectadas por pipes.
+
+```{r}
+dominios %>% filter(aa_sitio_union >= 6 & codigo_pdb=="2BZW/BCLxl") %>% select(dominio)
+```
+
+### Apartado 2.E
+
+La función ```separate()``` del paquete _tidyr_ de la biblioteca _tidyverse_ permite llevar a cabo esta división de una variable en otras diferentes.
+
+```{r}
+dominios %>% separate(codigo_pdb, into=c("codigoPDB","proteina"))
+```
+
+### Apartado 2.F
+
+El paquete _tidyr_ también ofrece dos funciones que transforman los formatos del _data frame_. Éstas se diferencian en que ```pivot_()``` necesita de un pipe previo que la conecte con el conjunto de datos a manipular, mientras que la función ```spread()``` realiza el llamamiento en su argumento.
+
+```{r}
+wide_dominios1 <- spread(dominios,key="codigo_pdb",value = "aa_sitio_union")
+wide_dominios2 <- dominios %>% pivot_wider(names_from="codigo_pdb", values_from="aa_sitio_union")
+```
+
+El paquete _reshape2_ también ofrece funciones que llevan a cabo el cambio de formato.
+
+```{r}
+dcast(dominios, dominio~codigo_pdb)
+```

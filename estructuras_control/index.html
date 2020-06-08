@@ -1,0 +1,1096 @@
+
+
+
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="Ismael y Manuel Jesús">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar al portapapeles">
+      
+        <meta name="lang:clipboard.copied" content="Copiado al portapapeles">
+      
+        <meta name="lang:search.language" content="es">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No se encontraron documentos">
+      
+        <meta name="lang:search.result.one" content="1 documento encontrado">
+      
+        <meta name="lang:search.result.other" content="# documentos encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Estructuras de control - Tutorial R para Bioquímica</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#construcciones-if-else" tabindex="0" class="md-skip">
+        Saltar a contenido
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Tutorial R para Bioquímica" aria-label="Tutorial R para Bioquímica" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Tutorial R para Bioquímica
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Estructuras de control
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Teclee para comenzar búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/mjmarin/r_biotutorial_uco.git/" title="Ir al repositorio" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Tutorial R para Bioquímica" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Tutorial R para Bioquímica
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/mjmarin/r_biotutorial_uco.git/" title="Ir al repositorio" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Inicio" class="md-nav__link">
+      Inicio
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../conceptos_basicos/" title="Conceptos básicos" class="md-nav__link">
+      Conceptos básicos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../RStudio/" title="RStudio" class="md-nav__link">
+      RStudio
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../variable_objetos_operadores/" title="Variables, objetos atómicos y operadores" class="md-nav__link">
+      Variables, objetos atómicos y operadores
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../estructuras_datos/" title="Estructuras de datos" class="md-nav__link">
+      Estructuras de datos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Estructuras de control
+      </label>
+    
+    <a href="./" title="Estructuras de control" class="md-nav__link md-nav__link--active">
+      Estructuras de control
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Tabla de contenidos</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#construcciones-if-else" class="md-nav__link">
+    Construcciones if - else
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucles-for" class="md-nav__link">
+    Bucles for
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucles-while" class="md-nav__link">
+    Bucles while
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#break-next-y-bucles-repeat" class="md-nav__link">
+    Break, Next y bucles repeat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#declaraciones-switch" class="md-nav__link">
+    Declaraciones switch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-complementarios" class="md-nav__link">
+    Ejercicios complementarios
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../funciones/" title="Funciones" class="md-nav__link">
+      Funciones
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../import_export/" title="Importación y exportación de datos" class="md-nav__link">
+      Importación y exportación de datos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../cadenas/" title="Cadenas de caracteres" class="md-nav__link">
+      Cadenas de caracteres
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../graficacion/" title="Graficación" class="md-nav__link">
+      Graficación
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../data_frames/" title="Manipulación de data frames" class="md-nav__link">
+      Manipulación de data frames
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../acercade/" title="Acerca de" class="md-nav__link">
+      Acerca de
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Tabla de contenidos</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#construcciones-if-else" class="md-nav__link">
+    Construcciones if - else
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucles-for" class="md-nav__link">
+    Bucles for
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucles-while" class="md-nav__link">
+    Bucles while
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#break-next-y-bucles-repeat" class="md-nav__link">
+    Break, Next y bucles repeat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#declaraciones-switch" class="md-nav__link">
+    Declaraciones switch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-complementarios" class="md-nav__link">
+    Ejercicios complementarios
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/mjmarin/r_biotutorial_uco.git/edit/master/docs/estructuras_control.md" title="Editar esta página" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Estructuras de control</h1>
+                
+                <p>Las estructuras de control son construcciones sintácticas que determinan la lógica y el orden de cómo ocurren las operaciones de nuestro programa, es decir, dirijen el flujo de éstas y controlan la ejecución del códido en una dirección u otra. Para ello, es fundamental establecer condicionales en el código. </p>
+<h3 id="construcciones-if-else">Construcciones <em>if - else</em><a class="headerlink" href="#construcciones-if-else" title="Permanent link">&para;</a></h3>
+<p>Esta sintaxis inglesa realiza la función de lo que literalmente se traduce de ella. Esto es, "si" y "de otro modo", para <code>if</code> y <code>else</code>, respectivamente. De una forma más concreta, se entiende como "<em>si esta condición es <code>TRUE</code>, ejecuta la siguiente operación, de otro modo ejecuta ésta otra</em>". La construcción dentro del programa se incluiría así: </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>if(condición) {
+  operaciones_si_condición=TRUE
+} else {
+  operaciones_si_condición=FALSE
+}
+</code></pre></div>
+</td></tr></table>
+
+<p>No obstante, la construcción puede incluir únicamente <code>if</code>, para indicar que se ejecute una operación si se cumple la condición, sino se continúa con el programa. </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>if(condición) {
+  operaciones_si_condición=TRUE
+}
+</code></pre></div>
+</td></tr></table>
+
+<div class="admonition example">
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>euros &lt;- -20
+if (euros &lt; 0){
+  print(&quot;Estás en números negativos&quot;)
+}
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<p>Si bien, es cierto que podría escribirse del siguiente modo:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>if(condición) {operaciones_si_condición=TRUE
+} else {operaciones_si_condición=FALSE}
+</code></pre></div>
+</td></tr></table>
+
+<p>Las operaciones se deben incluir solamente en una expresión, por lo que si hay más de una operación se conectan mediante el operador <code>;</code> o pasando al siguiente renglón y manteniendo la iteración. </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>if(condición) {
+  operación1_si_condición=TRUE
+  operación2
+} else {
+  operaciones_si_condición=FALSE
+}
+</code></pre></div>
+</td></tr></table>
+
+<p>Por otro lado, la contrucción podría componerse de múltiples condiciones. Para ello, junto a <code>else</code> se sitúa de nuevo <code>if</code>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>if(condición1) {
+  operaciones_si_condición=TRUE
+} else if(condición2) {
+  operaciones_si_condición1=FALSE_condición2=TRUE
+} else { 
+operaciones_si_condiciones=FALSE
+}
+</code></pre></div>
+</td></tr></table>
+
+<div class="admonition example">
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>num_real &lt;- 5.43
+num_entero &lt;- -10
+if(num_real &lt; num_entero) {
+  &quot;condición1-TRUE&quot;
+} else if(num_real &gt; num_entero &amp; num_entero &gt; num_integer) {
+  &quot;condición2-TRUE&quot;
+} else {
+  &quot;condiciones-FALSE&quot;
+}
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<p>Hasta ahora, las construcciones mencionadas no permiten incluir secuencias o vectores. Si bien, la función <code>ifelse()</code> se emplea para controlar el flujo en esta estructura de datos, lo que también incluye valores independientes, sin necesidad de conformar una secuencia. Esta función nos devuelve un vector con los valores correspondientes para cada elemento del vector tras realizar su respectiva operación, atendiendo a las condiciones interpuestas. </p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>ifelse1 &lt;- ifelse(c(3,4,5,6,7) &lt; num_real, &quot;condición-TRUE&quot;, &quot;condición-FALSE&quot;)
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Cree un script llamado sup_inf_igual_0.R que indique si el número introducido es superior, inferior, o igual a 0.</p>
+<details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print (&quot;Número que desea conocer cómo es respecto a 0: &quot;)
+num &lt;- scan(n=1)
+if (num==0) {
+  cat(num, &quot;es igual a 0.&quot;)
+} else if (num&lt;0) {
+  cat(num, &quot;es menor que 0.&quot;)
+} else {
+  cat(num, &quot;es mayor que 0.&quot;)
+}
+</code></pre></div>
+</td></tr></table>
+
+</details>
+</div>
+<h3 id="bucles-for">Bucles <em>for</em><a class="headerlink" href="#bucles-for" title="Permanent link">&para;</a></h3>
+<p>Este tipo de construcciones repite las operaciones que contiene un número determinado de veces, las cuales se indican entre paréntesis y corresponden al número de veces que se observa un elemento en la estructura de datos que introduzcamos. Las operaciones se pueden llevar a cabo con el elemento en cuestión, al cual se le puede nombrar como guste, siendo común la letra <em>i</em> o una palabra descritiva. En cuanto a la estructura de datos, debe de ser un objeto ya existente o que se formule en la construcción, cuyo modelo es el siguiente:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>for(elemento in estructura){
+  operaciones_con/sin_elemento
+}
+</code></pre></div>
+</td></tr></table>
+
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>for (i in 1:10){
+  print(i)
+}
+lista1 &lt;- list(equipo=&quot;verde&quot;, componentes=2, nombres=c(&quot;Ana&quot;, &quot;Juan&quot;), ganador=TRUE) 
+for(i in lista1) {
+  i
+}
+</code></pre></div>
+</td></tr></table>
+
+</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Los bucles no devuelven los resultados a no ser que se lo indiques explícitamente con funciones como <code>print()</code>. Además, si se pretende asignar los resultados a una variable, ésta debe de haber sido declarada previamente, y se utiliza el operador <code>[]</code>, de forma que la estructura de datos contenida en la variable aumentaría su longitud por cada repetición. </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>vector_for1 &lt;- 1
+for(i in 2:7) {
+  vector_for1[i] &lt;- i
+}
+</code></pre></div>
+</td></tr></table>
+
+<p>Hay que tener cuidado con las estructuras que empleamos en el bucle y los datos que contienen, ya que podrían devolver errores o resultados no esperados cuando se mezclan tipos de datos en ellas. Esto y la simplicidad y velocidad de cómputo que ofrecen otras opciones de R, hacen que este bucle no sea tan utilizado. </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>vector_for2 &lt;- NULL
+for(i in list(1:4, 6, 8, &quot;c&quot;, &quot;a&quot;)) {
+  vector_for2[i] &lt;- i
+}
+</code></pre></div>
+</td></tr></table>
+
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Cree un script fibonacci.R que devuelva la sucesión de Fibonacci del número indicado.</p>
+<details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Introduzca un número: &quot;)
+n &lt;- scan(n=1)
+a &lt;- 0
+b &lt;- 1
+cat(&quot;Los&quot;, n, &quot;primeros números de la sucesión de Fibonacci son:&quot;, &quot;\n&quot;)
+for (i in 1:n) {
+  a &lt;- a+b
+  b &lt;- a-b
+  cat(&quot;El número de la posición&quot;, i, &quot;es&quot;, a, &quot;\n&quot;)
+}
+</code></pre></div>
+</td></tr></table>
+
+</details>
+</div>
+<h3 id="bucles-while">Bucles <em>while</em><a class="headerlink" href="#bucles-while" title="Permanent link">&para;</a></h3>
+<p>Este tipo de bucle repite las operaciones mientras la condición impuesta sea <code>TRUE</code>. El modelo para lograr esta contrucción es el siguiente:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>while(condicion) {
+  operaciones_si_condicion=TRUE
+}
+</code></pre></div>
+</td></tr></table>
+
+<p>Si realizásemos el modelo tal cual se ha mostrado y la condición sea siempre <code>TRUE</code>, se produciría un bucle infinito , el cual se abandona presionando la tecla <strong>ESC</strong> si estás en RStudio, o <strong>ctrl</strong> + <strong>c</strong> para la terminal, ya que se podría congelar el ordenador. Por ello, es necesario operar con los objetos que formen parte de la condición, de forma que en un momento la condición sea <code>FALSE</code> y pare el bucle. </p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>while(num_real &gt; 1 | num_entero &lt; num_real) {
+  num_real &lt;- num_real - 3
+}
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Cree un script llamado suma_enteros_100.R que realice la suma de los números enteros comprendidos entre el número indicado y 100.</p>
+<details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Indique un número entre 0 y 100: &quot;)
+suma &lt;- 0
+n &lt;- scan(n=1)
+while (n&lt;=100){
+  suma &lt;- suma+n
+  n &lt;- n+1
+}
+cat(&quot;El valor de la suma de enteros hasta 100 es&quot;, suma)
+</code></pre></div>
+</td></tr></table>
+
+</details>
+</div>
+<h3 id="break-next-y-bucles-repeat"><em>Break</em>, <em>Next</em> y bucles <em>repeat</em><a class="headerlink" href="#break-next-y-bucles-repeat" title="Permanent link">&para;</a></h3>
+<p>Las estructuras de control <code>break</code> y <code>next</code> son palabras reservadas que no pueden emplearse como variable. Ambas se utilizan dentro de otras estructuras de control y requieren que una condición sea <code>TRUE</code> para que se efectúe su acción, que para <code>break</code> es finalizar el bucle, mientras que <code>next</code> avanza a la siguiente iteración sin realizar operación. De hecho, <code>break</code> es necesario para no caer en un bucle infinito creado con la estructura <code>repeat</code>, la cual no se usa con frecuencia. Si bien, el modelo de este bucle es el siguiente:
+repeat{
+  operaciones
+  break
+}</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>repeat{
+  num_real &lt;- num_real / 2
+  if(num_real &gt; -4) {
+    break
+  }
+}
+vector11 &lt;- c()
+for(i in vector_for1) {
+  if(i == 6) {
+    next
+  }
+  vector11[i] &lt;- vector_for1[i] * 2
+}
+while(num_entero != 6) {
+  if(num_entero == 5) {
+    break
+  }
+  num_entero &lt;- num_entero + 5
+}
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Modifique el script suma_enteros_100.R de forma que ignore el valor 50 y finalice el programa si la suma supera el valor 2000.</p>
+<details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Indique un número entre 0 y 100: &quot;)
+suma &lt;- 0
+n &lt;- scan(n=1)
+for(i in n:100){
+  if(i==50){
+    next
+  }
+  if(suma&gt;2000){
+    break
+  }
+  suma &lt;- suma + i
+}
+cat(&quot;El valor de la suma de enteros hasta que supera por primera vez el valor 2000 es&quot;, suma)
+</code></pre></div>
+</td></tr></table>
+
+</details>
+</div>
+<h3 id="declaraciones-switch">Declaraciones <em>switch</em><a class="headerlink" href="#declaraciones-switch" title="Permanent link">&para;</a></h3>
+<p>Este tipo de construcción permite al usuario elegir la operación que se llevaría a cabo al ejecutar el código. Para ello, se debe incluir una función de entrada como <code>readline()</code> tras una de salida que muestre información sobre las opciones. Por lo tanto, presentaría la forma siguiente:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Opciones: a, b y c)
+eleccion &lt;- readline(prompt=&quot;Elija una de las anteriores opciones: &quot;)
+switch(eleccion,
+  a=operación_a,
+  b=operación_b,
+  c=operación_c,
+  stop(&quot;Opción no válida&quot;))
+</code></pre></div>
+</td></tr></table>
+
+<div class="admonition example">
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;La operación log(20) + 4*7 &gt;= 2^5 | length(c(1:6)) &lt;= log10(6^8) es TRUE.&quot;)
+respuesta &lt;- readline(prompt=&quot;¿Es cierta la afirmación anterior?  (a=Verdadero, b=Falso): &quot;)
+switch(respuesta,
+  a=print(&quot;Correcto&quot;),
+  b=print(&quot;Incorrecto&quot;),
+  stop(&quot;Opción no válida&quot;))
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Cree un script llamado elegir_script.R que te ofrezca la oportunidad de elegir ejecutar el script  fibonacci, o suma_enteros_100.R</p>
+<details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Opciones:&quot;)
+print(&quot;A. sup_inf_igual_0.R&quot;)
+print(&quot;B. suma_enteros_100.R&quot;)
+print(&quot;C. fibonacci.R&quot;)
+eleccion &lt;- readline(prompt=&quot;Elija el script que desee ejecutar: &quot;)
+switch(eleccion,
+  A=source(&quot;sup_inf_igual_0.R&quot;),
+  B=source(&quot;fibonacci.R&quot;),
+  C=source(&quot;suma_enteros_100.R&quot;,
+  stop(&quot;Opción no válida&quot;))
+</code></pre></div>
+</td></tr></table>
+
+</details>
+</div>
+<h3 id="ejercicios-complementarios">Ejercicios complementarios<a class="headerlink" href="#ejercicios-complementarios" title="Permanent link">&para;</a></h3>
+<div class="admonition question">
+<p class="admonition-title">Cree un script llamado tabla_mult_completo.R que devuelva la tabla de multiplicar del número deseado.</p>
+<details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;¿De qué número desea conocer su tabla de multiplicar? &quot;)
+num &lt;- scan(n=1)
+for (i in 0:10){
+  cat (num, &quot;*&quot;, i, &quot;=&quot;, i*num, &quot;\n&quot;)
+}
+</code></pre></div>
+</td></tr></table>
+
+</details>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Cree, recurriendo a nota_media.R, un script llamado sobresalientes.R que devuelva una lista con los alumnos de clase cuya media es de sobresaliente.</p>
+<details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Número de alumnos en clase:&quot;)
+num_alumnos &lt;- scan(n=1)
+sobresalientes &lt;- c()
+for(i in 1:num_alumnos){
+  source(&quot;nota_media.R&quot;)
+  if(lista$nota_media &gt;= 9) {
+    sobresalientes[i] &lt;- lista$nombre
+  } 
+}
+lista_sb &lt;- list(alumnos_sobresalientes=sobresalientes)
+print(lista_sb)
+</code></pre></div>
+</td></tr></table>
+
+</details>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Cree un script llamado juego_adivinar_num.R que permita jugar a adivinar un número aleatorio del 1 al 10. ¿Serías capaz de crear un cuaderno de R donde expliques el programa?<details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>secreto &lt;- sample(1:10,1)
+found &lt;- TRUE            
+while(found){
+  print(&quot;Prueba un número: &quot;)
+  n &lt;- scan(n=1)
+  if (n&lt;secreto) {
+    print(&quot;El numero que has pensado es mayor&quot;)
+  } else {
+    print (&quot;El numero que has pensado es menor&quot;)
+  }
+  if (n==secreto){
+    print(&quot;¡ACERTASTE!&quot;)
+    break
+  }
+}
+</code></pre></div>
+</td></tr></table>
+
+<p>Consulta en el siguiente fichero si tu cuaderno es correcto: <a href="../Rmd/juego_adivinar.Rmd">juego_adivinar.Rmd</a></p>
+</details>
+</p>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">Enlaces de interés</p>
+<ul>
+<li>
+<p><a href="https://swcarpentry.github.io/r-novice-gapminder-es/"><strong>R para Análisis Científicos Reproducibles.</strong> <em>Software                         Carpentry.</em></a></p>
+</li>
+<li>
+<p><a href="https://bookdown.org/jboscomendoza/r-principiantes4/"><strong>R para principiantes.</strong> <em>Juan Bosco Mendoza Vega</em>.</a></p>
+</li>
+<li>
+<p><a href="https://cran.r-project.org/doc/contrib/Santana_El_arte_de_programar_en_R.pdf"><strong>El arte de programar en R: Un lenguaje para la estadística.</strong> <em>Julio Sergio Santana &amp; Efraín Mateos Farfán.</em></a></p>
+</li>
+<li>
+<p>Material del curso <strong>Informática aplicada a la Bioquímica</strong>. <em>Manuel Jesús Marín Jiménez</em>, <em>Universidad de Córdoba</em>.</p>
+</li>
+</ul>
+</div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../estructuras_datos/" title="Estructuras de datos" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Anterior
+                </span>
+                Estructuras de datos
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../funciones/" title="Funciones" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Siguiente
+                </span>
+                Funciones
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.es.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

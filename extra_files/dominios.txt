@@ -1,0 +1,14 @@
+codigo_pdb dominio aa_sitio_union
+2BZW/BCLxl BH1 9
+1YSI/BCLxl BH1 6
+2BZW/BCLxl BH2 3
+1YSI/BCLxl BH2 2
+2BZW/BCLxl BH3 2
+1YSI/BCLxl BH3 1
+2BZW/BAD BH3 10
+2BZW/BAD Ninguno 6
+1YSI/BCLxl BH4 0
+2BZW/BCLxl BH4 0
+2BZW/BCLxl Ninguno 11 
+1YSI/BCLxl Ninguno 3
+

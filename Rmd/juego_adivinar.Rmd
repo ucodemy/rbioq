@@ -1,0 +1,31 @@
+---
+title: "Cadenas de caracteres: FASTA"
+author: "Ismael Sánchez Pareja"
+date: "Junio 2020"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+En primer lugar, asignamos a una variable el número a adivinar, el cual se elige de forma aleatoria por el programa. La asignación lógica a _found_ permite que el bucle _while_ se lleve a cabo hasta que no se cumpla ninguna condición de la siguiente contrucción, lo que significaría que se acertó el número y permite abandonar la construcción, finalizando así el programa. El bucle _while_ posibilita que el usuario pruebe con un número hasta que acierte. La construcción que contiene dicho bucle ofrece pistas sobre el número a adivinar.
+```{r}
+secreto <- sample(1:10,1)
+found <- TRUE
+while(found){
+  print("Prueba un número: ")
+  n <- scan(n=1)
+  if (n<secreto) {
+     print("El numero que has pensado es mayor")
+  } else if (n>secreto) {
+     print ("El numero que has pensado es menor")
+  } else (n==secreto){
+     print("¡ACERTASTE!")
+     break
+  }
+}
+```
