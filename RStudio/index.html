@@ -506,33 +506,33 @@
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>---
-title: &quot;Escribe tu titulo&quot;
-author: &quot;Escribe tu nombre&quot;
-date: &quot;Escribe la fecha&quot;
-output:
-    pdf_document: default
-    html_document: default
-    word_document: default
----
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="o">---</span>
+<span class="n">title</span><span class="o">:</span> <span class="s">&quot;Escribe tu titulo&quot;</span>
+<span class="n">author</span><span class="o">:</span> <span class="s">&quot;Escribe tu nombre&quot;</span>
+<span class="n">date</span><span class="o">:</span> <span class="s">&quot;Escribe la fecha&quot;</span>
+<span class="n">output</span><span class="o">:</span>
+    <span class="n">pdf_document</span><span class="o">:</span> <span class="n">default</span>
+    <span class="n">html_document</span><span class="o">:</span> <span class="n">default</span>
+    <span class="n">word_document</span><span class="o">:</span> <span class="n">default</span>
+<span class="o">---</span>
 </code></pre></div>
 </td></tr></table>
 
 <p>Para que aparezca el código R en el documento final es necesario incluir esto: </p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">```{r setup, include=FALSE}</span>
+<span class="n">knitr::opts_chunk$set(echo = TRUE)</span>
+<span class="n">```</span>
 </code></pre></div>
 </td></tr></table>
 
 <p>El código de R que se pretende publicar se inserta del siguiente modo: </p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>```{r}
-escribir código
-```
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">```{r}</span>
+<span class="n">escribir código</span>
+<span class="n">```</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -544,10 +544,10 @@ escribir código
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>**Negrita** 
-__Negrita__
-\cursiva\
-_cursiva_
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="o">**</span><span class="n">Negrita</span><span class="o">**</span> 
+__<span class="n">Negrita__</span>
+\<span class="n">cursiva</span>\
+_<span class="n">cursiva_</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -559,9 +559,9 @@ _cursiva_
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code># Apartado 1 
-## Apartado 1.1 
-### Apartado 1.1.1.
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1"># Apartado 1 </span>
+<span class="c1">## Apartado 1.1 </span>
+<span class="c1">### Apartado 1.1.1.</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -596,34 +596,34 @@ _cursiva_
 25
 26
 27
-28</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>---
-title: &quot;Raíz cuadrada de un número&quot;
-author: &quot;Ismael Sánchez Pareja&quot;
-date: &quot;Junio 2020&quot;
-output:
-  html_document: default
-  html_notebook: default
-  pdf_document: default
-    ---
+28</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="o">---</span>
+<span class="n">title</span><span class="o">:</span> <span class="s">&quot;Raíz cuadrada de un número&quot;</span>
+<span class="n">author</span><span class="o">:</span> <span class="s">&quot;Ismael Sánchez Pareja&quot;</span>
+<span class="n">date</span><span class="o">:</span> <span class="s">&quot;Junio 2020&quot;</span>
+<span class="n">output</span><span class="o">:</span>
+  <span class="n">html_document</span><span class="o">:</span> <span class="n">default</span>
+  <span class="n">html_notebook</span><span class="o">:</span> <span class="n">default</span>
+  <span class="n">pdf_document</span><span class="o">:</span> <span class="n">default</span>
+<span class="o">---</span>
 
-# Enunciado del problema
-Deseamos calcular la raíz cuadrada de un numero dado. Puesto que la funcion raíz cuadrada no esta definida para valores negativos, el programa debe controlar dicha situacion y mostrar un error en tal caso.
+<span class="c1"># Enunciado del problema</span>
+<span class="n">Deseamos</span> <span class="n">calcular</span> <span class="n">la</span> <span class="n">raíz</span> <span class="n">cuadrada</span> <span class="n">de</span> <span class="n">un</span> <span class="n">numero</span> <span class="n">dado.</span> <span class="n">Puesto</span> <span class="n">que</span> <span class="n">la</span> <span class="n">funcion</span> <span class="n">raíz</span> <span class="n">cuadrada</span> <span class="n">no</span> <span class="n">esta</span> <span class="n">definida</span> <span class="n">para</span> <span class="n">valores</span> <span class="n">negativos</span><span class="p">,</span> <span class="n">el</span> <span class="n">programa</span> <span class="n">debe</span> <span class="n">controlar</span> <span class="n">dicha</span> <span class="n">situacion</span> <span class="n">y</span> <span class="n">mostrar</span> <span class="n">un</span> <span class="n">error</span> <span class="n">en</span> <span class="n">tal</span> <span class="n">caso.</span>
 
-$$ f(x) = \sqrt(x) $$
+<span class="o">$$</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> \<span class="nf">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">$$</span>
 
-# Codigo del programa
-```{r}
-print(&quot;Introduce un numero&quot;)
-# x &lt;- scan(n=1)
-x &lt;- 31         # Valor constante para hacer Knit
+<span class="c1"># Codigo del programa</span>
+<span class="n">```{r}</span>
+<span class="n">print(&quot;Introduce un numero&quot;)</span>
+<span class="n"># x &lt;- scan(n=1)</span>
+<span class="n">x &lt;- 31         # Valor constante para hacer Knit</span>
 
-if (x &lt; 0) {
-    print(&quot;ERROR: el valor debe ser positivo.&quot;)  # Puedes usar stop, pero no va a generar el Knit
-} else {
-   y &lt;- sqrt(x)
-   cat(&quot;La raíz cuadrada de&quot;, x, &quot;vale&quot;, y, &quot;\n&quot;)
-}
-```
+<span class="n">if (x &lt; 0) {</span>
+<span class="n">    print(&quot;ERROR: el valor debe ser positivo.&quot;)  # Puedes usar stop, pero no va a generar el Knit</span>
+<span class="n">} else {</span>
+<span class="n">   y &lt;- sqrt(x)</span>
+<span class="n">   cat(&quot;La raíz cuadrada de&quot;, x, &quot;vale&quot;, y, &quot;\n&quot;)</span>
+<span class="n">}</span>
+<span class="n">```</span>
 </code></pre></div>
 </td></tr></table>
 

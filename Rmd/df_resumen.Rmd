@@ -146,6 +146,7 @@ dominios %>% filter(aa_sitio_union >= 6 & codigo_pdb=="2BZW/BCLxl") %>% select(d
 La función ```separate()``` del paquete _tidyr_ de la biblioteca _tidyverse_ permite llevar a cabo esta división de una variable en otras diferentes.
 
 ```{r}
+library(tidyr)
 dominios %>% separate(codigo_pdb, into=c("codigoPDB","proteina"))
 ```
 
@@ -161,5 +162,6 @@ wide_dominios2 <- dominios %>% pivot_wider(names_from="codigo_pdb", values_from=
 El paquete _reshape2_ también ofrece funciones que llevan a cabo el cambio de formato.
 
 ```{r}
+library(reshape2)
 dcast(dominios, dominio~codigo_pdb)
 ```

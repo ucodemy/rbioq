@@ -458,14 +458,14 @@
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>R
-getwd()
-dir.create(&quot;tutorial&quot;)
-list.dirs()
-file.rename(&quot;tutorial&quot;, &quot;biotutorialR&quot;)
-setwd(&quot;biotutorialR&quot;)
-list.files()
-q()
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">R</span>
+<span class="nf">getwd</span><span class="p">()</span>
+<span class="nf">dir.create</span><span class="p">(</span><span class="s">&quot;tutorial&quot;</span><span class="p">)</span>
+<span class="nf">list.dirs</span><span class="p">()</span>
+<span class="nf">file.rename</span><span class="p">(</span><span class="s">&quot;tutorial&quot;</span><span class="p">,</span> <span class="s">&quot;biotutorialR&quot;</span><span class="p">)</span>
+<span class="nf">setwd</span><span class="p">(</span><span class="s">&quot;biotutorialR&quot;</span><span class="p">)</span>
+<span class="nf">list.files</span><span class="p">()</span>
+<span class="nf">q</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -512,8 +512,8 @@ q()
 <div class="admonition question">
 <p class="admonition-title">¿Qué operaciones realizarían las funciones <code>mean()</code>, <code>quantile()</code>, <code>length()</code>, <code>summary()</code> y <code>sd()</code>?<details class="answer"><summary>Respuesta</summary><p>Las tres primeras se han mencionado anteriormente como funciones básicas en el mismo orden que se preguntan, aunque si no se está seguro se puede recurrir a su documentación.  <code>summary()</code> y <code>sd()</code> podrían llevar a duda, por lo que se van a utilizar como ejemplo de acceso a documentación. </p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>help(summary)
-?sd()
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">help</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
+<span class="o">?</span><span class="nf">sd</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -527,10 +527,10 @@ q()
 <details class="answer"><summary>Método</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>sessionInfo()
-update.packages(&quot;graphics&quot;)
-install.packages(&quot;tidyverse&quot;)
-library(&quot;stringr&quot;)
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">sessionInfo</span><span class="p">()</span>
+<span class="nf">update.packages</span><span class="p">(</span><span class="s">&quot;graphics&quot;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;tidyverse&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&quot;stringr&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -539,7 +539,7 @@ library(&quot;stringr&quot;)
 <h3 id="descarga-de-ficheros">Descarga de ficheros<a class="headerlink" href="#descarga-de-ficheros" title="Permanent link">&para;</a></h3>
 <p>En una sesión de R se pueden descargar archivos mediante la función <code>download.file()</code>, indicando en el argumento <em>url</em> la dirección de internet donde se encuentra el archivo que se pretende descargar, y en <em>destfile</em> el nombre con el que se quiera guardar el archivo en el ordenador, ambos entre comillas. </p>
 <div class="admonition example">
-<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>download.file(url=&quot;https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?tool=portal&amp;save=file&amp;log$=seqview&amp;db=nuccore&amp;report=fasta&amp;id=973795115&amp;extrafeat=null&amp;conwithfeat=on&amp;&quot;, destfile=&quot;prueba.fasta&quot;)
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">download.file</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&quot;https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?tool=portal&amp;save=file&amp;log$=seqview&amp;db=nuccore&amp;report=fasta&amp;id=973795115&amp;extrafeat=null&amp;conwithfeat=on&amp;&quot;</span><span class="p">,</span> <span class="n">destfile</span><span class="o">=</span><span class="s">&quot;prueba.fasta&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -551,10 +551,10 @@ library(&quot;stringr&quot;)
 <p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>x &lt;- readline(prompt=&quot;Indique su nombre: &quot;)
-print(&quot;¿Qué edad tiene?&quot;)
-y &lt;- scan(n=1) 
-cat(x, &quot;tiene&quot;, y, &quot;años.&quot;)
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">readline</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s">&quot;Indique su nombre: &quot;</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&quot;¿Qué edad tiene?&quot;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> 
+<span class="nf">cat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&quot;tiene&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&quot;años.&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -568,8 +568,8 @@ La función <code>cat()</code> no permite incluir ciertas <a href="../estructura
 <div class="admonition question">
 <p class="admonition-title">¿Cómo mostrarías el mensaje "¡Hola Mundo!" por la pantalla?</p>
 <details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;¡Hola Mundo!&quot;)
-cat(&quot;¡Hola Mundo!\n&quot;)
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print</span><span class="p">(</span><span class="s">&quot;¡Hola Mundo!&quot;</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;¡Hola Mundo!\n&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 

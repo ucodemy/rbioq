@@ -348,9 +348,9 @@
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>df_tabla_imp &lt;- read.table(file=&quot;datos_tutorial.txt&quot;, header=FALSE, sep=&#39;&#39;, col.names=c(&quot;ProtA&quot;, &quot;ProtB&quot;, &quot;CMO&quot;, &quot;RMSD&quot;))
-df_table_csv &lt;- r ead.table(file=&quot;csv_tutorial.csv&quot;, header= T, sep=&#39;,&#39;)
-df_csv &lt;- read.csv(file=&quot;csv_tutorial.csv&quot;)
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">df_tabla_imp</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s">&quot;datos_tutorial.txt&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">col.names</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;ProtA&quot;</span><span class="p">,</span> <span class="s">&quot;ProtB&quot;</span><span class="p">,</span> <span class="s">&quot;CMO&quot;</span><span class="p">,</span> <span class="s">&quot;RMSD&quot;</span><span class="p">))</span>
+<span class="n">df_table_csv</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s">&quot;csv_tutorial.csv&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">df_csv</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s">&quot;csv_tutorial.csv&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -360,9 +360,9 @@ df_csv &lt;- read.csv(file=&quot;csv_tutorial.csv&quot;)
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>library(readxl)
-excel_sheets(&quot;excel_tutorial.xlsx&quot;)
-excel_imp &lt;- read_excel(path=&quot;excel_tutorial.xlsx&quot;, sheet=&quot;Hoja1&quot;, range=&quot;A1:B5&quot;)
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span>
+<span class="nf">excel_sheets</span><span class="p">(</span><span class="s">&quot;excel_tutorial.xlsx&quot;</span><span class="p">)</span>
+<span class="n">excel_imp</span> <span class="o">&lt;-</span> <span class="nf">read_excel</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s">&quot;excel_tutorial.xlsx&quot;</span><span class="p">,</span> <span class="n">sheet</span><span class="o">=</span><span class="s">&quot;Hoja1&quot;</span><span class="p">,</span> <span class="n">range</span><span class="o">=</span><span class="s">&quot;A1:B5&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -371,8 +371,8 @@ excel_imp &lt;- read_excel(path=&quot;excel_tutorial.xlsx&quot;, sheet=&quot;Hoj
 <p>En ocasiones, el archivo a importar puede contener una disposición de los datos desconocida, por lo que visualizar su contenido ayudaría a conocer las características que deben incluir los argumentos de las funciones anteriores para una importación correcta y deseada. El modo más simple de observar aquello que conforma el archivo es empleando la función <code>file.show()</code>. Si bien, se puede contemplar de otros modos como, por ejemplo, línea por línea, a partir de la función <code>readLines()</code>, que devuelve un vector de cadenas de las líneas que constituyen el archivo. Ambas funciones requieren el nombre del archivo entre comillas.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>file.show(&quot;csv_tutorial.csv&quot;)
-readLines(&quot;csv_tutorial.csv&quot;)
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">file.show</span><span class="p">(</span><span class="s">&quot;csv_tutorial.csv&quot;</span><span class="p">)</span>
+<span class="nf">readLines</span><span class="p">(</span><span class="s">&quot;csv_tutorial.csv&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -384,11 +384,11 @@ readLines(&quot;csv_tutorial.csv&quot;)
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>write.table(x=df_table_csv, file=&quot;df_table_csv&quot;, sep=&quot;,&quot;)
-write.csv(x=df_table_csv, file=&quot;df_table.csv&quot;)
-install.packages(&quot;writexl&quot;)
-library(writexl)
-write_xlsx(excel_imp, &quot;excel_exp.xlsx&quot;)
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">write.table</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_table_csv</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s">&quot;df_table_csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;,&quot;</span><span class="p">)</span>
+<span class="nf">write.csv</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_table_csv</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s">&quot;df_table.csv&quot;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;writexl&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">writexl</span><span class="p">)</span>
+<span class="nf">write_xlsx</span><span class="p">(</span><span class="n">excel_imp</span><span class="p">,</span> <span class="s">&quot;excel_exp.xlsx&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -399,10 +399,10 @@ write_xlsx(excel_imp, &quot;excel_exp.xlsx&quot;)
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>saveRDS(object = list(&quot;a&quot;=c(1,2), &quot;b&quot;=c(3,4), &quot;c&quot;=c(5,6)), file=&quot;lista_exp.rds&quot;)
-lista_rds &lt;- readRDS(lista_exp.rds)
-save(df_table_csv, df_csv, file=&quot;ejemplo_save.Rdata&quot;)
-load(&quot;ejemplo_save.Rdata&quot;)
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">saveRDS</span><span class="p">(</span><span class="n">object</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span> <span class="s">&quot;b&quot;</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">),</span> <span class="s">&quot;c&quot;</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">)),</span> <span class="n">file</span><span class="o">=</span><span class="s">&quot;lista_exp.rds&quot;</span><span class="p">)</span>
+<span class="n">lista_rds</span> <span class="o">&lt;-</span> <span class="nf">readRDS</span><span class="p">(</span><span class="n">lista_exp.rds</span><span class="p">)</span>
+<span class="nf">save</span><span class="p">(</span><span class="n">df_table_csv</span><span class="p">,</span> <span class="n">df_csv</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s">&quot;ejemplo_save.Rdata&quot;</span><span class="p">)</span>
+<span class="nf">load</span><span class="p">(</span><span class="s">&quot;ejemplo_save.Rdata&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 

@@ -63,7 +63,7 @@ En primer lugar se carga el paquete _ggplot2_. A continuación, la función ```g
 ### Apartado 2.A
 
 ```{r}
-jpg(filename="graf_2A.jpg", width = 500, height = 500)
+jpeg(filename="graf_2A.jpg", width = 500, height = 500)
 plot(clase$grupo, main = "Alumnos por grupo", xlab = "Grupo", ylab = "Cantidad", col = c("green4", "red4", "yellow3"))
 dev.off()
 ```
@@ -103,7 +103,7 @@ ggsave("boxplot_2Bgg.jpg")
 ### Apartado 2.C
 
 ```{r}
-ggplot(a, aes(x=notas_medias, fill=clase, alpha=0.1)) + geom_density() + ggtitle("Distribuición de las notas medias por clase") + labs(x = "Notas medias", y = "Densidad") + theme_few()
+ggplot(clase, aes(x=notas_medias, fill=grupo, alpha=0.1)) + geom_density() + ggtitle("Distribuición de las notas medias por clase") + labs(x = "Notas medias", y = "Densidad") + theme_few()
 ggsave("clase_2C.png")
 ```
 

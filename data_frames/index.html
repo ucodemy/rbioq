@@ -555,7 +555,7 @@
                   <h1>Manipulación de data frames</h1>
                 
                 <p>Los <em>data frames</em> son objetos recursivos que pueden reunir en su contenido los diferentes tipos de objetos básicos (numérico, vector, etc). Su estructura bidimensional, ordenada por columnas (variables), filas (observaciones) y celdas (valores), facilita el almacenamiento de datos con los que se trabaja frecuentemente en cualquier área, puesto que se podría entender como una tabla o una matriz. Si bien, el término anglicano <em>data frame</em>, es empleado en campos donde la vía de manipulación de sus datos es la informática y tiene una finalidad estadística, como la bioinformática. De hecho, en el apartado <a href="graficacion_md">Graficación</a> se requiere este tipo de objeto o aquellos que sean coercionables a <em>data frame</em> para la graficación avanzada con <em>ggplot2</em>. </p>
-<p>En primer lugar, sería recomendable recordar los conocimientos básicos que tenemos de los <em>dataframes</em>, los cuales se encuentran en <a href="../estructuras_control/">Estructuras de control</a>. Para ello se muestra un simple ejemplo a continuación:</p>
+<p>En primer lugar, sería recomendable recordar los conocimientos básicos que tenemos de los <em>data frames</em>, los cuales se encuentran en <a href="../estructuras_control/">Estructuras de control</a>. Para ello se muestra un simple ejemplo a continuación:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -567,18 +567,18 @@
  9
 10
 11
-12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>a &lt;- c(1,2,2,1,2,1,1,2)
-b &lt;- c(5,6,3,1,4,2,7,8)
-df &lt;- data.frame(a,b)                                   #Creación a partir de vectores
-c &lt;- c(&quot;A&quot;,&quot;C&quot;,&quot;B&quot;,&quot;F&quot;,&quot;E&quot;,&quot;G&quot;,&quot;H&quot;,&quot;D&quot;)     
-df &lt;- cbind(df, c)                                      #Nueva columna
-colnames(df) &lt;- c(&quot;Clase&quot;, &quot;Notas_medias&quot;, &quot;Profesor&quot;)  #Nombres de columnas
-a1 &lt;- df[1,1]                                           #Subconjuntos 
-B &lt;- df[,2]
-c5 &lt;- df[5, &quot;Profesor&quot;]
-C5 &lt;- df$Profesor[5]
-df$Notas_medias[4] &lt;- sqrt(df$Notas_medias[5])          #Operaciones 
-df$Profesor &lt;- NULL                                     #Elimina columna
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">8</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>                                   <span class="c1">#Creación a partir de vectores</span>
+<span class="n">c</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="s">&quot;C&quot;</span><span class="p">,</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="s">&quot;F&quot;</span><span class="p">,</span><span class="s">&quot;E&quot;</span><span class="p">,</span><span class="s">&quot;G&quot;</span><span class="p">,</span><span class="s">&quot;H&quot;</span><span class="p">,</span><span class="s">&quot;D&quot;</span><span class="p">)</span>     
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>                                      <span class="c1">#Nueva columna</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Clase&quot;</span><span class="p">,</span> <span class="s">&quot;Notas_medias&quot;</span><span class="p">,</span> <span class="s">&quot;Profesor&quot;</span><span class="p">)</span>  <span class="c1">#Nombres de columnas</span>
+<span class="n">a1</span> <span class="o">&lt;-</span> <span class="n">df</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">]</span>                                           <span class="c1">#Subconjuntos </span>
+<span class="n">B</span> <span class="o">&lt;-</span> <span class="n">df</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span>
+<span class="n">c5</span> <span class="o">&lt;-</span> <span class="n">df</span><span class="p">[</span><span class="m">5</span><span class="p">,</span> <span class="s">&quot;Profesor&quot;</span><span class="p">]</span>
+<span class="n">C5</span> <span class="o">&lt;-</span> <span class="n">df</span><span class="o">$</span><span class="n">Profesor</span><span class="p">[</span><span class="m">5</span><span class="p">]</span>
+<span class="n">df</span><span class="o">$</span><span class="n">Notas_medias</span><span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Notas_medias</span><span class="p">[</span><span class="m">5</span><span class="p">])</span>          <span class="c1">#Operaciones </span>
+<span class="n">df</span><span class="o">$</span><span class="n">Profesor</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>                                     <span class="c1">#Elimina columna</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -588,9 +588,9 @@ df$Profesor &lt;- NULL                                     #Elimina columna
 <div class="admonition example">
 <p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>attach(df)
-mean(Notas_medias)
-detach(df)
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">attach</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nf">mean</span><span class="p">(</span><span class="n">Notas_medias</span><span class="p">)</span>
+<span class="nf">detach</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -599,7 +599,7 @@ detach(df)
 <h3 id="funcion-order">Función order()<a class="headerlink" href="#funcion-order" title="Permanent link">&para;</a></h3>
 <p>Esta función permite ordenar predeterminadamente de forma creciente el contenido del <em>data frame</em> seleccionado. El argumento <em>decreasing=T</em> cambia el sentido de la ordenación a decreciente. </p>
 <div class="admonition example">
-<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>df &lt;- df[order(df$Notas_medias, decreasing=T),]
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Notas_medias</span><span class="p">,</span> <span class="n">decreasing</span><span class="o">=</span><span class="bp">T</span><span class="p">),]</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -609,8 +609,8 @@ detach(df)
 <p>Esta función permite aplicar otras funciones al total del <em>data frame</em> numérico. Esto es posible indicando en su interior el <em>data frame</em> deseado, si actúa por fila o columna (números 1 y 2, respectivamente), y la función a realizar. Esta función se dirige a matrices o <em>data frames</em> de contenido numérico, ya que produce <code>NA</code> en las celdas cuyo objeto atómico es de otro tipo.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>ejemplo_apply &lt;- apply(df,2,mean)
-ejemplo_apply2 &lt;- apply(df,2,sum)
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">ejemplo_apply</span> <span class="o">&lt;-</span> <span class="nf">apply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="n">mean</span><span class="p">)</span>
+<span class="n">ejemplo_apply2</span> <span class="o">&lt;-</span> <span class="nf">apply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="n">sum</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -619,7 +619,7 @@ ejemplo_apply2 &lt;- apply(df,2,sum)
 <h3 id="funcion-by">Función by()<a class="headerlink" href="#funcion-by" title="Permanent link">&para;</a></h3>
 <p>Mediante <code>by()</code> se puede aplicar una función determinada a un subgrupo del <em>data frame</em>. En primer lugar, se indica la columna a partir de la cual se pretende tomar las categorías que dividen el <em>data frame</em>. A continuación, se indica la columna cuyos valores se someterán a la función, que se indica justo después. El resultado es contenido en un tipo de objeto específico denominado <em>by</em>.</p>
 <div class="admonition example">
-<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>ejemplo_by &lt;- by(df$Notas_medias, df$Clase, summary)
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">ejemplo_by</span> <span class="o">&lt;-</span> <span class="nf">by</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Notas_medias</span><span class="p">,</span> <span class="n">df</span><span class="o">$</span><span class="n">Clase</span><span class="p">,</span> <span class="n">summary</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -628,7 +628,7 @@ ejemplo_apply2 &lt;- apply(df,2,sum)
 <h3 id="funcion-aggregate">Función aggregate()<a class="headerlink" href="#funcion-aggregate" title="Permanent link">&para;</a></h3>
 <p>Esta función es muy similar a <code>by()</code>. La diferencia radica en sus argumentos y el resultado, ya que la columna debe ser presentada como una lista y el resultado es de tipo <em>data frame</em>.</p>
 <div class="admonition example">
-<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>ejemplo_aggregate &lt;- aggregate(df$Notas_medias, list(df$Clase), summary)
+<p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">ejemplo_aggregate</span> <span class="o">&lt;-</span> <span class="nf">aggregate</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Notas_medias</span><span class="p">,</span> <span class="nf">list</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">Clase</span><span class="p">),</span> <span class="n">summary</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -637,7 +637,7 @@ ejemplo_apply2 &lt;- apply(df,2,sum)
 <h3 id="funcion-split">Función split()<a class="headerlink" href="#funcion-split" title="Permanent link">&para;</a></h3>
 <p>El <em>data frame</em> puede ser dividido atendiendo a sus factores mediante esta función. El resultado es contenido en una lista. </p>
 <div class="admonition example">
-<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>ejemplo_split &lt;- split(df,df$Clase)
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">ejemplo_split</span> <span class="o">&lt;-</span> <span class="nf">split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">df</span><span class="o">$</span><span class="n">Clase</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -645,7 +645,7 @@ ejemplo_apply2 &lt;- apply(df,2,sum)
 </div>
 <h3 id="funcion-subset">Función subset()<a class="headerlink" href="#funcion-subset" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
-<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>ejemplo_subset &lt;- subset(df, Clase==1 &amp; Notas_medias&gt;=5, select = Notas_medias)
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">ejemplo_subset</span> <span class="o">&lt;-</span> <span class="nf">subset</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">Clase</span><span class="o">==</span><span class="m">1</span> <span class="o">&amp;</span> <span class="n">Notas_medias</span><span class="o">&gt;=</span><span class="m">5</span><span class="p">,</span> <span class="n">select</span> <span class="o">=</span> <span class="n">Notas_medias</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -656,9 +656,9 @@ ejemplo_apply2 &lt;- apply(df,2,sum)
 <div class="admonition example">
 <p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>df2 &lt;- data.frame(aa=c(&quot;Val&quot;, &quot;Glu&quot;, &quot;Arg&quot;), polaridad=c(&quot;No polar&quot;, &quot;Ácido&quot;, &quot;Básico&quot;))
-df3 &lt;- data.frame(aa=c(&quot;Glu&quot;, &quot;Arg&quot;, &quot;Ile&quot;), cantidad=c(23,10,14))
-ejemplo_merge &lt;- merge(df2,df3,by=&quot;aa&quot;)
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">df2</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">aa</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Val&quot;</span><span class="p">,</span> <span class="s">&quot;Glu&quot;</span><span class="p">,</span> <span class="s">&quot;Arg&quot;</span><span class="p">),</span> <span class="n">polaridad</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;No polar&quot;</span><span class="p">,</span> <span class="s">&quot;Ácido&quot;</span><span class="p">,</span> <span class="s">&quot;Básico&quot;</span><span class="p">))</span>
+<span class="n">df3</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">aa</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Glu&quot;</span><span class="p">,</span> <span class="s">&quot;Arg&quot;</span><span class="p">,</span> <span class="s">&quot;Ile&quot;</span><span class="p">),</span> <span class="n">cantidad</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">23</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">14</span><span class="p">))</span>
+<span class="n">ejemplo_merge</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span><span class="n">df3</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="s">&quot;aa&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -666,20 +666,26 @@ ejemplo_merge &lt;- merge(df2,df3,by=&quot;aa&quot;)
 </div>
 <h2 id="formatos-de-un-data-frame">Formatos de un <em>data frame</em><a class="headerlink" href="#formatos-de-un-data-frame" title="Permanent link">&para;</a></h2>
 <p>Los <em>data frame</em> pueden encontrarse en formato "wide" o "long" (ancho o largo), aunque existen modos parciales. El tipo de formato que presente el <em>data frame</em> es crucial en diferentes tipos de paquetes para tomar la información y tratarla. </p>
-<p>El conjunto de datos muestran formato ancho cuando diversos valores se encuentran en múltiples columnas. En cambio, el formato largo se refiere al <em>data frame</em> que contiene varias observaciones por variable. La comprensión de los formatos se agudiza con un ejemplo demostrativo: </p>
+<p>El conjunto de datos muestran formato ancho cuando diversos valores se encuentran en múltiples columnas. En cambio, el formato largo se refiere al <em>data frame</em> que contiene varias observaciones por variable. La diferencia es apreciable en los siguientes casos:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>wide &lt;- data.frame(aa=c(&quot;Glu&quot;, &quot;Cys&quot;), enzima=c(&quot;SOD&quot;,&quot;GSH&quot;), p_hidrógeno=c(4,5), p_disulfuro=c(2,1))
-long &lt;- data.frame(aa=c(&quot;Glu&quot;, &quot;Cys&quot;, &quot;Glu&quot;, &quot;Cys&quot;), enzima=c(&quot;SOD&quot;,&quot;GSH&quot;,&quot;SOD&quot;,&quot;GSH&quot;), interaccion_puentes=c(&quot;hidrógeno&quot;,&quot;disulfuro&quot;,&quot;disulfuro&quot;,&quot;hidrógeno&quot;), cantidad=c(4,2,1,5))
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">wide</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">aa</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Glu&quot;</span><span class="p">,</span> <span class="s">&quot;Cys&quot;</span><span class="p">),</span> <span class="n">enzima</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;SOD&quot;</span><span class="p">,</span><span class="s">&quot;GSH&quot;</span><span class="p">),</span> <span class="n">p_hidrógeno</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">),</span> <span class="n">p_disulfuro</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="n">long</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">aa</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Glu&quot;</span><span class="p">,</span> <span class="s">&quot;Cys&quot;</span><span class="p">,</span> <span class="s">&quot;Glu&quot;</span><span class="p">,</span> <span class="s">&quot;Cys&quot;</span><span class="p">),</span> <span class="n">enzima</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;SOD&quot;</span><span class="p">,</span><span class="s">&quot;GSH&quot;</span><span class="p">,</span><span class="s">&quot;SOD&quot;</span><span class="p">,</span><span class="s">&quot;GSH&quot;</span><span class="p">),</span> <span class="n">interaccion_puentes</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;hidrógeno&quot;</span><span class="p">,</span><span class="s">&quot;disulfuro&quot;</span><span class="p">,</span><span class="s">&quot;disulfuro&quot;</span><span class="p">,</span><span class="s">&quot;hidrógeno&quot;</span><span class="p">),</span> <span class="n">cantidad</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
 
-<p><em>R base</em> ofrece unas funciones para transformar el <em>data frame</em> de un formato a otro, lo que se conoce como pivotar:
-- La función <code>stack()</code> rehace el <em>data frame</em> de formato ancho a largo.
-- La función <code>unstack()</code> al contrario.</p>
+<p><em>R base</em> ofrece unas funciones para transformar el <em>data frame</em> de un formato a otro, lo que se conoce como pivotar:</p>
+<ul>
+<li>
+<p>La función <code>stack()</code> rehace el <em>data frame</em> de formato ancho a largo.</p>
+</li>
+<li>
+<p>La función <code>unstack()</code> al contrario.</p>
+</li>
+</ul>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>wide_a_long &lt;- stack(wide, select=c(p_hidrógeno, p_disulfuro))
-long_a_wide &lt;- unstack(long, cantidad~interaccion_puentes)
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">wide_a_long</span> <span class="o">&lt;-</span> <span class="nf">stack</span><span class="p">(</span><span class="n">wide</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="n">p_hidrógeno</span><span class="p">,</span> <span class="n">p_disulfuro</span><span class="p">))</span>
+<span class="n">long_a_wide</span> <span class="o">&lt;-</span> <span class="nf">unstack</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">cantidad</span><span class="o">~</span><span class="n">interaccion_puentes</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -690,10 +696,10 @@ long_a_wide &lt;- unstack(long, cantidad~interaccion_puentes)
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>install.packages(&quot;reshape2&quot;)
-library(reshape2)
-wide_a_long_reshape2 &lt;- melt(wide)
-long_a_wide_reshape2 &lt;- dcast(long, aa~interaccion_puentes)
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;reshape2&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">reshape2</span><span class="p">)</span>
+<span class="n">wide_a_long_reshape2</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">wide</span><span class="p">)</span>
+<span class="n">long_a_wide_reshape2</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">aa</span><span class="o">~</span><span class="n">interaccion_puentes</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -703,9 +709,9 @@ long_a_wide_reshape2 &lt;- dcast(long, aa~interaccion_puentes)
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>library(tidyr)
-wide_a_long_tidyr &lt;- gather(wide, key = &quot;interaccion&quot;, value = &quot;cantidad&quot;, 3:4)
-long_a_wide_tidyr &lt;- spread(long,key=&quot;interaccion_puentes&quot;,value = &quot;cantidad&quot;, 3:4)
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span>
+<span class="n">wide_a_long_tidyr</span> <span class="o">&lt;-</span> <span class="nf">gather</span><span class="p">(</span><span class="n">wide</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="s">&quot;interaccion&quot;</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s">&quot;cantidad&quot;</span><span class="p">,</span> <span class="m">3</span><span class="o">:</span><span class="m">4</span><span class="p">)</span>
+<span class="n">long_a_wide_tidyr</span> <span class="o">&lt;-</span> <span class="nf">spread</span><span class="p">(</span><span class="n">long</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="s">&quot;interaccion_puentes&quot;</span><span class="p">,</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;cantidad&quot;</span><span class="p">,</span> <span class="m">3</span><span class="o">:</span><span class="m">4</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -715,8 +721,8 @@ long_a_wide_tidyr &lt;- spread(long,key=&quot;interaccion_puentes&quot;,value = 
 <p>De hecho, <code>gather()</code> y <code>spread()</code> pueden ser sustituidos por las funciones <code>pivot_longer()</code> y <code>pivot_wider()</code>, respectivamente, si se utiliza el pipe para conectar con el objeto. </p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>wide_a_long_pipe &lt;- wide %&gt;% pivot_longer(3:4, names_to=&quot;interaccion&quot;, values_to=&quot;cantidad&quot;)
-long_a_wide_pipe &lt;- long %&gt;% pivot_wider(1:4, names_from=&quot;interaccion_puentes&quot;, values_from=&quot;cantidad&quot;)
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">wide_a_long_pipe</span> <span class="o">&lt;-</span> <span class="n">wide</span> <span class="o">%&gt;%</span> <span class="nf">pivot_longer</span><span class="p">(</span><span class="m">3</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="n">names_to</span><span class="o">=</span><span class="s">&quot;interaccion&quot;</span><span class="p">,</span> <span class="n">values_to</span><span class="o">=</span><span class="s">&quot;cantidad&quot;</span><span class="p">)</span>
+<span class="n">long_a_wide_pipe</span> <span class="o">&lt;-</span> <span class="n">long</span> <span class="o">%&gt;%</span> <span class="nf">pivot_wider</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="n">names_from</span><span class="o">=</span><span class="s">&quot;interaccion_puentes&quot;</span><span class="p">,</span> <span class="n">values_from</span><span class="o">=</span><span class="s">&quot;cantidad&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -725,8 +731,8 @@ long_a_wide_pipe &lt;- long %&gt;% pivot_wider(1:4, names_from=&quot;interaccion
 <p>Las funciones de <em>tidyr</em> <code>separate()</code> y <code>unite()</code> permiten separar o unir columnas, respectivamente, de acuerdo a la posición de un carácter separador.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>df &lt;- df %&gt;% unite(clase_nota, Clase, Notas_medias)
-df &lt;- df_unite %&gt;% separate(clase_nota, into=c(&quot;Clase&quot;, &quot;Notas_medias&quot;))
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span> <span class="nf">unite</span><span class="p">(</span><span class="n">clase_nota</span><span class="p">,</span> <span class="n">Clase</span><span class="p">,</span> <span class="n">Notas_medias</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df_unite</span> <span class="o">%&gt;%</span> <span class="nf">separate</span><span class="p">(</span><span class="n">clase_nota</span><span class="p">,</span> <span class="n">into</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Clase&quot;</span><span class="p">,</span> <span class="s">&quot;Notas_medias&quot;</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -737,9 +743,9 @@ df &lt;- df_unite %&gt;% separate(clase_nota, into=c(&quot;Clase&quot;, &quot;No
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>library(plyr)
-df_medias &lt;- ddply(.data = df, .variables = &quot;Clase&quot;, .fun = function(x) mean(x$Notas_medias))
-df_list_max &lt;- dlply(.data = df, .variables = &quot;Clase&quot;, .fun = function(x) max(x$Notas_medias))
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">plyr</span><span class="p">)</span>
+<span class="n">df_medias</span> <span class="o">&lt;-</span> <span class="nf">ddply</span><span class="p">(</span><span class="n">.data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">.variables</span> <span class="o">=</span> <span class="s">&quot;Clase&quot;</span><span class="p">,</span> <span class="n">.fun</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="o">$</span><span class="n">Notas_medias</span><span class="p">))</span>
+<span class="n">df_list_max</span> <span class="o">&lt;-</span> <span class="nf">dlply</span><span class="p">(</span><span class="n">.data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">.variables</span> <span class="o">=</span> <span class="s">&quot;Clase&quot;</span><span class="p">,</span> <span class="n">.fun</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="o">$</span><span class="n">Notas_medias</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -749,9 +755,9 @@ df_list_max &lt;- dlply(.data = df, .variables = &quot;Clase&quot;, .fun = funct
 <div class="admonition example">
 <p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>library(dplyr)
-df_clase1 &lt;- df %&gt;% filter(Clase==&quot;1&quot;) %&gt;% select(Notas_medias)
-df_clase2 &lt;- df %&gt;% filter(Clase==&quot;2&quot;) %&gt;% select(Notas_medias)
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<span class="n">df_clase1</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">Clase</span><span class="o">==</span><span class="s">&quot;1&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="n">Notas_medias</span><span class="p">)</span>
+<span class="n">df_clase2</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">Clase</span><span class="o">==</span><span class="s">&quot;2&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="n">Notas_medias</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -760,8 +766,8 @@ df_clase2 &lt;- df %&gt;% filter(Clase==&quot;2&quot;) %&gt;% select(Notas_media
 <p>Las funciones de <em>dplyr</em> <code>mutate()</code> y <code>transmute()</code> permiten añadir nuevas variables (columnas) a partir de las ya existentes. Esta última función mantiene solamente la variable creada.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>long_mutate &lt;- long %&gt;% mutate(porcentaje = cantidad / 5 * 100)
-long_transmute &lt;- long %&gt;% transmute(porcentaje = cantidad / 5 * 100)
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">long_mutate</span> <span class="o">&lt;-</span> <span class="n">long</span> <span class="o">%&gt;%</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">porcentaje</span> <span class="o">=</span> <span class="n">cantidad</span> <span class="o">/</span> <span class="m">5</span> <span class="o">*</span> <span class="m">100</span><span class="p">)</span>
+<span class="n">long_transmute</span> <span class="o">&lt;-</span> <span class="n">long</span> <span class="o">%&gt;%</span> <span class="nf">transmute</span><span class="p">(</span><span class="n">porcentaje</span> <span class="o">=</span> <span class="n">cantidad</span> <span class="o">/</span> <span class="m">5</span> <span class="o">*</span> <span class="m">100</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -769,7 +775,7 @@ long_transmute &lt;- long %&gt;% transmute(porcentaje = cantidad / 5 * 100)
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Ejercicio resumen</p>
-<p>El archivo <a href="../Rmd/df_resumen.Rmd">df_resumen.Rmd</a> contiene dos ejercicios de manipulación de <em>data frame</em> sobre los ficheros <a href="../extra_files/test1.xlsx">test1.xlsx</a>, <a href="../extra_files/test2.xlsx">test2.xlsx</a> y <a href="../extra_files/dominios.txt">dominios.txt</a> los cuales proceden de la realización de un proyecto durante el curso Aspectos Físico-Químicos de Interacciones en Biomoléculas. De este modo se pretende resumir de forma explicativa lo estudiado en este apartado. </p>
+<p>El archivo <a href="../Rmd/df_resumen.Rmd">df_resumen.Rmd</a> contiene dos ejercicios de manipulación de <em>data frame</em> sobre los ficheros <a href="../extra_files/test1.xlsx">test1.xlsx</a>, <a href="../extra_files/test2.xlsx">test2.xlsx</a> y <a href="../extra_files/dominios.txt">dominios.txt</a> los cuales proceden de la realización de un proyecto durante el curso Aspectos Físico-Químicos de Interacciones en Biomoléculas. De este modo se pretende resumir de forma explicativa lo estudiado en este apartado, por lo que requiere la instalación de las librerías <em>tidyverse</em> y <em>reshape2</em>.</p>
 </div>
 <div class="admonition quote">
 <p class="admonition-title">Enlaces de interés</p>

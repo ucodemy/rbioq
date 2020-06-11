@@ -408,10 +408,10 @@
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>cadena1 &lt;- &quot;Cadena realizada por estas comillas: \&quot;, apreciables como elemento gracias a \\&quot; 
-writeLines(cadena1)
-cadena2 &lt;- c(&quot;cadena1&quot;,&quot;\n&quot;,&quot;cadena2&quot;)
-writeLines(cadena2)
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">cadena1</span> <span class="o">&lt;-</span> <span class="s">&quot;Cadena realizada por estas comillas: \&quot;, apreciables como elemento gracias a \\&quot;</span> 
+<span class="nf">writeLines</span><span class="p">(</span><span class="n">cadena1</span><span class="p">)</span>
+<span class="n">cadena2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;cadena1&quot;</span><span class="p">,</span><span class="s">&quot;\n&quot;</span><span class="p">,</span><span class="s">&quot;cadena2&quot;</span><span class="p">)</span>
+<span class="nf">writeLines</span><span class="p">(</span><span class="n">cadena2</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -453,14 +453,14 @@ Mostramos algunas de ellas en la siguiente tabla:</p>
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>library(&quot;stringr&quot;)
-tamaño_cadena1A &lt;- nchar(cadena1)
-tamaño_cadena1B &lt;- nchar(cadena1)
-cadena1_reemplA &lt;- gsub(&quot;por&quot;, &quot;con&quot;, cadena1)
-cadena1_reemplB &lt;- str_replace(cadena1, &quot;por&quot;, &quot;con&quot;)
-cadena1_reempl_all &lt;- str_replace_all(cadena1, c(&quot;por&quot;=&quot;con&quot;, &quot;estas&quot;=&quot;&quot;))
-cadena1_sepA &lt;- strsplit(cadena1, &quot; &quot;)
-cadena1_sepB &lt;- str_split(cadena1, &quot; &quot;, simplify = TRUE)
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="s">&quot;stringr&quot;</span><span class="p">)</span>
+<span class="n">tamaño_cadena1A</span> <span class="o">&lt;-</span> <span class="nf">nchar</span><span class="p">(</span><span class="n">cadena1</span><span class="p">)</span>
+<span class="n">tamaño_cadena1B</span> <span class="o">&lt;-</span> <span class="nf">nchar</span><span class="p">(</span><span class="n">cadena1</span><span class="p">)</span>
+<span class="n">cadena1_reemplA</span> <span class="o">&lt;-</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;por&quot;</span><span class="p">,</span> <span class="s">&quot;con&quot;</span><span class="p">,</span> <span class="n">cadena1</span><span class="p">)</span>
+<span class="n">cadena1_reemplB</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span><span class="n">cadena1</span><span class="p">,</span> <span class="s">&quot;por&quot;</span><span class="p">,</span> <span class="s">&quot;con&quot;</span><span class="p">)</span>
+<span class="n">cadena1_reempl_all</span> <span class="o">&lt;-</span> <span class="nf">str_replace_all</span><span class="p">(</span><span class="n">cadena1</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;por&quot;</span><span class="o">=</span><span class="s">&quot;con&quot;</span><span class="p">,</span> <span class="s">&quot;estas&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">))</span>
+<span class="n">cadena1_sepA</span> <span class="o">&lt;-</span> <span class="nf">strsplit</span><span class="p">(</span><span class="n">cadena1</span><span class="p">,</span> <span class="s">&quot; &quot;</span><span class="p">)</span>
+<span class="n">cadena1_sepB</span> <span class="o">&lt;-</span> <span class="nf">str_split</span><span class="p">(</span><span class="n">cadena1</span><span class="p">,</span> <span class="s">&quot; &quot;</span><span class="p">,</span> <span class="n">simplify</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -477,17 +477,17 @@ cadena1_sepB &lt;- str_split(cadena1, &quot; &quot;, simplify = TRUE)
 <p class="admonition-title">Cree un script llamado num_simbolos.R que cuente los símbolos de una frase.<details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>frase &lt;- readline(prompt=&quot;Indique la frase: &quot;)
-split_frase &lt;- gsub(&quot; &quot;, &quot;&quot;, frase)
-num_simbolos &lt;- nchar(split_frase)
-cat(&quot;La frase contiene&quot;, num_letras, &quot;símbolos.&quot;)
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">frase</span> <span class="o">&lt;-</span> <span class="nf">readline</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s">&quot;Indique la frase: &quot;</span><span class="p">)</span>
+<span class="n">split_frase</span> <span class="o">&lt;-</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">frase</span><span class="p">)</span>
+<span class="n">num_simbolos</span> <span class="o">&lt;-</span> <span class="nf">nchar</span><span class="p">(</span><span class="n">split_frase</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;La frase contiene&quot;</span><span class="p">,</span> <span class="n">num_letras</span><span class="p">,</span> <span class="s">&quot;símbolos.&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
 </details>
 </p>
 </div>
-<p>La biblioteca <em>stringr</em> posee una gran cantidad de funciones interesantes además de las mencionadas anteriormente. A continuación, se muestran varias de ellas. </p>
+<p>La biblioteca <em>stringr</em> posee una gran cantidad de funciones interesantes además de las mencionadas anteriormente. A continuación, se muestran varias de ellas: </p>
 <table>
 <thead>
 <tr>
@@ -539,15 +539,15 @@ cat(&quot;La frase contiene&quot;, num_letras, &quot;símbolos.&quot;)
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>cadena_1_2 &lt;- str_c(cadena1, cadena2, sep=&quot;; &quot;)
-cadena1_sub &lt;- str_sub(cadena1, 1, 6)
-cadena1_extr &lt;- str_extract(cadena1, &quot;cadena&quot;)
-cadena1_extr_all &lt;- str_extract_all(cadena1, &quot;&quot;)
-cadena_up &lt;- str_to_upper(cadena1_sub)
-cadena_low &lt;- str_to_lower(cadena_up)
-dna_sort &lt;- str_sort(c(&quot;D&quot;, &quot;N&quot;, &quot;A&quot;))
-A_dna_detect &lt;- str_detect(dna_sort, &quot;A&quot;)
-num_A_dna_detect &lt;- str_count(dna_sort, &quot;A&quot;)
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">cadena_1_2</span> <span class="o">&lt;-</span> <span class="nf">str_c</span><span class="p">(</span><span class="n">cadena1</span><span class="p">,</span> <span class="n">cadena2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;; &quot;</span><span class="p">)</span>
+<span class="n">cadena1_sub</span> <span class="o">&lt;-</span> <span class="nf">str_sub</span><span class="p">(</span><span class="n">cadena1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
+<span class="n">cadena1_extr</span> <span class="o">&lt;-</span> <span class="nf">str_extract</span><span class="p">(</span><span class="n">cadena1</span><span class="p">,</span> <span class="s">&quot;cadena&quot;</span><span class="p">)</span>
+<span class="n">cadena1_extr_all</span> <span class="o">&lt;-</span> <span class="nf">str_extract_all</span><span class="p">(</span><span class="n">cadena1</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="n">cadena_up</span> <span class="o">&lt;-</span> <span class="nf">str_to_upper</span><span class="p">(</span><span class="n">cadena1_sub</span><span class="p">)</span>
+<span class="n">cadena_low</span> <span class="o">&lt;-</span> <span class="nf">str_to_lower</span><span class="p">(</span><span class="n">cadena_up</span><span class="p">)</span>
+<span class="n">dna_sort</span> <span class="o">&lt;-</span> <span class="nf">str_sort</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;D&quot;</span><span class="p">,</span> <span class="s">&quot;N&quot;</span><span class="p">,</span> <span class="s">&quot;A&quot;</span><span class="p">))</span>
+<span class="n">A_dna_detect</span> <span class="o">&lt;-</span> <span class="nf">str_detect</span><span class="p">(</span><span class="n">dna_sort</span><span class="p">,</span> <span class="s">&quot;A&quot;</span><span class="p">)</span>
+<span class="n">num_A_dna_detect</span> <span class="o">&lt;-</span> <span class="nf">str_count</span><span class="p">(</span><span class="n">dna_sort</span><span class="p">,</span> <span class="s">&quot;A&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -567,16 +567,16 @@ num_A_dna_detect &lt;- str_count(dna_sort, &quot;A&quot;)
  7
  8
  9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>library(&quot;stringr&quot;)
-print(&quot;¿Cuántas personas engloba el grupo? &quot;)
-n_gente &lt;- scan(n=1)
-v_gente1 &lt;- 2:n_gente
-v_gente2 &lt;- readline(prompt=&quot;Indique un integrante: &quot;)
-for (i in v_gente1){
-  v_gente2[i] &lt;- readline(prompt=&quot;Indique otro integrante: &quot;)
-}
-sort_up_gente &lt;- str_sort(str_to_upper(v_gente2))
-print(sort_up_gente)
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="s">&quot;stringr&quot;</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&quot;¿Cuántas personas engloba el grupo? &quot;</span><span class="p">)</span>
+<span class="n">n_gente</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+<span class="n">v_gente1</span> <span class="o">&lt;-</span> <span class="m">2</span><span class="o">:</span><span class="n">n_gente</span>
+<span class="n">v_gente2</span> <span class="o">&lt;-</span> <span class="nf">readline</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s">&quot;Indique un integrante: &quot;</span><span class="p">)</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="n">v_gente1</span><span class="p">){</span>
+  <span class="n">v_gente2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nf">readline</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s">&quot;Indique otro integrante: &quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">sort_up_gente</span> <span class="o">&lt;-</span> <span class="nf">str_sort</span><span class="p">(</span><span class="nf">str_to_upper</span><span class="p">(</span><span class="n">v_gente2</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">sort_up_gente</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -599,21 +599,21 @@ print(sort_up_gente)
 12
 13
 14
-15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>library(&quot;stringr&quot;)
-adn &lt;- readline(prompt=&quot;Introduzca la secuencia de ADN: &quot;)
-arn &lt;- str_replace_all(adn, c(&quot;A&quot;=&quot;U&quot;, &quot;T&quot;=&quot;A&quot;, &quot;G&quot;=&quot;c&quot;, &quot;C&quot;=&quot;G&quot;))
-arn &lt;- str_to_upper(arn)
-cat(&quot;ARN:&quot;, arn)
-codones &lt;- c()
-ncodones &lt;- nchar(arn) / 3 + 1
-aa &lt;- 1
-ab &lt;- 3
-for (i in 1:ncodones){
-  codones[i] &lt;- str_sub(arn, aa, ab)
-  ab &lt;- ab + 3
-  aa &lt;- aa + 3
-}
-cat(&quot;Codones:&quot;, codones)
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="s">&quot;stringr&quot;</span><span class="p">)</span>
+<span class="n">adn</span> <span class="o">&lt;-</span> <span class="nf">readline</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s">&quot;Introduzca la secuencia de ADN: &quot;</span><span class="p">)</span>
+<span class="n">arn</span> <span class="o">&lt;-</span> <span class="nf">str_replace_all</span><span class="p">(</span><span class="n">adn</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="o">=</span><span class="s">&quot;U&quot;</span><span class="p">,</span> <span class="s">&quot;T&quot;</span><span class="o">=</span><span class="s">&quot;A&quot;</span><span class="p">,</span> <span class="s">&quot;G&quot;</span><span class="o">=</span><span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;C&quot;</span><span class="o">=</span><span class="s">&quot;G&quot;</span><span class="p">))</span>
+<span class="n">arn</span> <span class="o">&lt;-</span> <span class="nf">str_to_upper</span><span class="p">(</span><span class="n">arn</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;ARN:&quot;</span><span class="p">,</span> <span class="n">arn</span><span class="p">)</span>
+<span class="n">codones</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">ncodones</span> <span class="o">&lt;-</span> <span class="nf">nchar</span><span class="p">(</span><span class="n">arn</span><span class="p">)</span> <span class="o">/</span> <span class="m">3</span> <span class="o">+</span> <span class="m">1</span>
+<span class="n">aa</span> <span class="o">&lt;-</span> <span class="m">1</span>
+<span class="n">ab</span> <span class="o">&lt;-</span> <span class="m">3</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">ncodones</span><span class="p">){</span>
+  <span class="n">codones</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nf">str_sub</span><span class="p">(</span><span class="n">arn</span><span class="p">,</span> <span class="n">aa</span><span class="p">,</span> <span class="n">ab</span><span class="p">)</span>
+  <span class="n">ab</span> <span class="o">&lt;-</span> <span class="n">ab</span> <span class="o">+</span> <span class="m">3</span>
+  <span class="n">aa</span> <span class="o">&lt;-</span> <span class="n">aa</span> <span class="o">+</span> <span class="m">3</span>
+<span class="p">}</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Codones:&quot;</span><span class="p">,</span> <span class="n">codones</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -631,17 +631,17 @@ cat(&quot;Codones:&quot;, codones)
  8
  9
 10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>library(&quot;stringr&quot;)
-adn &lt;- readline(prompt=&quot;Introduzca la secuencia de ADN: &quot;)
-cadena &lt;- strsplit(adn,&quot;&quot;)
-nucleotidos &lt;- sort(unique(cadena))
-histo &lt;- matrix(0,1,length(nucleotidos))
-for(i in 1:length(nucleotidos)){
-  histo[i]&lt;- str_count(adn, nucleotidos[i])
-}
-colnames(histo) &lt;- nucleotidos
-rownames(histo) &lt;- &quot;cantidad&quot;
-print(histo)
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="s">&quot;stringr&quot;</span><span class="p">)</span>
+<span class="n">adn</span> <span class="o">&lt;-</span> <span class="nf">readline</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s">&quot;Introduzca la secuencia de ADN: &quot;</span><span class="p">)</span>
+<span class="n">cadena</span> <span class="o">&lt;-</span> <span class="nf">strsplit</span><span class="p">(</span><span class="n">adn</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="n">nucleotidos</span> <span class="o">&lt;-</span> <span class="nf">sort</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">cadena</span><span class="p">))</span>
+<span class="n">histo</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="nf">length</span><span class="p">(</span><span class="n">nucleotidos</span><span class="p">))</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">nucleotidos</span><span class="p">)){</span>
+  <span class="n">histo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;-</span> <span class="nf">str_count</span><span class="p">(</span><span class="n">adn</span><span class="p">,</span> <span class="n">nucleotidos</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="p">}</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">histo</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">nucleotidos</span>
+<span class="nf">rownames</span><span class="p">(</span><span class="n">histo</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="s">&quot;cantidad&quot;</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">histo</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -650,7 +650,7 @@ print(histo)
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Ejercicio resumen</p>
-<p>El siguiente archivo <strong>.Rmd</strong> contiene un ejercicio de manipulación de una cadena procedente de un archivo <strong>FASTA</strong> (<a href="../extra_files/prueba.fasta">FASTA File</a>), de modo que resuma de forma explicativa lo estudiado en este apartado: <a href="../Rmd/cadenas_fasta.Rmd">cadenas_fasta.Rmd</a>. El archivo <strong>FASTA</strong> es el mismo cuya descarga es utilizada como ejemplo de descarga de ficheros en R en <a href="../conceptos_basicos/">Conceptos básicos</a>, por lo que podría acceder a dicho archivo de ambas formas. </p>
+<p>El siguiente archivo <strong>.Rmd</strong> contiene un ejercicio de manipulación de una cadena procedente de un archivo <strong>FASTA</strong> (<a href="../extra_files/prueba.fasta">FASTA File</a>), de modo que resuma de forma explicativa lo estudiado en este apartado, por lo que requiere la instalación de la biblioteca <em>tidyverse</em>: <a href="../Rmd/cadenas_fasta.Rmd">cadenas_fasta.Rmd</a>. El archivo <strong>FASTA</strong> es el mismo cuya descarga es utilizada como ejemplo de descarga de ficheros en R en <a href="../conceptos_basicos/">Conceptos básicos</a>, por tanto podría acceder a dicho archivo de ambas formas. </p>
 </div>
 <div class="admonition quote">
 <p class="admonition-title">Enlaces de interés</p>

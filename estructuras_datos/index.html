@@ -450,9 +450,9 @@
 <div class="admonition example">
 <p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>vector1 &lt;- c(FALSE, 1, 1)
-vector2 &lt;- c(vector1, &quot;a&quot;, 1, FALSE)
-vector3 &lt;- c(vector2, vector1)
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">vector1</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+<span class="n">vector2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span class="n">vector3</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">vector2</span><span class="p">,</span> <span class="n">vector1</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -464,11 +464,11 @@ vector3 &lt;- c(vector2, vector1)
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>vector4 &lt;- vector(&quot;character&quot;, 3)
-vector5 &lt;- vector(&quot;numeric&quot;, 3)
-vector6 &lt;- vector(&quot;logical&quot;, 3)
-vector7 &lt;- -2.5:2.5
-vector8 &lt;- seq(from = -2.5, to = 2.5, by = 2.5)
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">vector4</span> <span class="o">&lt;-</span> <span class="nf">vector</span><span class="p">(</span><span class="s">&quot;character&quot;</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">vector5</span> <span class="o">&lt;-</span> <span class="nf">vector</span><span class="p">(</span><span class="s">&quot;numeric&quot;</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">vector6</span> <span class="o">&lt;-</span> <span class="nf">vector</span><span class="p">(</span><span class="s">&quot;logical&quot;</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">vector7</span> <span class="o">&lt;-</span> <span class="m">-2.5</span><span class="o">:</span><span class="m">2.5</span>
+<span class="n">vector8</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">-2.5</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">2.5</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">2.5</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -478,10 +478,10 @@ vector8 &lt;- seq(from = -2.5, to = 2.5, by = 2.5)
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>names(vector6) &lt;- c(&quot;dato1&quot;, &quot;dato2&quot;, &quot;dato3&quot;)
-vector8 &lt;- c(dato1=-2.5, dato2=0, dato3=2.5)
-vector6[&quot;dato2&quot;]
-vector6[2]
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">names</span><span class="p">(</span><span class="n">vector6</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;dato1&quot;</span><span class="p">,</span> <span class="s">&quot;dato2&quot;</span><span class="p">,</span> <span class="s">&quot;dato3&quot;</span><span class="p">)</span>
+<span class="n">vector8</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">dato1</span><span class="o">=</span><span class="m">-2.5</span><span class="p">,</span> <span class="n">dato2</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">dato3</span><span class="o">=</span><span class="m">2.5</span><span class="p">)</span>
+<span class="n">vector6</span><span class="p">[</span><span class="s">&quot;dato2&quot;</span><span class="p">]</span>
+<span class="n">vector6</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -489,9 +489,9 @@ vector6[2]
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>vector8[4:7] &lt;- log(vector8[3])
-vector9 &lt;- vector8 * c(2,1)
-vector10 &lt;- vector8[-(4:7)] / 5
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">vector8</span><span class="p">[</span><span class="m">4</span><span class="o">:</span><span class="m">7</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nf">log</span><span class="p">(</span><span class="n">vector8</span><span class="p">[</span><span class="m">3</span><span class="p">])</span>
+<span class="n">vector9</span> <span class="o">&lt;-</span> <span class="n">vector8</span> <span class="o">*</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+<span class="n">vector10</span> <span class="o">&lt;-</span> <span class="n">vector8</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="m">4</span><span class="o">:</span><span class="m">7</span><span class="p">)]</span> <span class="o">/</span> <span class="m">5</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -516,10 +516,10 @@ vector10 &lt;- vector8[-(4:7)] / 5
 <details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;¿De qué número deseas conocer su tabla de multiplicar?&quot;)
-numero &lt;- scan(n=1)
-tabla &lt;- c(0:10) * numero 
-cat(&quot;Resultados de la tabla de multiplicar del&quot;, numero, &quot;:&quot;, tabla, &quot;\n&quot;)
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print</span><span class="p">(</span><span class="s">&quot;¿De qué número deseas conocer su tabla de multiplicar?&quot;</span><span class="p">)</span>
+<span class="n">numero</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+<span class="n">tabla</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">numero</span> 
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Resultados de la tabla de multiplicar del&quot;</span><span class="p">,</span> <span class="n">numero</span><span class="p">,</span> <span class="s">&quot;:&quot;</span><span class="p">,</span> <span class="n">tabla</span><span class="p">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -527,7 +527,7 @@ cat(&quot;Resultados de la tabla de multiplicar del&quot;, numero, &quot;:&quot;
 </div>
 <p>Una matriz es un conjunto de números que se disponen bidimensionalmente en filas y columnas. Desde el punto de vista del lenguaje R, una matriz es un vector numérico con un atributo adicional: <em>dim</em>. Dicho atributo es un vector de dos elementos que indican, por este orden, el número de renglones y columnas que componen esta estructura de datos. Predeterminadamente, los elementos son localizados por columnas, es decir, completando todas las filas de la primera columna y, posteriormente, las sucesivas columnas, hasta complementar cada coordenada. Se requiere que el número de coordenadas sea idéntico a la longitud del vector numérico a partir del cual se genera la matriz. 
 Por tanto, una de las formas de conseguir una matriz es creando dicho atributo del vector mediante <code>dim()</code>. </p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>dim(vector7) &lt;- c(3,2)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">dim</span><span class="p">(</span><span class="n">vector7</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -537,11 +537,11 @@ Por tanto, una de las formas de conseguir una matriz es creando dicho atributo d
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>matriz1 &lt;- matrix(vector7, nrow=3, ncol=2, , byrow=TRUE)
-matriz2 &lt;- rbind(c(-2.5,0,2.5), c(-1,0,1))
-matriz3 &lt;- cbind(c(-2.5,0,2.5), c(-1,0,1))
-matriz4 &lt;- cbind(c(-2.5,0,2.5), c(-1,0))
-matriz5 &lt;- cbind(c(-2.5,0,2.5,5), c(-1,0,1))
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">matriz1</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="n">vector7</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="p">,</span> <span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">matriz2</span> <span class="o">&lt;-</span> <span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-2.5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">2.5</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="n">matriz3</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-2.5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">2.5</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="n">matriz4</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-2.5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">2.5</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="m">0</span><span class="p">))</span>
+<span class="n">matriz5</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-2.5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">2.5</span><span class="p">,</span><span class="m">5</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -564,10 +564,10 @@ matriz5 &lt;- cbind(c(-2.5,0,2.5,5), c(-1,0,1))
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>rownames(matriz2) &lt;- c(&quot;fila1&quot;, &quot;fila2&quot;)
-colnames(matriz2) &lt;- c(&quot;columna1&quot;, &quot;columna2&quot;, &quot;columna3&quot;)
-matriz2[2,&quot;columna1&quot;] &lt;- matriz2[2,&quot;columna1&quot;]*2
-matriz6 &lt;- matriz2 %*% matriz6
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">rownames</span><span class="p">(</span><span class="n">matriz2</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;fila1&quot;</span><span class="p">,</span> <span class="s">&quot;fila2&quot;</span><span class="p">)</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">matriz2</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;columna1&quot;</span><span class="p">,</span> <span class="s">&quot;columna2&quot;</span><span class="p">,</span> <span class="s">&quot;columna3&quot;</span><span class="p">)</span>
+<span class="n">matriz2</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="s">&quot;columna1&quot;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">matriz2</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="s">&quot;columna1&quot;</span><span class="p">]</span><span class="o">*</span><span class="m">2</span>
+<span class="n">matriz6</span> <span class="o">&lt;-</span> <span class="n">matriz2</span> <span class="o">%*%</span> <span class="n">matriz6</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -586,13 +586,13 @@ matriz6 &lt;- matriz2 %*% matriz6
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;¿Cuántas filas y columnas desea que tenga la matriz? Indíquelo de forma respectiva: &quot;)
-dim_matriz &lt;- scan(n=2)
-n_elementos &lt;- dim_matriz[1] * dim_matriz[2]
-cat(&quot;Indique&quot;, n_elementos, &quot;valores uno por uno como desees que se rellenen las filas de la matriz: &quot;)
-elementos &lt;- scan(n=n_elementos)
-matriz &lt;- matrix(elementos, nrow=dim_matriz[1], ncol=dim_matriz[2], byrow=TRUE)
-print(matriz)
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print</span><span class="p">(</span><span class="s">&quot;¿Cuántas filas y columnas desea que tenga la matriz? Indíquelo de forma respectiva: &quot;</span><span class="p">)</span>
+<span class="n">dim_matriz</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+<span class="n">n_elementos</span> <span class="o">&lt;-</span> <span class="n">dim_matriz</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">dim_matriz</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Indique&quot;</span><span class="p">,</span> <span class="n">n_elementos</span><span class="p">,</span> <span class="s">&quot;valores uno por uno como desees que se rellenen las filas de la matriz: &quot;</span><span class="p">)</span>
+<span class="n">elementos</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n_elementos</span><span class="p">)</span>
+<span class="n">matriz</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="n">elementos</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="n">dim_matriz</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">ncol</span><span class="o">=</span><span class="n">dim_matriz</span><span class="p">[</span><span class="m">2</span><span class="p">],</span> <span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">matriz</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -602,7 +602,7 @@ print(matriz)
 <h3 id="factores">Factores<a class="headerlink" href="#factores" title="Permanent link">&para;</a></h3>
 <p>Este tipo de dato se consigue a partir de un vector mediante la función <code>factor()</code>. Esto genera una estructura de datos que contiene los mismos elementos que el vector y, además, información categórica de dichos elementos, de forma que sean identificados con etiquetas numéricas, correspondientes a un índice, atendiendo al orden de aparición de la categoría en la longitud del vector. Dichas categorías se pueden ordenar como guste si se indica con un vector, que puede ser referido con el argumento <em>levels</em>, aunque no es necesario. </p>
 <div class="admonition example">
-<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>factor1 &lt;- factor(vector3, c(1,&quot;a&quot;,FALSE,0))
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">factor1</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">vector3</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="kc">FALSE</span><span class="p">,</span><span class="m">0</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -611,10 +611,10 @@ print(matriz)
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>str(factor1)
-unclass(factor1)
-levels(factor1)
-tabla1 &lt;- table(factor1)
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">str</span><span class="p">(</span><span class="n">factor1</span><span class="p">)</span>
+<span class="nf">unclass</span><span class="p">(</span><span class="n">factor1</span><span class="p">)</span>
+<span class="nf">levels</span><span class="p">(</span><span class="n">factor1</span><span class="p">)</span>
+<span class="n">tabla1</span> <span class="o">&lt;-</span> <span class="nf">table</span><span class="p">(</span><span class="n">factor1</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -625,8 +625,8 @@ tabla1 &lt;- table(factor1)
 <p>Para realizar subconjuntos de los elementos del factor se puede consultar tanto su posición en el factor como el índice de la categoría. Estos subconjuntos no se pueden someter a operaciones numéricas.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>subconjunto1 &lt;- factor1[3]
-subconjunto2 &lt;- levels(factor1)[3]
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">subconjunto1</span> <span class="o">&lt;-</span> <span class="n">factor1</span><span class="p">[</span><span class="m">3</span><span class="p">]</span>
+<span class="n">subconjunto2</span> <span class="o">&lt;-</span> <span class="nf">levels</span><span class="p">(</span><span class="n">factor1</span><span class="p">)[</span><span class="m">3</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -636,10 +636,10 @@ subconjunto2 &lt;- levels(factor1)[3]
 <p class="admonition-title">Cree un script llamado tabla_factor.R que devuelva una tabla indicando la cantidad de veces que se repite cada valor que introduzcas como entrada.<details class="answer"><summary>Reespuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Introduzca el valor que desee hasta que no quiera incluir más números: &quot;)
-nums &lt;- scan()
-tabla_nums&lt;- table(factor(nums))
-print(tabla_nums)
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Introduzca el valor que desee hasta que no quiera incluir más números: &quot;</span><span class="p">)</span>
+<span class="n">nums</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">()</span>
+<span class="n">tabla_nums</span><span class="o">&lt;-</span> <span class="nf">table</span><span class="p">(</span><span class="nf">factor</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">tabla_nums</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -652,10 +652,10 @@ print(tabla_nums)
 <p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>lista1 &lt;- list(equipo=&quot;verde&quot;, componentes=2, nombres=c(&quot;Ana&quot;, &quot;Juan&quot;), ganador=TRUE) 
-names(lista1) &lt;- list(&quot;color&quot;, &quot;número&quot;, &quot;usuario&quot;, &quot;perdedor&quot;)  
-subconjunto3 &lt;- lista1$color
-subconjunto4 &lt;- lista1[1]
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">lista1</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">equipo</span><span class="o">=</span><span class="s">&quot;verde&quot;</span><span class="p">,</span> <span class="n">componentes</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">nombres</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Ana&quot;</span><span class="p">,</span> <span class="s">&quot;Juan&quot;</span><span class="p">),</span> <span class="n">ganador</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> 
+<span class="nf">names</span><span class="p">(</span><span class="n">lista1</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;color&quot;</span><span class="p">,</span> <span class="s">&quot;número&quot;</span><span class="p">,</span> <span class="s">&quot;usuario&quot;</span><span class="p">,</span> <span class="s">&quot;perdedor&quot;</span><span class="p">)</span>  
+<span class="n">subconjunto3</span> <span class="o">&lt;-</span> <span class="n">lista1</span><span class="o">$</span><span class="n">color</span>
+<span class="n">subconjunto4</span> <span class="o">&lt;-</span> <span class="n">lista1</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -669,13 +669,13 @@ subconjunto4 &lt;- lista1[1]
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>nombre_usuario &lt;- readline(prompt=&quot;Dime tu nombre: &quot;)
-print(&quot;¿Cuántas asignaturas has finalizado?&quot;)
-num_asignaturas &lt;- scan(n=1)
-print(&quot;¿Qué notas finales obtuviste en ellas?&quot;)
-notas &lt;- scan(n=num_asignaturas)
-lista &lt;- list(nombre=nombre_usuario, nota_media=mean(notas))
-print(lista)
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">nombre_usuario</span> <span class="o">&lt;-</span> <span class="nf">readline</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s">&quot;Dime tu nombre: &quot;</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&quot;¿Cuántas asignaturas has finalizado?&quot;</span><span class="p">)</span>
+<span class="n">num_asignaturas</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&quot;¿Qué notas finales obtuviste en ellas?&quot;</span><span class="p">)</span>
+<span class="n">notas</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">num_asignaturas</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">nombre</span><span class="o">=</span><span class="n">nombre_usuario</span><span class="p">,</span> <span class="n">nota_media</span><span class="o">=</span><span class="nf">mean</span><span class="p">(</span><span class="n">notas</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -684,7 +684,7 @@ print(lista)
 <h3 id="data-frames"><em>Data frames</em><a class="headerlink" href="#data-frames" title="Permanent link">&para;</a></h3>
 <p>Un data frame es una estructura de datos bidimensional que parece una tabla, aunque realmente actúa como una lista, cuyos componentes pueden ser de diferentes tipos, como vectores, listas o matrices. Esta estructura requiere que coincida el número de datos por fila y el tipo de dato de cada columna. Los data frames se pueden crear mediante la función <code>data.frame()</code>, que ordena por columnas los datos que indicamos como componentes, y si la longitud de las filas resultase inferior o superior entre ellas, no se generaría el data frame, ya que no cumpliría las restricciones.</p>
 <div class="admonition example">
-<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>data_frame1 &lt;- data.frame(vector4, vector5, vector6)
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">data_frame1</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">vector4</span><span class="p">,</span> <span class="n">vector5</span><span class="p">,</span> <span class="n">vector6</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -696,11 +696,11 @@ print(lista)
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>data_frame1 &lt;- cbind(data_frame1, c(1,2,3))
-colnames(data_frame1) &lt;- c(&quot;caracter&quot; , &quot;numerico&quot;, &quot;logico&quot;, &quot;entero&quot;)
-rownames(data_frame1) &lt;- c(&quot;n1&quot;, &quot;n2&quot;, &quot;n3&quot;)
-data_frame1$numerico &lt;- c(1.5, 2.5, 3.5)
-data_frame1[[&quot;n2&quot;, &quot;logico&quot;]] &lt;- TRUE
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">data_frame1</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">data_frame1</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">))</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">data_frame1</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;caracter&quot;</span> <span class="p">,</span> <span class="s">&quot;numerico&quot;</span><span class="p">,</span> <span class="s">&quot;logico&quot;</span><span class="p">,</span> <span class="s">&quot;entero&quot;</span><span class="p">)</span>
+<span class="nf">rownames</span><span class="p">(</span><span class="n">data_frame1</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;n1&quot;</span><span class="p">,</span> <span class="s">&quot;n2&quot;</span><span class="p">,</span> <span class="s">&quot;n3&quot;</span><span class="p">)</span>
+<span class="n">data_frame1</span><span class="o">$</span><span class="n">numerico</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1.5</span><span class="p">,</span> <span class="m">2.5</span><span class="p">,</span> <span class="m">3.5</span><span class="p">)</span>
+<span class="n">data_frame1</span><span class="p">[[</span><span class="s">&quot;n2&quot;</span><span class="p">,</span> <span class="s">&quot;logico&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="kc">TRUE</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -708,21 +708,21 @@ data_frame1[[&quot;n2&quot;, &quot;logico&quot;]] &lt;- TRUE
 </div>
 <div class="admonition question">
 <p class="admonition-title">¿Qué diferencia hay entre lo que devuelve y lo que se podría esperar en los siguientes casos?<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>data_frame1[1:3, &quot;cadena&quot;] &lt;- c(&quot;si&quot;, &quot;si&quot;, &quot;no&quot;)
-data_frame2 &lt;- rbind(data_frame1, c(&quot;no&quot;, 4.5, TRUE, 4))
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">data_frame1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="s">&quot;cadena&quot;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;si&quot;</span><span class="p">,</span> <span class="s">&quot;si&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">)</span>
+<span class="n">data_frame2</span> <span class="o">&lt;-</span> <span class="nf">rbind</span><span class="p">(</span><span class="n">data_frame1</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;no&quot;</span><span class="p">,</span> <span class="m">4.5</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="m">4</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
 
 </p>
 <details class="respuesta"><summary>Respuesta</summary><p>En el primer caso, en lugar de los nuevos caracteres indicados que podríamos esperar situados en la primera columna, correspondiente a <em>cadena</em>, se encuentran datos no disponibles <code>NA</code>. Esto se debe a que los vectores de caracteres se transforman en factores para que sea posible su tratamiento mediante operaciones estadísticas. Por tanto, al introducir una nueva cadena, no la reconoce, ya que previamente requiere su categorización con la función <code>levels()</code>, lo que resultaría del siguiente modo:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>levels(data_frame1$cadena) &lt;- c(levels(data_frame1$cadena), &quot;si&quot;, &quot;no&quot;)
-data_frame1[1:3, &quot;cadena&quot;] &lt;- c(&quot;si&quot;, &quot;si&quot;, &quot;no&quot;)
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">levels</span><span class="p">(</span><span class="n">data_frame1</span><span class="o">$</span><span class="n">cadena</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="nf">levels</span><span class="p">(</span><span class="n">data_frame1</span><span class="o">$</span><span class="n">cadena</span><span class="p">),</span> <span class="s">&quot;si&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">)</span>
+<span class="n">data_frame1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="s">&quot;cadena&quot;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;si&quot;</span><span class="p">,</span> <span class="s">&quot;si&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
 <p>En cuanto a <em>data_frame2</em>, a simple vista parece devolver lo esperado. No obstante, si se comprueba el contenido de cada columna, observamos que los datos han cambiado a tipo carácter. Esto ocurre porque se introduce un vector con un elemento de tipo carácter, que lo convierte los demás datos en dicho tipo por coerción, y como ya se ha mencionado, las columas deben de contener la misma clase de dato, por lo que también se produce coerción en sus componentes. Esto repercutiría en las operaciones a las que podría someterse. El método de evadir este error sería introduciendo los elementos como lista y no como vector, de forma que mantenga el tipo de dato en sus componentes. Para ello, se sustituye la función <code>c()</code> por <code>list()</code>, tal que así:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>data_frame3 &lt;- rbind(data_frame1, list(&quot;no&quot;, 4.5, TRUE, 4))
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">data_frame3</span> <span class="o">&lt;-</span> <span class="nf">rbind</span><span class="p">(</span><span class="n">data_frame1</span><span class="p">,</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;no&quot;</span><span class="p">,</span> <span class="m">4.5</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="m">4</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -731,9 +731,9 @@ data_frame1[1:3, &quot;cadena&quot;] &lt;- c(&quot;si&quot;, &quot;si&quot;, &qu
 <div class="admonition question">
 <p class="admonition-title">Cree un script llamado data_frame.R que devuelva un data frame partiendo de matriz.R.<details class="answer"><summary>Respuesta</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>source(&quot;matriz.R&quot;)
-df &lt;- data.frame(matriz)
-print(df)
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">source</span><span class="p">(</span><span class="s">&quot;matriz.R&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">matriz</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -816,13 +816,13 @@ print(df)
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Indique los valores numéricos del vector: &quot;)
-V &lt;- scan()
-uV &lt;- sort(unique(V))              # Elimina duplicaciones y ordena
-Ht &lt;- tabulate(match(V, uV))       # Histograma dado    
-pos_max &lt;- which.max(Ht)           # Posicion del max
-moda &lt;- uV[pos_max]                # Toma el valor más repetido 
-cat(&quot;La moda del vector es&quot;, moda, &quot;\n&quot;)
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Indique los valores numéricos del vector: &quot;</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">()</span>
+<span class="n">uV</span> <span class="o">&lt;-</span> <span class="nf">sort</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">V</span><span class="p">))</span>              <span class="c1"># Elimina duplicaciones y ordena</span>
+<span class="n">Ht</span> <span class="o">&lt;-</span> <span class="nf">tabulate</span><span class="p">(</span><span class="nf">match</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">uV</span><span class="p">))</span>       <span class="c1"># Histograma dado    </span>
+<span class="n">pos_max</span> <span class="o">&lt;-</span> <span class="nf">which.max</span><span class="p">(</span><span class="n">Ht</span><span class="p">)</span>           <span class="c1"># Posicion del max</span>
+<span class="n">moda</span> <span class="o">&lt;-</span> <span class="n">uV</span><span class="p">[</span><span class="n">pos_max</span><span class="p">]</span>                <span class="c1"># Toma el valor más repetido </span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;La moda del vector es&quot;</span><span class="p">,</span> <span class="n">moda</span><span class="p">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 

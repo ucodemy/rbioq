@@ -472,7 +472,7 @@
                 
                   <h1>Estructuras de control</h1>
                 
-                <p>Las estructuras de control son construcciones sintácticas que determinan la lógica y el orden de cómo ocurren las operaciones de nuestro programa, es decir, dirijen el flujo de éstas y controlan la ejecución del códido en una dirección u otra. Para ello, es fundamental establecer condicionales en el código. </p>
+                <p>Las estructuras de control son construcciones sintácticas que determinan la lógica y el orden de cómo ocurren las operaciones de nuestro programa, es decir, dirijen el flujo de éstas y controlan la ejecución del código en una dirección u otra. Para ello, es fundamental establecer condicionales en el código. </p>
 <h3 id="construcciones-if-else">Construcciones <em>if - else</em><a class="headerlink" href="#construcciones-if-else" title="Permanent link">&para;</a></h3>
 <p>Esta sintaxis inglesa realiza la función de lo que literalmente se traduce de ella. Esto es, "si" y "de otro modo", para <code>if</code> y <code>else</code>, respectivamente. De una forma más concreta, se entiende como "<em>si esta condición es <code>TRUE</code>, ejecuta la siguiente operación, de otro modo ejecuta ésta otra</em>". La construcción dentro del programa se incluiría así: </p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -511,8 +511,8 @@
 </div>
 <p>Si bien, es cierto que podría escribirse del siguiente modo:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>if(condición) {operaciones_si_condición=TRUE
-} else {operaciones_si_condición=FALSE}
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">if</span><span class="p">(</span><span class="n">condición</span><span class="p">)</span> <span class="p">{</span><span class="n">operaciones_si_condición</span><span class="o">=</span><span class="kc">TRUE</span>
+<span class="p">}</span> <span class="n">else</span> <span class="p">{</span><span class="n">operaciones_si_condición</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -522,12 +522,12 @@
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>if(condición) {
-  operación1_si_condición=TRUE
-  operación2
-} else {
-  operaciones_si_condición=FALSE
-}
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">if</span><span class="p">(</span><span class="n">condición</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">operación1_si_condición</span><span class="o">=</span><span class="kc">TRUE</span>
+  <span class="n">operación2</span>
+<span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+  <span class="n">operaciones_si_condición</span><span class="o">=</span><span class="kc">FALSE</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -538,13 +538,13 @@
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>if(condición1) {
-  operaciones_si_condición=TRUE
-} else if(condición2) {
-  operaciones_si_condición1=FALSE_condición2=TRUE
-} else { 
-operaciones_si_condiciones=FALSE
-}
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">if</span><span class="p">(</span><span class="n">condición1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">operaciones_si_condición</span><span class="o">=</span><span class="kc">TRUE</span>
+<span class="p">}</span> <span class="n">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">condición2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">operaciones_si_condición1</span><span class="o">=</span><span class="n">FALSE_condición2</span><span class="o">=</span><span class="kc">TRUE</span>
+<span class="p">}</span> <span class="n">else</span> <span class="p">{</span> 
+<span class="n">operaciones_si_condiciones</span><span class="o">=</span><span class="kc">FALSE</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -557,15 +557,15 @@ operaciones_si_condiciones=FALSE
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>num_real &lt;- 5.43
-num_entero &lt;- -10
-if(num_real &lt; num_entero) {
-  &quot;condición1-TRUE&quot;
-} else if(num_real &gt; num_entero &amp; num_entero &gt; num_integer) {
-  &quot;condición2-TRUE&quot;
-} else {
-  &quot;condiciones-FALSE&quot;
-}
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">num_real</span> <span class="o">&lt;-</span> <span class="m">5.43</span>
+<span class="n">num_entero</span> <span class="o">&lt;-</span> <span class="m">-10</span>
+<span class="nf">if</span><span class="p">(</span><span class="n">num_real</span> <span class="o">&lt;</span> <span class="n">num_entero</span><span class="p">)</span> <span class="p">{</span>
+  <span class="s">&quot;condición1-TRUE&quot;</span>
+<span class="p">}</span> <span class="n">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">num_real</span> <span class="o">&gt;</span> <span class="n">num_entero</span> <span class="o">&amp;</span> <span class="n">num_entero</span> <span class="o">&gt;</span> <span class="n">num_integer</span><span class="p">)</span> <span class="p">{</span>
+  <span class="s">&quot;condición2-TRUE&quot;</span>
+<span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+  <span class="s">&quot;condiciones-FALSE&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -573,7 +573,7 @@ if(num_real &lt; num_entero) {
 </div>
 <p>Hasta ahora, las construcciones mencionadas no permiten incluir secuencias o vectores. Si bien, la función <code>ifelse()</code> se emplea para controlar el flujo en esta estructura de datos, lo que también incluye valores independientes, sin necesidad de conformar una secuencia. Esta función nos devuelve un vector con los valores correspondientes para cada elemento del vector tras realizar su respectiva operación, atendiendo a las condiciones interpuestas. </p>
 <div class="admonition example">
-<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>ifelse1 &lt;- ifelse(c(3,4,5,6,7) &lt; num_real, &quot;condición-TRUE&quot;, &quot;condición-FALSE&quot;)
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">ifelse1</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">num_real</span><span class="p">,</span> <span class="s">&quot;condición-TRUE&quot;</span><span class="p">,</span> <span class="s">&quot;condición-FALSE&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -589,15 +589,15 @@ if(num_real &lt; num_entero) {
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print (&quot;Número que desea conocer cómo es respecto a 0: &quot;)
-num &lt;- scan(n=1)
-if (num==0) {
-  cat(num, &quot;es igual a 0.&quot;)
-} else if (num&lt;0) {
-  cat(num, &quot;es menor que 0.&quot;)
-} else {
-  cat(num, &quot;es mayor que 0.&quot;)
-}
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print </span><span class="p">(</span><span class="s">&quot;Número que desea conocer cómo es respecto a 0: &quot;</span><span class="p">)</span>
+<span class="n">num</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+<span class="nf">if </span><span class="p">(</span><span class="n">num</span><span class="o">==</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">cat</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="s">&quot;es igual a 0.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">num</span><span class="o">&lt;</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">cat</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="s">&quot;es menor que 0.&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+  <span class="nf">cat</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="s">&quot;es mayor que 0.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -607,9 +607,9 @@ if (num==0) {
 <p>Este tipo de construcciones repite las operaciones que contiene un número determinado de veces, las cuales se indican entre paréntesis y corresponden al número de veces que se observa un elemento en la estructura de datos que introduzcamos. Las operaciones se pueden llevar a cabo con el elemento en cuestión, al cual se le puede nombrar como guste, siendo común la letra <em>i</em> o una palabra descritiva. En cuanto a la estructura de datos, debe de ser un objeto ya existente o que se formule en la construcción, cuyo modelo es el siguiente:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>for(elemento in estructura){
-  operaciones_con/sin_elemento
-}
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">for</span><span class="p">(</span><span class="n">elemento</span> <span class="n">in</span> <span class="n">estructura</span><span class="p">){</span>
+  <span class="n">operaciones_con</span><span class="o">/</span><span class="n">sin_elemento</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -620,13 +620,13 @@ if (num==0) {
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>for (i in 1:10){
-  print(i)
-}
-lista1 &lt;- list(equipo=&quot;verde&quot;, componentes=2, nombres=c(&quot;Ana&quot;, &quot;Juan&quot;), ganador=TRUE) 
-for(i in lista1) {
-  i
-}
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">){</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">lista1</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">equipo</span><span class="o">=</span><span class="s">&quot;verde&quot;</span><span class="p">,</span> <span class="n">componentes</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">nombres</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Ana&quot;</span><span class="p">,</span> <span class="s">&quot;Juan&quot;</span><span class="p">),</span> <span class="n">ganador</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> 
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="n">lista1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">i</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -637,10 +637,10 @@ for(i in lista1) {
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>vector_for1 &lt;- 1
-for(i in 2:7) {
-  vector_for1[i] &lt;- i
-}
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">vector_for1</span> <span class="o">&lt;-</span> <span class="m">1</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">2</span><span class="o">:</span><span class="m">7</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">vector_for1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">i</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -648,10 +648,10 @@ for(i in 2:7) {
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>vector_for2 &lt;- NULL
-for(i in list(1:4, 6, 8, &quot;c&quot;, &quot;a&quot;)) {
-  vector_for2[i] &lt;- i
-}
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">vector_for2</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">list</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">vector_for2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">i</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -668,16 +668,16 @@ for(i in list(1:4, 6, 8, &quot;c&quot;, &quot;a&quot;)) {
  7
  8
  9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Introduzca un número: &quot;)
-n &lt;- scan(n=1)
-a &lt;- 0
-b &lt;- 1
-cat(&quot;Los&quot;, n, &quot;primeros números de la sucesión de Fibonacci son:&quot;, &quot;\n&quot;)
-for (i in 1:n) {
-  a &lt;- a+b
-  b &lt;- a-b
-  cat(&quot;El número de la posición&quot;, i, &quot;es&quot;, a, &quot;\n&quot;)
-}
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Introduzca un número: &quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">&lt;-</span> <span class="m">0</span>
+<span class="n">b</span> <span class="o">&lt;-</span> <span class="m">1</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Los&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s">&quot;primeros números de la sucesión de Fibonacci son:&quot;</span><span class="p">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">a</span> <span class="o">&lt;-</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+  <span class="n">b</span> <span class="o">&lt;-</span> <span class="n">a</span><span class="o">-</span><span class="n">b</span>
+  <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;El número de la posición&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s">&quot;es&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -687,9 +687,9 @@ for (i in 1:n) {
 <p>Este tipo de bucle repite las operaciones mientras la condición impuesta sea <code>TRUE</code>. El modelo para lograr esta contrucción es el siguiente:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>while(condicion) {
-  operaciones_si_condicion=TRUE
-}
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">while</span><span class="p">(</span><span class="n">condicion</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">operaciones_si_condicion</span><span class="o">=</span><span class="kc">TRUE</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -697,9 +697,9 @@ for (i in 1:n) {
 <div class="admonition example">
 <p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>while(num_real &gt; 1 | num_entero &lt; num_real) {
-  num_real &lt;- num_real - 3
-}
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">while</span><span class="p">(</span><span class="n">num_real</span> <span class="o">&gt;</span> <span class="m">1</span> <span class="o">|</span> <span class="n">num_entero</span> <span class="o">&lt;</span> <span class="n">num_real</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">num_real</span> <span class="o">&lt;-</span> <span class="n">num_real</span> <span class="o">-</span> <span class="m">3</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -714,25 +714,31 @@ for (i in 1:n) {
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Indique un número entre 0 y 100: &quot;)
-suma &lt;- 0
-n &lt;- scan(n=1)
-while (n&lt;=100){
-  suma &lt;- suma+n
-  n &lt;- n+1
-}
-cat(&quot;El valor de la suma de enteros hasta 100 es&quot;, suma)
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Indique un número entre 0 y 100: &quot;</span><span class="p">)</span>
+<span class="n">suma</span> <span class="o">&lt;-</span> <span class="m">0</span>
+<span class="n">n</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+<span class="nf">while </span><span class="p">(</span><span class="n">n</span><span class="o">&lt;=</span><span class="m">100</span><span class="p">){</span>
+  <span class="n">suma</span> <span class="o">&lt;-</span> <span class="n">suma</span><span class="o">+</span><span class="n">n</span>
+  <span class="n">n</span> <span class="o">&lt;-</span> <span class="n">n</span><span class="m">+1</span>
+<span class="p">}</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;El valor de la suma de enteros hasta 100 es&quot;</span><span class="p">,</span> <span class="n">suma</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
 </details>
 </div>
 <h3 id="break-next-y-bucles-repeat"><em>Break</em>, <em>Next</em> y bucles <em>repeat</em><a class="headerlink" href="#break-next-y-bucles-repeat" title="Permanent link">&para;</a></h3>
-<p>Las estructuras de control <code>break</code> y <code>next</code> son palabras reservadas que no pueden emplearse como variable. Ambas se utilizan dentro de otras estructuras de control y requieren que una condición sea <code>TRUE</code> para que se efectúe su acción, que para <code>break</code> es finalizar el bucle, mientras que <code>next</code> avanza a la siguiente iteración sin realizar operación. De hecho, <code>break</code> es necesario para no caer en un bucle infinito creado con la estructura <code>repeat</code>, la cual no se usa con frecuencia. Si bien, el modelo de este bucle es el siguiente:
-repeat{
-  operaciones
-  break
-}</p>
+<p>Las estructuras de control <code>break</code> y <code>next</code> son palabras reservadas que no pueden emplearse como variable. Ambas se utilizan dentro de otras estructuras de control y requieren que una condición sea <code>TRUE</code> para que se efectúe su acción, que para <code>break</code> es finalizar el bucle, mientras que <code>next</code> avanza a la siguiente iteración sin realizar operación. De hecho, <code>break</code> es necesario para no caer en un bucle infinito creado con la estructura <code>repeat</code>, la cual no se usa con frecuencia. Si bien, el modelo de este bucle es el siguiente:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">repeat</span><span class="p">{</span>
+  <span class="n">operaciones</span>
+  <span class="n">break</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -752,25 +758,25 @@ repeat{
 16
 17
 18
-19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>repeat{
-  num_real &lt;- num_real / 2
-  if(num_real &gt; -4) {
-    break
-  }
-}
-vector11 &lt;- c()
-for(i in vector_for1) {
-  if(i == 6) {
-    next
-  }
-  vector11[i] &lt;- vector_for1[i] * 2
-}
-while(num_entero != 6) {
-  if(num_entero == 5) {
-    break
-  }
-  num_entero &lt;- num_entero + 5
-}
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">repeat</span><span class="p">{</span>
+  <span class="n">num_real</span> <span class="o">&lt;-</span> <span class="n">num_real</span> <span class="o">/</span> <span class="m">2</span>
+  <span class="nf">if</span><span class="p">(</span><span class="n">num_real</span> <span class="o">&gt;</span> <span class="m">-4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">break</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">vector11</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="n">vector_for1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="m">6</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">next</span>
+  <span class="p">}</span>
+  <span class="n">vector11</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">vector_for1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="m">2</span>
+<span class="p">}</span>
+<span class="nf">while</span><span class="p">(</span><span class="n">num_entero</span> <span class="o">!=</span> <span class="m">6</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">if</span><span class="p">(</span><span class="n">num_entero</span> <span class="o">==</span> <span class="m">5</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">break</span>
+  <span class="p">}</span>
+  <span class="n">num_entero</span> <span class="o">&lt;-</span> <span class="n">num_entero</span> <span class="o">+</span> <span class="m">5</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -790,19 +796,19 @@ while(num_entero != 6) {
 10
 11
 12
-13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Indique un número entre 0 y 100: &quot;)
-suma &lt;- 0
-n &lt;- scan(n=1)
-for(i in n:100){
-  if(i==50){
-    next
-  }
-  if(suma&gt;2000){
-    break
-  }
-  suma &lt;- suma + i
-}
-cat(&quot;El valor de la suma de enteros hasta que supera por primera vez el valor 2000 es&quot;, suma)
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Indique un número entre 0 y 100: &quot;</span><span class="p">)</span>
+<span class="n">suma</span> <span class="o">&lt;-</span> <span class="m">0</span>
+<span class="n">n</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="n">n</span><span class="o">:</span><span class="m">100</span><span class="p">){</span>
+  <span class="nf">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="m">50</span><span class="p">){</span>
+    <span class="n">next</span>
+  <span class="p">}</span>
+  <span class="nf">if</span><span class="p">(</span><span class="n">suma</span><span class="o">&gt;</span><span class="m">2000</span><span class="p">){</span>
+    <span class="n">break</span>
+  <span class="p">}</span>
+  <span class="n">suma</span> <span class="o">&lt;-</span> <span class="n">suma</span> <span class="o">+</span> <span class="n">i</span>
+<span class="p">}</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;El valor de la suma de enteros hasta que supera por primera vez el valor 2000 es&quot;</span><span class="p">,</span> <span class="n">suma</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -816,13 +822,13 @@ cat(&quot;El valor de la suma de enteros hasta que supera por primera vez el val
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Opciones: a, b y c)
-eleccion &lt;- readline(prompt=&quot;Elija una de las anteriores opciones: &quot;)
-switch(eleccion,
-  a=operación_a,
-  b=operación_b,
-  c=operación_c,
-  stop(&quot;Opción no válida&quot;))
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Opciones: a, b y c)</span>
+<span class="s">eleccion &lt;- readline(prompt=&quot;</span><span class="n">Elija</span> <span class="n">una</span> <span class="n">de</span> <span class="n">las</span> <span class="n">anteriores</span> <span class="n">opciones</span><span class="o">:</span> <span class="s">&quot;)</span>
+<span class="s">switch(eleccion,</span>
+<span class="s">  a=operación_a,</span>
+<span class="s">  b=operación_b,</span>
+<span class="s">  c=operación_c,</span>
+<span class="s">  stop(&quot;</span><span class="n">Opción</span> <span class="n">no</span> <span class="n">válida</span><span class="s">&quot;</span><span class="err">))</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -832,12 +838,12 @@ switch(eleccion,
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;La operación log(20) + 4*7 &gt;= 2^5 | length(c(1:6)) &lt;= log10(6^8) es TRUE.&quot;)
-respuesta &lt;- readline(prompt=&quot;¿Es cierta la afirmación anterior?  (a=Verdadero, b=Falso): &quot;)
-switch(respuesta,
-  a=print(&quot;Correcto&quot;),
-  b=print(&quot;Incorrecto&quot;),
-  stop(&quot;Opción no válida&quot;))
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print</span><span class="p">(</span><span class="s">&quot;La operación log(20) + 4*7 &gt;= 2^5 | length(c(1:6)) &lt;= log10(6^8) es TRUE.&quot;</span><span class="p">)</span>
+<span class="n">respuesta</span> <span class="o">&lt;-</span> <span class="nf">readline</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s">&quot;¿Es cierta la afirmación anterior?  (a=Verdadero, b=Falso): &quot;</span><span class="p">)</span>
+<span class="nf">switch</span><span class="p">(</span><span class="n">respuesta</span><span class="p">,</span>
+  <span class="n">a</span><span class="o">=</span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Correcto&quot;</span><span class="p">),</span>
+  <span class="n">b</span><span class="o">=</span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Incorrecto&quot;</span><span class="p">),</span>
+  <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;Opción no válida&quot;</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -854,16 +860,16 @@ switch(respuesta,
  7
  8
  9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Opciones:&quot;)
-print(&quot;A. sup_inf_igual_0.R&quot;)
-print(&quot;B. suma_enteros_100.R&quot;)
-print(&quot;C. fibonacci.R&quot;)
-eleccion &lt;- readline(prompt=&quot;Elija el script que desee ejecutar: &quot;)
-switch(eleccion,
-  A=source(&quot;sup_inf_igual_0.R&quot;),
-  B=source(&quot;fibonacci.R&quot;),
-  C=source(&quot;suma_enteros_100.R&quot;,
-  stop(&quot;Opción no válida&quot;))
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Opciones:&quot;</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&quot;A. sup_inf_igual_0.R&quot;</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&quot;B. suma_enteros_100.R&quot;</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&quot;C. fibonacci.R&quot;</span><span class="p">)</span>
+<span class="n">eleccion</span> <span class="o">&lt;-</span> <span class="nf">readline</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s">&quot;Elija el script que desee ejecutar: &quot;</span><span class="p">)</span>
+<span class="nf">switch</span><span class="p">(</span><span class="n">eleccion</span><span class="p">,</span>
+  <span class="n">A</span><span class="o">=</span><span class="nf">source</span><span class="p">(</span><span class="s">&quot;sup_inf_igual_0.R&quot;</span><span class="p">),</span>
+  <span class="n">B</span><span class="o">=</span><span class="nf">source</span><span class="p">(</span><span class="s">&quot;fibonacci.R&quot;</span><span class="p">),</span>
+  <span class="n">C</span><span class="o">=</span><span class="nf">source</span><span class="p">(</span><span class="s">&quot;suma_enteros_100.R&quot;</span><span class="p">,</span>
+  <span class="nf">stop</span><span class="p">(</span><span class="s">&quot;Opción no válida&quot;</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -876,11 +882,11 @@ switch(eleccion,
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;¿De qué número desea conocer su tabla de multiplicar? &quot;)
-num &lt;- scan(n=1)
-for (i in 0:10){
-  cat (num, &quot;*&quot;, i, &quot;=&quot;, i*num, &quot;\n&quot;)
-}
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print</span><span class="p">(</span><span class="s">&quot;¿De qué número desea conocer su tabla de multiplicar? &quot;</span><span class="p">)</span>
+<span class="n">num</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">0</span><span class="o">:</span><span class="m">10</span><span class="p">){</span>
+  <span class="nf">cat </span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="s">&quot;*&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s">&quot;=&quot;</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="n">num</span><span class="p">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -898,17 +904,17 @@ for (i in 0:10){
  8
  9
 10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>print(&quot;Número de alumnos en clase:&quot;)
-num_alumnos &lt;- scan(n=1)
-sobresalientes &lt;- c()
-for(i in 1:num_alumnos){
-  source(&quot;nota_media.R&quot;)
-  if(lista$nota_media &gt;= 9) {
-    sobresalientes[i] &lt;- lista$nombre
-  } 
-}
-lista_sb &lt;- list(alumnos_sobresalientes=sobresalientes)
-print(lista_sb)
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Número de alumnos en clase:&quot;</span><span class="p">)</span>
+<span class="n">num_alumnos</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+<span class="n">sobresalientes</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">num_alumnos</span><span class="p">){</span>
+  <span class="nf">source</span><span class="p">(</span><span class="s">&quot;nota_media.R&quot;</span><span class="p">)</span>
+  <span class="nf">if</span><span class="p">(</span><span class="n">lista</span><span class="o">$</span><span class="n">nota_media</span> <span class="o">&gt;=</span> <span class="m">9</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">sobresalientes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">lista</span><span class="o">$</span><span class="n">nombre</span>
+  <span class="p">}</span> 
+<span class="p">}</span>
+<span class="n">lista_sb</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">alumnos_sobresalientes</span><span class="o">=</span><span class="n">sobresalientes</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">lista_sb</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -929,21 +935,21 @@ print(lista_sb)
 12
 13
 14
-15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>secreto &lt;- sample(1:10,1)
-found &lt;- TRUE            
-while(found){
-  print(&quot;Prueba un número: &quot;)
-  n &lt;- scan(n=1)
-  if (n&lt;secreto) {
-    print(&quot;El numero que has pensado es mayor&quot;)
-  } else {
-    print (&quot;El numero que has pensado es menor&quot;)
-  }
-  if (n==secreto){
-    print(&quot;¡ACERTASTE!&quot;)
-    break
-  }
-}
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">secreto</span> <span class="o">&lt;-</span> <span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+<span class="n">found</span> <span class="o">&lt;-</span> <span class="kc">TRUE</span>            
+<span class="nf">while</span><span class="p">(</span><span class="n">found</span><span class="p">){</span>
+  <span class="nf">print</span><span class="p">(</span><span class="s">&quot;Prueba un número: &quot;</span><span class="p">)</span>
+  <span class="n">n</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">n</span><span class="o">&lt;</span><span class="n">secreto</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;El numero que has pensado es mayor&quot;</span><span class="p">)</span>
+  <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+    <span class="nf">print </span><span class="p">(</span><span class="s">&quot;El numero que has pensado es menor&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="n">secreto</span><span class="p">){</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">&quot;¡ACERTASTE!&quot;</span><span class="p">)</span>
+    <span class="n">break</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
