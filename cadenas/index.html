@@ -42,7 +42,7 @@
     
     
       
-        <title>Cadenas de caracteres - Tutorial R para Bioquímica</title>
+        <title>Cadenas de caracteres - Tutorial de programacion en R para estudiantes de Bioquimica</title>
       
     
     
@@ -53,7 +53,7 @@
       
         
         
-        <meta name="theme-color" content="#546e7a">
+        <meta name="theme-color" content="#2196f3">
       
     
     
@@ -79,7 +79,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
   
     <svg class="md-svg">
       <defs>
@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#ejercicios-complementarios" tabindex="0" class="md-skip">
+      <a href="#creacion-de-cadenas-con-elementos-funcionales" tabindex="0" class="md-skip">
         Saltar a contenido
       </a>
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://ucodemy.github.io/rbioq/" title="Tutorial R para Bioquímica" aria-label="Tutorial R para Bioquímica" class="md-header-nav__button md-logo">
+        <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programacion en R para estudiantes de Bioquimica" aria-label="Tutorial de programacion en R para estudiantes de Bioquimica" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../images/icon.svg" width="24" height="24">
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Tutorial R para Bioquímica
+              Tutorial de programacion en R para estudiantes de Bioquimica
             </span>
             <span class="md-header-nav__topic">
               
@@ -170,12 +170,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://ucodemy.github.io/rbioq/" title="Tutorial R para Bioquímica" class="md-nav__button md-logo">
+    <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programacion en R para estudiantes de Bioquimica" class="md-nav__button md-logo">
       
         <img alt="logo" src="../images/icon.svg" width="48" height="48">
       
     </a>
-    Tutorial R para Bioquímica
+    Tutorial de programacion en R para estudiantes de Bioquimica
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -305,6 +305,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#creacion-de-cadenas-con-elementos-funcionales" class="md-nav__link">
+    Creación de cadenas con elementos funcionales
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulacion-de-cadenas" class="md-nav__link">
+    Manipulación de cadenas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ejercicios-complementarios" class="md-nav__link">
     Ejercicios complementarios
   </a>
@@ -377,6 +391,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#creacion-de-cadenas-con-elementos-funcionales" class="md-nav__link">
+    Creación de cadenas con elementos funcionales
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulacion-de-cadenas" class="md-nav__link">
+    Manipulación de cadenas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ejercicios-complementarios" class="md-nav__link">
     Ejercicios complementarios
   </a>
@@ -403,7 +431,8 @@
                   <h1>Cadenas de caracteres</h1>
                 
                 <p>Las cadenas de caracteres, como se introdujo en <a href="../variable_objetos_operadores/">Variables, objetos atómicos y operadores</a>, son una secuencia de caracteres cuya creación necesita que sean introducidos entre comillas. A continuación, se explica el tratamiento de estas cadenas y, para ello, se requiere el paquete <em>stringr</em>, el cual está contenido en la biblioteca <em>tidyverse</em> instalada en <a href="../conceptos_basicos/">Conceptos básicos</a>, donde también se indica cómo se carga una biblioteca (<code>library()</code>).</p>
-<p>Las comillas para crear las cadenas de caracteres suelen ser dobles aunque, si se quiere introducir dicho símbolo como elemento de la cadena, se emplean comillas simples. Otro modo de incluirlas sería incluyendo una barra invertida (\). Esto también se puede aplicar en el caso contrario, cuando se utilizan las comillas simples y se quiere introducir dicho símbolo también como elemento. La barra invertida es utilizada entre otras cosas para indicar, por ejemplo, saltos de línea o tabulación de la siguiente forma, respectivamente: \n y \t. Cuando aparecen elementos que realizan funciones como el salto de línea, el vector lo interpreta como caracter, aunque se puede ignorar mediante la función <code>writeLines()</code>.</p>
+<h3 id="creacion-de-cadenas-con-elementos-funcionales">Creación de cadenas con elementos funcionales<a class="headerlink" href="#creacion-de-cadenas-con-elementos-funcionales" title="Permanent link">&para;</a></h3>
+<p>Las comillas para crear las cadenas de caracteres suelen ser dobles aunque, si se quiere introducir dicho símbolo como elemento de la cadena, se emplean comillas simples. Otro modo de incorporarlas sería incluyendo una barra invertida (\). Esto también se puede aplicar en el caso contrario, cuando se utilizan las comillas simples y se quiere introducir dicho símbolo también como elemento. La barra invertida es utilizada entre otras cosas para indicar, por ejemplo, saltos de línea o tabulación de la siguiente forma, respectivamente: \n y \t. Cuando aparecen elementos que realizan funciones como el salto de línea, el vector lo interpreta como caracter, aunque se puede ignorar mediante la función <code>writeLines()</code>.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -417,6 +446,7 @@
 
 </p>
 </div>
+<h3 id="manipulacion-de-cadenas">Manipulación de cadenas<a class="headerlink" href="#manipulacion-de-cadenas" title="Permanent link">&para;</a></h3>
 <p>El paquete <em>stringr</em> contiene diversas funciones que también podrían llevarse a cabo con funciones de la biblioteca <em>base</em> que se incluye de forma predeterminada en la instalación de R. 
 Mostramos algunas de ellas en la siguiente tabla:</p>
 <table>

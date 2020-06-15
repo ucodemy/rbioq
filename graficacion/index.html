@@ -42,7 +42,7 @@
     
     
       
-        <title>Graficación - Tutorial R para Bioquímica</title>
+        <title>Graficación - Tutorial de programacion en R para estudiantes de Bioquimica</title>
       
     
     
@@ -53,7 +53,7 @@
       
         
         
-        <meta name="theme-color" content="#546e7a">
+        <meta name="theme-color" content="#2196f3">
       
     
     
@@ -79,7 +79,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
   
     <svg class="md-svg">
       <defs>
@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#grafico-de-barras" tabindex="0" class="md-skip">
+      <a href="#graficando-con-r-base-plot" tabindex="0" class="md-skip">
         Saltar a contenido
       </a>
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://ucodemy.github.io/rbioq/" title="Tutorial R para Bioquímica" aria-label="Tutorial R para Bioquímica" class="md-header-nav__button md-logo">
+        <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programacion en R para estudiantes de Bioquimica" aria-label="Tutorial de programacion en R para estudiantes de Bioquimica" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../images/icon.svg" width="24" height="24">
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Tutorial R para Bioquímica
+              Tutorial de programacion en R para estudiantes de Bioquimica
             </span>
             <span class="md-header-nav__topic">
               
@@ -170,12 +170,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://ucodemy.github.io/rbioq/" title="Tutorial R para Bioquímica" class="md-nav__button md-logo">
+    <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programacion en R para estudiantes de Bioquimica" class="md-nav__button md-logo">
       
         <img alt="logo" src="../images/icon.svg" width="48" height="48">
       
     </a>
-    Tutorial R para Bioquímica
+    Tutorial de programacion en R para estudiantes de Bioquimica
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -317,43 +317,84 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#graficando-con-r-base-plot" class="md-nav__link">
+    Graficando con R base: plot()
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agregacion-de-leyenda" class="md-nav__link">
+    Agregación de leyenda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exportacion-como-imagen" class="md-nav__link">
+    Exportación como imagen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#grafico-de-barras" class="md-nav__link">
     Gráfico de barras
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#histograma" class="md-nav__link">
     Histograma
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#diagrama-de-dispersion" class="md-nav__link">
     Diagrama de dispersión
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#diagrama-de-caja" class="md-nav__link">
     Diagrama de caja
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#grafico-de-sectores" class="md-nav__link">
     Gráfico de sectores
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#graficacion-avanzada-con-ggplot2" class="md-nav__link">
     Graficación avanzada con ggplot2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-complementario" class="md-nav__link">
+    Ejercicio complementario
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-complementario-de-lattice-boxplot" class="md-nav__link">
+    Ejemplo complementario de lattice: boxplot
   </a>
   
 </li>
@@ -412,43 +453,84 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#graficando-con-r-base-plot" class="md-nav__link">
+    Graficando con R base: plot()
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agregacion-de-leyenda" class="md-nav__link">
+    Agregación de leyenda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exportacion-como-imagen" class="md-nav__link">
+    Exportación como imagen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#grafico-de-barras" class="md-nav__link">
     Gráfico de barras
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#histograma" class="md-nav__link">
     Histograma
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#diagrama-de-dispersion" class="md-nav__link">
     Diagrama de dispersión
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#diagrama-de-caja" class="md-nav__link">
     Diagrama de caja
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#grafico-de-sectores" class="md-nav__link">
     Gráfico de sectores
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#graficacion-avanzada-con-ggplot2" class="md-nav__link">
     Graficación avanzada con ggplot2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-complementario" class="md-nav__link">
+    Ejercicio complementario
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-complementario-de-lattice-boxplot" class="md-nav__link">
+    Ejemplo complementario de lattice: boxplot
   </a>
   
 </li>
@@ -473,6 +555,7 @@
                   <h1>Graficación</h1>
                 
                 <p>R contiene un sistema de generación de gráficas en la biblioteca <em>base</em> de funciones, incluida predeterminadamente en la instalación de R. Si bien, existen otros paquetes interesantes por el salto de calidad o facilidad que ofrecen para la graficación, como <a href="#graficacion-avanzada-con-ggplot2"><em>ggplot2</em></a> o <em>lattice</em>. </p>
+<h3 id="graficando-con-r-base-plot">Graficando con <em>R base</em>: plot()<a class="headerlink" href="#graficando-con-r-base-plot" title="Permanent link">&para;</a></h3>
 <p>La función más básica y general es <code>plot()</code>. En la llamada a la función es imprescindible indicar el <em>eje x</em> para generar una gráfica. El <em>eje y</em> es opcional. 
 Ambos ejes deben ser vectores que, según el tipo de dato que contengan, se generaría un tipo de gráfico diferente, el cual pueden ser ajustado mediante argumentos que controlan el aspecto, como <em>type</em> (tipo de gráfico), <em>main</em> (título), <em>xlab</em>, <em>ylab</em> (etiquetas de los ejes), <em>col</em> (<a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">color</a>) y <em>pch</em> (tipo de puntos). 
 Los tipos de datos y las gráficas que generarían son: </p>
@@ -496,13 +579,8 @@ Los tipos de datos y las gráficas que generarían son: </p>
 </tr>
 <tr>
 <td>Continuo</td>
-<td>Discreto</td>
-<td>Diagrama de dispersión (coerción numérica)</td>
-</tr>
-<tr>
-<td>Continuo</td>
 <td>Ninguno</td>
-<td>Diagrama de dispersión (por renglón)</td>
+<td><a href="#grafico_de_sectores">Diagrama de sectores</a></td>
 </tr>
 <tr>
 <td>Discreto</td>
@@ -511,13 +589,8 @@ Los tipos de datos y las gráficas que generarían son: </p>
 </tr>
 <tr>
 <td>Discreto</td>
-<td>Discreto</td>
-<td>Gráfico de mosaico</td>
-</tr>
-<tr>
-<td>Discreto</td>
 <td>Ninguno</td>
-<td><a href="#grafico-de-barras">Gráfica de barras</a></td>
+<td><a href="#grafico-de-barras">Gráfica de barras</a> e <a href="#histograma">Histograma</a></td>
 </tr>
 <tr>
 <td>Ninguno</td>
@@ -628,13 +701,24 @@ Los tipos de datos y las gráficas que generarían son: </p>
 
 </p>
 <p><img alt="Gráfica del ejemplo" src="../images/ejemplo.png" /></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    curve(sin, 2*pi, -2*pi, xname = &quot;x&quot;)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">curve</span><span class="p">(</span><span class="n">sin</span><span class="p">,</span> <span class="m">2</span><span class="o">*</span><span class="kc">pi</span><span class="p">,</span> <span class="m">-2</span><span class="o">*</span><span class="kc">pi</span><span class="p">,</span> <span class="n">xname</span> <span class="o">=</span> <span class="s">&quot;x&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
 <p><img alt="Gráfica del ejemplo" src="../images/ejemplo_curve.jpg" /></p>
 </div>
+<h4 id="agregacion-de-leyenda">Agregación de leyenda<a class="headerlink" href="#agregacion-de-leyenda" title="Permanent link">&para;</a></h4>
 <p>La función <code>legend()</code> permite incluir leyenda al gráfico. Esta función se puede situar dentro de la función que genere el gráfico, siempre al final, e incluye diferentes argumentos como <em>x</em> (ubicación: bottomright, bottom, bottomleft, left, topleft, top, topright, right, center), <em>legend</em> (etiquetas), <em>fill</em> (colores de las etiquetas) y <em>title</em> (título de la leyenda). </p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">9</span><span class="p">),</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Título del ejemplo&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;etiqueta eje x&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;etiqueta eje y&quot;</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">),</span> <span class="n">pch</span><span class="o">=</span><span class="m">0</span><span class="p">)</span>
+<span class="nf">legend</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;bottomright&quot;</span><span class="p">,</span> <span class="n">legend</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Punto&quot;</span><span class="p">,</span> <span class="s">&quot;Recta regresión&quot;</span><span class="p">),</span> <span class="n">fill</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Leyenda ejemplo&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+</p>
+</div>
+<h4 id="exportacion-como-imagen">Exportación como imagen<a class="headerlink" href="#exportacion-como-imagen" title="Permanent link">&para;</a></h4>
 <p>Los gráficos creados no pueden ser guardados en el ambiente, sino que es necesario salvar cada gráfico como archivo JPG, PNG, PDF o algún otro tipo, mediante funciones como <code>jpeg()</code>,<code>png()</code> o <code>pdf()</code>, respectivamente, las cuales presentan argumentos como <em>filename</em> (nombre y ruta del archivo), <em>width</em> (anchura de imagen) o <em>height</em> (altura de imagen). Estos dos últimos por defecto en píxeles. Estas funciones se sitúan previo a la creación del gráfico.</p>
 <p>Finalmente, se incluye la función <code>dev.off()</code>, que cierra el archivo y permite finalizar el guardado de éste para continuar con otras graficaciones. El resultado puede observase con la función <code>file.show()</code>, incluyendo la ruta del archivo entre comillas.</p>
 <div class="admonition info">
@@ -655,7 +739,7 @@ Los tipos de datos y las gráficas que generarían son: </p>
 </p>
 <p><img alt="Gráfica del ejemplo" src="../images/ejemplo.jpg" /></p>
 </div>
-<h3 id="grafico-de-barras">Gráfico de barras<a class="headerlink" href="#grafico-de-barras" title="Permanent link">&para;</a></h3>
+<h4 id="grafico-de-barras">Gráfico de barras<a class="headerlink" href="#grafico-de-barras" title="Permanent link">&para;</a></h4>
 <p>Este tipo de gráfica representa la frecuencia observada de los datos de una variable discreta como barras, una para cada categoría de la variable. La gráfica de barras puede obtenerse a partir de la función <code>plot()</code>  si se realiza con un vector de factor o cadena de texto como <em>x</em> y no se incluye <em>y</em>. Sin embargo, la forma de conseguir este gráfico de una forma más simple y directa es mediante la función <code>barplot()</code> que, además ofrece la posibilidad de representar tablas de contingencia, recibiendo como argumento una matriz o una tabla obtenida con la función <code>table()</code>.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo plot()<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -767,7 +851,7 @@ Los tipos de datos y las gráficas que generarían son: </p>
 </details>
 </p>
 </div>
-<h3 id="histograma">Histograma<a class="headerlink" href="#histograma" title="Permanent link">&para;</a></h3>
+<h4 id="histograma">Histograma<a class="headerlink" href="#histograma" title="Permanent link">&para;</a></h4>
 <p>Un histograma es una gráfica muy similar al gráfico de barras, ya que muestra frecuencias de datos. La principal diferencia radica en que muestra el número de veces que se observa el dato en un rango determinado, mientras que el gráfico de barras lo realiza por categoría. Además, el histograma no permite dejar espacios entre las barras. La forma de crear un histograma es mediante la función <code>hist()</code>, la cual requiere un vector numérico como argumento <em>x</em>. El argumento <em>br</em> delimita los rangos si son indicados mediante un vector numérico.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -800,7 +884,7 @@ Los tipos de datos y las gráficas que generarían son: </p>
 </details>
 </p>
 </div>
-<h3 id="diagrama-de-dispersion">Diagrama de dispersión<a class="headerlink" href="#diagrama-de-dispersion" title="Permanent link">&para;</a></h3>
+<h4 id="diagrama-de-dispersion">Diagrama de dispersión<a class="headerlink" href="#diagrama-de-dispersion" title="Permanent link">&para;</a></h4>
 <p>El diagrama de dispersión muestra la relación entre dos variables numéricas continuas mediante intersecciones entre ellas, por lo que se emplean los argumentos <em>x</em> e <em>y</em> en la función <code>plot()</code> para situar las variables en los ejes de coordenadas. Normalmente, este tipo de gráfico incluye una recta de regresión. Para ello se utiliza la función <code>lm(y~x)</code>.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -851,7 +935,7 @@ Los tipos de datos y las gráficas que generarían son: </p>
 </details>
 </p>
 </div>
-<h3 id="diagrama-de-caja">Diagrama de caja<a class="headerlink" href="#diagrama-de-caja" title="Permanent link">&para;</a></h3>
+<h4 id="diagrama-de-caja">Diagrama de caja<a class="headerlink" href="#diagrama-de-caja" title="Permanent link">&para;</a></h4>
 <p>El diagrama de caja es una gráfica que incluye un rectángulo cuya base inferior es el cuartil 1 (Q1, 25% de los datos) y la base superior el cuartil 3 (Q3, 75% de los datos). El intervalo entre Q3 y Q1 se conoce como rango intercuartílico (RIC). La división de este rectángulo corresponde al cuartil 2 o mediana (Q2, 50% de los datos). Además, incluye una línea que indica el rango de valores no atípicos, es decir, superiores a Q1–1.5·RIC o inferiores a Q3+1.5·RIC. Los puntos que sobresalen de estos límites son los valores atípicos.</p>
 <p>Este gráfico tan representativo se obtiene mediante la función <code>boxplot()</code>. Para ello se necesita precisar la variable continua que se grafica y la variable que se emplea para agrupar, esto es, <em>y</em> y <em>x</em> mediante <em>formula = y ~ x</em>.</p>
 <div class="admonition example">
@@ -899,7 +983,7 @@ Los tipos de datos y las gráficas que generarían son: </p>
 </details>
 </p>
 </div>
-<h3 id="grafico-de-sectores">Gráfico de sectores<a class="headerlink" href="#grafico-de-sectores" title="Permanent link">&para;</a></h3>
+<h4 id="grafico-de-sectores">Gráfico de sectores<a class="headerlink" href="#grafico-de-sectores" title="Permanent link">&para;</a></h4>
 <p>El gráfico de sectores, también conocido como diagrama de pastel o tarta, es un gráfico circular que se emplea para representar porcentajes y proporciones. Su creación se lleva a cabo mediante la función <code>pie()</code> que recibe como argumento principal un vector (o tabla) con las frecuencias absolutas de cada clase. Se utiliza el argumento <em>labels</em>  para cambiar las etiquetas de cada sector. Para ello toma un vector de cadenas de caracteres.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -952,8 +1036,8 @@ Los tipos de datos y las gráficas que generarían son: </p>
 </code></pre></div>
 </td></tr></table>
 
-<p>La función básica de <em>ggplot2</em> para generar un gráfico es <code>ggplot()</code>. Atendiendo al contenido del objeto al que se le emplee la función, se producirá un determinado tipo de gráfico. No obstante, <code>ggplot()</code> permite aplicar internamente la función <code>aes()</code>, lo que en la terminología de este paquete se refiere a estéticas, es decir, color, distancia horizontal o vertical, forma o tamaño del punto, etc. 
-Estas estéticas se asocian a columnas de datos, de modo que se establezcan según la columna asociada. La forma de representar los datos y las estéticas se indican por lo que se conoce como capas en la terminología de <em>ggplot2</em>. Las capas, como se deduce de su nombre, pueden superponerse. Esto es posible ordenándolas  como si de una suma se tratase. Existe una gran cantidad de capas, aunque las más usuales son las referidas a gráficos estudiados durante esta sección, como <code>geom_point()</code>, <code>geom_line()</code>, <code>geom_histogram()</code>, <code>geom_bar()</code> o <code>geom_boxplot</code>. <a href="http://docs.ggplot2.org/current/">Aquí</a> puede consultar una lista de las capas disponibles. Como ocurre con <em>R base</em>, cada tipo de gráfico, en este caso capa, exige que las variables sean continuas o discretas atendiendo a lo que representa. </p>
+<p>La función básica de <em>ggplot2</em> para generar un gráfico es <code>ggplot()</code>. Atendiendo al contenido del objeto al que se le emplee la función, se producirá un determinado tipo de gráfico. No obstante, <code>ggplot()</code> permite aplicar internamente la función <code>aes()</code>, lo que en la terminología de este paquete se refiere a estéticas, es decir, color, distancia horizontal o vertical, forma o tamaño del punto, etc. </p>
+<p>Estas estéticas se asocian a columnas de datos, de modo que se establezcan según la columna asociada. La forma de representar los datos y las estéticas se indican por lo que se conoce como capas en la terminología de <em>ggplot2</em>. Las capas, como se deduce de su nombre, pueden superponerse. Esto es posible ordenándolas  como si de una suma se tratase. Existe una gran cantidad de capas, aunque las más usuales son las referidas a gráficos estudiados durante esta sección, como <code>geom_point()</code>, <code>geom_line()</code>, <code>geom_histogram()</code>, <code>geom_bar()</code> o <code>geom_boxplot</code>. <a href="http://docs.ggplot2.org/current/">Aquí</a> puede consultar una lista de las capas disponibles. Como ocurre con <em>R base</em>, cada tipo de gráfico, en este caso capa, exige que las variables sean continuas o discretas atendiendo a lo que representa. </p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">ejemplo_ggplot</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">df_csv</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">cmo</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rmsd</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">protb</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s">&quot;loess&quot;</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="bp">F</span><span class="p">)</span>
 </code></pre></div>
@@ -986,7 +1070,7 @@ Estas estéticas se asocian a columnas de datos, de modo que se establezcan seg�
 <p><img alt="Ejemplo básico modificado ggplot2" src="../images/ggplot_basico_mod.png" /></p>
 </p>
 </div>
-<p>Otra de las características resaltables de <em>ggplot2</em> es su capacidad para presentar gráficos conjuntos que hayan sido divididos respecto a diferentes categorías de una variable. Además, ofrece la posibilidad de cambiar de tema, es decir, el aspecto estético del gráfico que no tiene que ver con los datos. El paquete contiene diversos temas básicos, pero se pueden instalar librerías que expandan el número con temas más específicos, como el paquete <em>ggthemes</em>. Las diversas herramientas que ofrece <em>ggplot2</em> hacen que la calidad de gráfico que permite crear sea increíble, muestra de ello se puede observar en diversas webs ofrecidas en los enlaces de interés.</p>
+<p>Otra de las características resaltables de <em>ggplot2</em> es su capacidad para presentar gráficos conjuntos que hayan sido divididos respecto a diferentes categorías de una variable mediante facetas como <code>facet_grid()</code>. Además, ofrece la posibilidad de cambiar de tema, es decir, el aspecto estético del gráfico que no tiene que ver con los datos. El paquete contiene diversos temas básicos, pero se pueden instalar librerías que expandan el número con temas más específicos, como el paquete <em>ggthemes</em>. Las diversas herramientas que ofrece <em>ggplot2</em> hacen que la calidad de gráfico que permite crear sea increíble, muestra de ello se puede observar en diversas webs ofrecidas en los enlaces de interés.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">ggplot_density2</span> <span class="o">&lt;-</span> <span class="n">ggplot_density</span> <span class="o">+</span> <span class="nf">facet_grid</span><span class="p">(</span><span class="o">~</span><span class="n">protb</span><span class="p">)</span>
 </code></pre></div>
@@ -1013,10 +1097,12 @@ Estas estéticas se asocian a columnas de datos, de modo que se establezcan seg�
 
 </p>
 </div>
+<h3 id="ejercicio-complementario">Ejercicio complementario<a class="headerlink" href="#ejercicio-complementario" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Ejercicio resumen</p>
 <p>El archivo <a href="../Rmd/graf_resumen.Rmd">graf_resumen.Rmd</a> contiene un ejercicio de graficación sobre el conjunto de datos <em>DNase</em> disponible de R, el cual se asemeja a los datos que el alumno puede recoger en una típica práctica del Grado. <em>DNase</em> se carga directamente introduciendo dicho nombre entre comillas en la función <code>data()</code>. Además, incluye otro ejercicio sobre los siguientes datos de una clase: <a href="../extra_files/clase_resumen.csv">clase_resumen.csv</a>. De esta manera se pretende resumir de forma explicativa lo estudiado en este apartado, por lo que requiere la instalación de la biblioteca <em>tidyverse</em>.</p>
 </div>
+<h3 id="ejemplo-complementario-de-lattice-boxplot">Ejemplo complementario de lattice: boxplot<a class="headerlink" href="#ejemplo-complementario-de-lattice-boxplot" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo complementario: boxplot básico con lattice<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2

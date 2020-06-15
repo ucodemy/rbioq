@@ -42,7 +42,7 @@
     
     
       
-        <title>Tutorial R para Bioquímica</title>
+        <title>Tutorial de programacion en R para estudiantes de Bioquimica</title>
       
     
     
@@ -53,7 +53,7 @@
       
         
         
-        <meta name="theme-color" content="#546e7a">
+        <meta name="theme-color" content="#2196f3">
       
     
     
@@ -79,7 +79,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
   
     <svg class="md-svg">
       <defs>
@@ -91,12 +91,16 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#introduccion-historica" tabindex="0" class="md-skip">
+        Saltar a contenido
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://ucodemy.github.io/rbioq/" title="Tutorial R para Bioquímica" aria-label="Tutorial R para Bioquímica" class="md-header-nav__button md-logo">
+        <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programacion en R para estudiantes de Bioquimica" aria-label="Tutorial de programacion en R para estudiantes de Bioquimica" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="images/icon.svg" width="24" height="24">
           
@@ -109,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Tutorial R para Bioquímica
+              Tutorial de programacion en R para estudiantes de Bioquimica
             </span>
             <span class="md-header-nav__topic">
               
@@ -166,12 +170,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://ucodemy.github.io/rbioq/" title="Tutorial R para Bioquímica" class="md-nav__button md-logo">
+    <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programacion en R para estudiantes de Bioquimica" class="md-nav__button md-logo">
       
         <img alt="logo" src="images/icon.svg" width="48" height="48">
       
     </a>
-    Tutorial R para Bioquímica
+    Tutorial de programacion en R para estudiantes de Bioquimica
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -188,9 +192,36 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Inicio
+      </label>
+    
     <a href="." title="Inicio" class="md-nav__link md-nav__link--active">
       Inicio
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Tabla de contenidos</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion-historica" class="md-nav__link">
+    Introducción histórica
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -334,6 +365,35 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Tabla de contenidos</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion-historica" class="md-nav__link">
+    Introducción histórica
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -342,7 +402,11 @@
                 
                   <h1>Inicio</h1>
                 
-                <p>R es un lenguaje de programación que nació en 1993 en el Departamento de Estadística de Auckland, donde Robert Gentleman y Ross Ihaka combinaron dos lenguajes ya existentes, S y Scheme. Como anécdota, unos comentan que la denominación R es un reconocimiento a estos lenguajes, otros indican que sus creadores comenzaron a llamarlo R debido a la inicial de sus nombres. Actualmente su desarrollo es responsabilidad de R Development core Team y se encuentra disponible <a href="https://cran.rediris.es/">aquí</a> en la versión 3.6.3 para los sistemas operativos Windows, Macintosh, Unix y GNU/Linux.</p>
+                <p>Este tutorial se enmarca dentro del ámbito de la materia ``Informática Aplicada a la Bioquímica''. Dicha materia se imparte en la asignatura con el mismo nombre durante el segundo curso del Grado en Bioquímica en la Universidad de Córdoba.</p>
+<p>El objetivo de este tutorial es introducir los elementos más importantes del lenguaje de programación R, de un modo guiado y eminentemente práctico, a un nuevo estudiante de Grado en Bioquímica y todo aquel que se inicie en el área de la programación, ya que este lenguaje es tan amplio, y existen tantas bibliotecas de funciones que lo extienden, que es necesario acotar su enseñanza a solo aquellas funcionalidades que se prevé que sean de utilidad para la gran mayoría de estudiantes de Bioquímica, no solo para aquellos que finalmente se declinen para una orientación Bioinformática.</p>
+<p>El aprendizaje de programación y, especialmente, R, abren al bioquímico muchas puertas en su futuro profesional, ya que los laboratorios de bioinformática cada vez son más y realizan funciones de gran importancia como el alineamiento de secuencias, la predicción de genes, montaje del genoma, alineamiento estructural de proteínas, predicción de estructura de proteínas, predicción de la expresión génica, interacciones proteína-proteína, y modelado de la evolución. Así, la presencia de bioinformáticos en grupos de investigación donde los principales estudios requieren de la manipulación física en laboratorios es esencial, y aquellos que disponen de conocimientos sobre programación logran hacerse indispensables en dichos lugares.</p>
+<h2 id="introduccion-historica">Introducción histórica<a class="headerlink" href="#introduccion-historica" title="Permanent link">&para;</a></h2>
+<p>R es un lenguaje de programación que nació en 1993 en el Departamento de Estadística de Auckland, donde Robert Gentleman y Ross Ihaka combinaron dos lenguajes ya existentes, S y Scheme. Como anécdota, unos comentan que la denominación R es un reconocimiento a estos lenguajes, otros indican que sus creadores comenzaron a llamarlo R debido a la inicial de sus nombres. Actualmente su desarrollo es responsabilidad de R Development core Team y se encuentra disponible <a href="https://cran.rediris.es/">aquí</a> en la versión 3.6.3 para los sistemas operativos Windows, Macintosh, Unix y GNU/Linux.</p>
 <p>El crecimiento de este lenguaje se está extendiendo a los campos de aprendizaje automático (machine learning), minería de datos, investigación biomédica, bioinformática y matemáticas financieras, y se debe al amplio gran de herramientas y facilidades que proporciona. R destaca por su enfoque estadístico y la alta calidad de generación de gráficos, pero también por otras características resaltables como la amplia presencia de bibliotecas que permiten la interpretación de otros lenguajes de forma más dinámica. Cabe mencionar que R forma parte del proyecto colaborativo y abierto GNU, por lo que sus usuarios pueden publicar paquetes de funciones que extienden su configuración básica. De hecho, existe un repositorio oficial de paquetes, <a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-spanish.pdf">The Comprehensive R Archive Network (CRAN)</a>, que los agrupa según su función y naturaleza. </p>
 <div class="admonition quote">
 <p class="admonition-title">Enlaces de interés</p>

@@ -42,7 +42,7 @@
     
     
       
-        <title>Importación y exportación de datos - Tutorial R para Bioquímica</title>
+        <title>Importación y exportación de datos - Tutorial de programacion en R para estudiantes de Bioquimica</title>
       
     
     
@@ -53,7 +53,7 @@
       
         
         
-        <meta name="theme-color" content="#546e7a">
+        <meta name="theme-color" content="#2196f3">
       
     
     
@@ -79,7 +79,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
   
     <svg class="md-svg">
       <defs>
@@ -91,12 +91,16 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#importacion-de-tablas" tabindex="0" class="md-skip">
+        Saltar a contenido
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://ucodemy.github.io/rbioq/" title="Tutorial R para Bioquímica" aria-label="Tutorial R para Bioquímica" class="md-header-nav__button md-logo">
+        <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programacion en R para estudiantes de Bioquimica" aria-label="Tutorial de programacion en R para estudiantes de Bioquimica" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../images/icon.svg" width="24" height="24">
           
@@ -109,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Tutorial R para Bioquímica
+              Tutorial de programacion en R para estudiantes de Bioquimica
             </span>
             <span class="md-header-nav__topic">
               
@@ -166,12 +170,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://ucodemy.github.io/rbioq/" title="Tutorial R para Bioquímica" class="md-nav__button md-logo">
+    <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programacion en R para estudiantes de Bioquimica" class="md-nav__button md-logo">
       
         <img alt="logo" src="../images/icon.svg" width="48" height="48">
       
     </a>
-    Tutorial R para Bioquímica
+    Tutorial de programacion en R para estudiantes de Bioquimica
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -272,9 +276,50 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Importación y exportación de datos
+      </label>
+    
     <a href="./" title="Importación y exportación de datos" class="md-nav__link md-nav__link--active">
       Importación y exportación de datos
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Tabla de contenidos</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#importacion-de-tablas" class="md-nav__link">
+    Importación de tablas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exportacion-de-tablas" class="md-nav__link">
+    Exportación de tablas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importacion-y-exportacion-de-objetos-de-una-sesion-de-r" class="md-nav__link">
+    Importación y exportación de objetos de una sesión de R
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -334,6 +379,49 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Tabla de contenidos</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#importacion-de-tablas" class="md-nav__link">
+    Importación de tablas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exportacion-de-tablas" class="md-nav__link">
+    Exportación de tablas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importacion-y-exportacion-de-objetos-de-una-sesion-de-r" class="md-nav__link">
+    Importación y exportación de objetos de una sesión de R
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -344,6 +432,7 @@
                 
                 <p>Durante las secciones anteriores del tutorial, se ha estado trabajando con datos que han sido generados por el propio usuario, para facilitar la introducción al lenguaje R. Los siguientes apartados del tutorial podrán requerir datos externos para profundizar en temas más específicos que tratan sobre la manipulación de datos. Esto acerca al usuario a un entorno más real, ya que el uso de lenguajes de programación en la mayoría de los ámbitos está dirigido hacia el procesamiento de datos masivos. </p>
 <p><em>R base</em> proporciona diferentes funciones de importación de datos procedentes de una amplia variedad de tipos de archivo. Además, las diferentes posibilidades de importación se incrementan con paquetes específicos. De forma similar, sería posible la exportación de datos de nuestra sesión de R a archivos disponibles en el ordenador. A lo largo de este apartado se emplearán ejemplos que requieren determinados archivos: <a href="../extra_files/datos_tutorial.txt">datos_tutorial</a>, <a href="../extra_files/csv_tutorial.csv">csv_tutorial</a> y <a href="../extra_files/excel_tutorial.xlsx">excel_tutorial</a>. Puede descargarlos y guardarlos en su directorio de trabajo antes de continuar.</p>
+<h3 id="importacion-de-tablas">Importación de tablas<a class="headerlink" href="#importacion-de-tablas" title="Permanent link">&para;</a></h3>
 <p>El método de importación de tablas se realiza usando la función <code>read.table()</code>, que devolvería un <em>data frame</em>. Existen diferentes modelos de archivos que contienen tablas. Uno de los más extendidos es la extensión <strong>.csv</strong>, siglas en inglés que le deben el nombre a Comma Separated Values, denominación que indica la disposición interna de los datos, separados por comas. La importación de <strong>.csv</strong> por <code>read.table()</code> requiere de indicaciones mediante argumentos de la función. Los argumentos más importantes que posee son: <em>file</em> (ruta del archivo a importar), <em>header</em> (interpreta los encabezados como nombres de columnas), <em>sep</em> (caracter separador de columnas), <em>col.names</em> (nombres de las columnas) y <em>stringAsFactors</em> (convierte datos de texto en factores). El otro modo de importar <strong>.csv</strong> sin necesidad de realizar indicaciones básicas del formato de archivo es mediante la función <code>read.csv()</code>, que está preparada para las características de este tipo de archivos. </p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -378,6 +467,7 @@
 
 </p>
 </div>
+<h3 id="exportacion-de-tablas">Exportación de tablas<a class="headerlink" href="#exportacion-de-tablas" title="Permanent link">&para;</a></h3>
 <p>Para exportar tablas, ya sean matrices o <em>data frames</em>, se puede utilizar la función <code>write.table()</code>, donde se requiere los argumentos <em>x</em> y <em>file</em>, para el nombre del objeto y del archivo a crear, y también se emplea <em>sep</em> para indicar la separación de los datos entre columnas. Si bien, se puede exportar en formato <strong>.csv</strong> mediante la función <code>write.csv()</code>. En cuanto a la exportación en formato <em>Excel</em>, es necesario instalar el paquete <em>writexl</em>, el cual presenta la función <code>write_xlsx()</code> para llevar a cabo dicha acción. </p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -394,6 +484,7 @@
 
 </p>
 </div>
+<h3 id="importacion-y-exportacion-de-objetos-de-una-sesion-de-r">Importación y exportación de objetos de una sesión de R<a class="headerlink" href="#importacion-y-exportacion-de-objetos-de-una-sesion-de-r" title="Permanent link">&para;</a></h3>
 <p>Por otro lado, se puede exportar todo tipo de objetos de nuestra sesión mediante las funciones <code>saveRDS()</code> y <code>save()</code>, que generan archivos de extensión <strong>.rds</strong> y <strong>.Rdata</strong>, y pueden ser abiertos únicamente por R mediante <code>readRDS()</code> y <code>load()</code>, respectivamente. La principal diferencia entre ellas radica en que <code>save()</code> permite guardar más de un objeto. Si no son asignados a una variable solamente se podrá obervar su contenido en el terminal. </p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1

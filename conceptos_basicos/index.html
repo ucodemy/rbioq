@@ -42,7 +42,7 @@
     
     
       
-        <title>Conceptos básicos - Tutorial R para Bioquímica</title>
+        <title>Conceptos básicos - Tutorial de programacion en R para estudiantes de Bioquimica</title>
       
     
     
@@ -53,7 +53,7 @@
       
         
         
-        <meta name="theme-color" content="#546e7a">
+        <meta name="theme-color" content="#2196f3">
       
     
     
@@ -79,7 +79,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
   
     <svg class="md-svg">
       <defs>
@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#funciones-y-ayuda" tabindex="0" class="md-skip">
+      <a href="#iniciacion-en-el-terminal-y-r" tabindex="0" class="md-skip">
         Saltar a contenido
       </a>
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://ucodemy.github.io/rbioq/" title="Tutorial R para Bioquímica" aria-label="Tutorial R para Bioquímica" class="md-header-nav__button md-logo">
+        <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programacion en R para estudiantes de Bioquimica" aria-label="Tutorial de programacion en R para estudiantes de Bioquimica" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../images/icon.svg" width="24" height="24">
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Tutorial R para Bioquímica
+              Tutorial de programacion en R para estudiantes de Bioquimica
             </span>
             <span class="md-header-nav__topic">
               
@@ -170,12 +170,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://ucodemy.github.io/rbioq/" title="Tutorial R para Bioquímica" class="md-nav__button md-logo">
+    <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programacion en R para estudiantes de Bioquimica" class="md-nav__button md-logo">
       
         <img alt="logo" src="../images/icon.svg" width="48" height="48">
       
     </a>
-    Tutorial R para Bioquímica
+    Tutorial de programacion en R para estudiantes de Bioquimica
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -219,6 +219,20 @@
   
     <label class="md-nav__title" for="__toc">Tabla de contenidos</label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#iniciacion-en-el-terminal-y-r" class="md-nav__link">
+    Iniciación en el terminal y R
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vocabulario-basico" class="md-nav__link">
+    Vocabulario básico
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#funciones-y-ayuda" class="md-nav__link">
@@ -398,6 +412,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#iniciacion-en-el-terminal-y-r" class="md-nav__link">
+    Iniciación en el terminal y R
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vocabulario-basico" class="md-nav__link">
+    Vocabulario básico
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#funciones-y-ayuda" class="md-nav__link">
     Funciones y ayuda
   </a>
@@ -444,7 +472,8 @@
                 
                   <h1>Conceptos básicos</h1>
                 
-                <p>R puede ejecutarse desde la terminal o símbolo del sistema de nuestro sistema operativo, que se puede abrir en Linux tecleando secuencialmente <strong>ctrl</strong> + <strong>alt</strong> + <strong>t</strong> o, como en cualquier sistema operativo, tras una simple búsqueda en el sistema. La forma de abrir una sesión de R en la terminal es introduciendo el comando <code>R</code> en el <strong>prompt</strong>, es decir, el carácter o conjunto de caracteres, generalmente <code>&gt;</code>, en Windows, o <code>~$</code>, en Linux, y un cursor parpadeante, que se muestran en una línea de comandos para indicar que está a la espera de órdenes. </p>
+                <h3 id="iniciacion-en-el-terminal-y-r">Iniciación en el terminal y R<a class="headerlink" href="#iniciacion-en-el-terminal-y-r" title="Permanent link">&para;</a></h3>
+<p>R puede ejecutarse desde la terminal o símbolo del sistema de nuestro sistema operativo, que se puede abrir en Linux tecleando secuencialmente <strong>ctrl</strong> + <strong>alt</strong> + <strong>t</strong> o, como en cualquier sistema operativo, tras una simple búsqueda en el sistema. La forma de abrir una sesión de R en la terminal es introduciendo el comando <code>R</code> en el <strong>prompt</strong>, es decir, el carácter o conjunto de caracteres, generalmente <code>&gt;</code>, en Windows, o <code>~$</code>, en Linux, y un cursor parpadeante, que se muestran en una línea de comandos para indicar que está a la espera de órdenes. </p>
 <p><img alt="Terminal Linux" src="../images/terminal.png" /> </p>
 <p>Para salir de la sesión de R y volver al terminal de Linux debes indicar la orden <code>&gt;q()</code>. Otro modo de recurrir al lenguaje de programación R sería ejecutando <code>R -q –-vanilla -e 'orden deseada'</code>. No obstante, es frecuente el empleo de un entorno de desarrollo integrado (IDE) o interfaz que facilite su uso, como <strong>RStudio</strong>. Cabe mencionar que cuando se está llevando a cabo una operación con R y se pretende abandonar su acción antes de que finalice, se presiona la tecla <strong>ESC</strong>, si estás en RStudio, o <strong>ctrl</strong> + <strong>c</strong>, para la terminal. </p>
 <p>Todo aquello que es creado en una sesión de R permanece sólo en ella, es decir, no es compartido entre sesiones, aunque se encuentren activas simultáneamente o se sitúen en el mismo directorio, término extendido coloquialmente como carpeta de trabajo o archivos. El hecho de saber el directorio donde se encuentra la línea de comandos es imprescindible, ya que se trabaja a partir de éste, a no ser que se indique lo contrario. Para ello, ha de ejecutarse <code>getwd()</code>. Si se desea cambiar de directorio, se ejecutaría <code>setwd()</code>. Dicho esto, se recomienda practicar este tutorial siempre en el mismo directorio. La forma de crear un directorio desde R en la ruta donde se encuentra es mediante <code>dir.create()</code>. En cambio, si se quiere eliminar algún archivo sería a través de <code>file.remove()</code>.  Si optas por cambiar de nombre el archivo, puede aplicar <code>file.rename()</code>, indicando primeramente el archivo y seguidamente el nombre nuevo. Para conocer los archivos o los subdirectorios del directorio donde se encuentra abierta la sesión, se ejecuta <code>list.files()</code> y <code>list.dirs()</code>, de forma respectiva. En cambio, si se pretende descubrir los elementos que contiene nuestra sesión se ejecuta <code>ls()</code>, que muestra una lista con los nombres de todo lo que ha sido guardado durante ella. De hecho, cuando se cierra la sesión de R, se pregunta si se desea guardar el contenido creado en ella para recurrir a éste en otras ocasiones, generando y actualizando un archivo con extensión <strong>.Rdata</strong> en el directorio de trabajo. Las distintas opciones mencionadas requieren incluir entre comillas la ruta donde se pretende hacer la modificación.</p>
@@ -505,6 +534,7 @@
 </p>
 </div>
 </div>
+<h3 id="vocabulario-basico">Vocabulario básico<a class="headerlink" href="#vocabulario-basico" title="Permanent link">&para;</a></h3>
 <p>En programación se emplea una jerga que a principiantes podría resultar dificultoso su entendimiento. Un ejemplo que debe ser conocido antes de profundizar en la materia es el uso de los verbos <em>llamar</em>, <em>correr</em> y <em>ejecutar</em>, los cuales son referidos para que el lenguaje que se esté utilizando realice una acción con la instrucción o entrada ("input") que se mencione. A partir de ella, se genera una salida ("output") que sería el resultado de la operación, para lo que se utiliza el verbo <em>devolver</em>. En ocasiones, un segmento de código se repite, lo que se conoce como <em>iteración</em>. Hay que tener en cuenta el símbolo <code>#</code>, conocido como corchete o "hashtag", el cual suele introducirse en funciones para incluir comentarios del código y que no sean ejecutados.</p>
 <h3 id="funciones-y-ayuda">Funciones y ayuda<a class="headerlink" href="#funciones-y-ayuda" title="Permanent link">&para;</a></h3>
 <p>Las operaciones a ejecutar, junto a ciertas especificaciones denominadas <strong>argumento</strong>, se pueden asignar a un nombre, lo que se llama <strong>función</strong>, la cual realiza las operaciones que contiene cuando se llama, por lo que se recomienda que su nombre represente o describa significativamente las operaciones, para que no surjan dudas de su acción. Las funciones se muestran de la siguiente forma: <code>nombre_función()</code>.</p>
