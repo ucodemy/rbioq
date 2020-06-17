@@ -13,3 +13,13 @@ img {
     margin: auto;
     float: none!important;
 }
+
+div {
+     text-align: justify; 
+     text-justify: inter-word;
+}
+
+p {
+     text-align: justify; 
+     text-justify: inter-word;
+}
