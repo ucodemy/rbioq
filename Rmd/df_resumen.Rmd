@@ -84,7 +84,7 @@ El paquete _dplyr_ ofrece la función ```mutate()```, por la cual se puede añad
 
 ## Ejercicio 2
 
-2. Durante la realización del mismo proyecto se recogió en el archivo [dominios.csv](extra_files/dominios.csv) una visión general del contenido estructural de los códigos PDB en los que se centraba el trabajo. Utiliza las herramientas estudiadas en [Manipulación de data frames](data_frames.md) para resolver los siguientes desafíos:
+2. Durante la realización del mismo proyecto se recogió en el archivo [dominios.txt](extra_files/dominios.txt) una visión general del contenido estructural de los códigos PDB en los que se centraba el trabajo. Utiliza las herramientas estudiadas en [Manipulación de data frames](data_frames.md) para resolver los siguientes desafíos:
   A. Ordena los datos por el número de residuos del sitio de unión de forma decreciente.
   B. Muestra un resumen del contenido de sitios de unión evitando la repetición de código.
   C. Crea una lista de los códigos PDB y las observaciones que tiene cada uno de las diferentes variables.

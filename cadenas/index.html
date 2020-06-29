@@ -42,7 +42,7 @@
     
     
       
-        <title>Cadenas de caracteres - Tutorial de programacion en R para estudiantes de Bioquimica</title>
+        <title>Cadenas de caracteres - Tutorial de programación en R orientado al estudiante de Bioquímica</title>
       
     
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programacion en R para estudiantes de Bioquimica" aria-label="Tutorial de programacion en R para estudiantes de Bioquimica" class="md-header-nav__button md-logo">
+        <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programación en R orientado al estudiante de Bioquímica" aria-label="Tutorial de programación en R orientado al estudiante de Bioquímica" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../images/icon.svg" width="24" height="24">
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Tutorial de programacion en R para estudiantes de Bioquimica
+              Tutorial de programación en R orientado al estudiante de Bioquímica
             </span>
             <span class="md-header-nav__topic">
               
@@ -170,12 +170,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programacion en R para estudiantes de Bioquimica" class="md-nav__button md-logo">
+    <a href="https://ucodemy.github.io/rbioq/" title="Tutorial de programación en R orientado al estudiante de Bioquímica" class="md-nav__button md-logo">
       
         <img alt="logo" src="../images/icon.svg" width="48" height="48">
       
     </a>
-    Tutorial de programacion en R para estudiantes de Bioquimica
+    Tutorial de programación en R orientado al estudiante de Bioquímica
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -485,7 +485,7 @@ Mostramos algunas de ellas en la siguiente tabla:</p>
 7
 8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="s">&quot;stringr&quot;</span><span class="p">)</span>
 <span class="n">tamaño_cadena1A</span> <span class="o">&lt;-</span> <span class="nf">nchar</span><span class="p">(</span><span class="n">cadena1</span><span class="p">)</span>
-<span class="n">tamaño_cadena1B</span> <span class="o">&lt;-</span> <span class="nf">nchar</span><span class="p">(</span><span class="n">cadena1</span><span class="p">)</span>
+<span class="n">tamaño_cadena1B</span> <span class="o">&lt;-</span> <span class="nf">str_length</span><span class="p">(</span><span class="n">cadena1</span><span class="p">)</span>
 <span class="n">cadena1_reemplA</span> <span class="o">&lt;-</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;por&quot;</span><span class="p">,</span> <span class="s">&quot;con&quot;</span><span class="p">,</span> <span class="n">cadena1</span><span class="p">)</span>
 <span class="n">cadena1_reemplB</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span><span class="n">cadena1</span><span class="p">,</span> <span class="s">&quot;por&quot;</span><span class="p">,</span> <span class="s">&quot;con&quot;</span><span class="p">)</span>
 <span class="n">cadena1_reempl_all</span> <span class="o">&lt;-</span> <span class="nf">str_replace_all</span><span class="p">(</span><span class="n">cadena1</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;por&quot;</span><span class="o">=</span><span class="s">&quot;con&quot;</span><span class="p">,</span> <span class="s">&quot;estas&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">))</span>

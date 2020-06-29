@@ -23,7 +23,7 @@ library("stringr")
 fasta_file <- readLines("prueba.fasta")
 ```
 
-Como los archivos FASTA siempre contienen al inicio y al final una línea donde el contenido no corresponde con nucleótidos, su eliminación facilita y simplifica las acciones a realizar, ya que sino deberíamos de tenerlo en cuenta y arrastralo durante el ejercicio. Por tanto, se elimina la primera y la última línea del fichero, que corresponden a la primera y la última posición del vector de caracteres, que entiende cada línea del archivo como una cadena. Además, cada línea se une en una única línea para que se interprete como un vector de longitud uno, cuyo componente sería una cadena que engloba el total de las líneas del archivo FASTA y, por tanto, las bases del locus completo.
+Como los archivos FASTA siempre contienen al inicio y al final una línea donde el contenido no corresponde con nucleótidos, su eliminación facilita y simplifica las acciones a realizar, ya que sino deberíamos de tenerlo en cuenta y arrastrarlo durante el ejercicio. Por tanto, se elimina la primera y la última línea del fichero, que corresponden a la primera y la última posición del vector de caracteres, que entiende cada línea del archivo como una cadena. Además, cada línea se une en una única línea para que se interprete como un vector de longitud uno, cuyo componente sería una cadena que engloba el total de las líneas del archivo FASTA y, por tanto, las bases del locus completo.
 
 ```{r}
 fasta_file <- fasta_file[-1]
